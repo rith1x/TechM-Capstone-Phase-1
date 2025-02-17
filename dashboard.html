@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mobicomm </title>
+        <title>User Dashboard - Mobicomm</title>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
@@ -16,8 +16,8 @@
     <body style="overflow-x: hidden;">
         <nav class="navbar navbar-expand-lg bg-primary fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img id="" src="./images/mobicomm_logo_w.png" alt="Mobicomm Logo" draggable="false" height="30" />
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./images/mobicomm_logo_w.png" alt="Mobicomm Logo" draggable="false" height="30" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -27,28 +27,65 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#!"><i class="fas fa-plus-circle pe-2"></i>Get a
-                                SIM</a>
+                            <a class="nav-link mx-2 text-light" href="index.html"><i
+                                    class="fas fa-home pe-2"></i>Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#!"><i class="fas fa-plus-circle pe-2"></i>5G</a>
+                            <a class="nav-link mx-2 text-light" href="#"><i class="fas fa-bell pe-2"></i>Recharge</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#!"><i class="fas fa-bell pe-2"></i>Recharge</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#!"><i class="fas fa-heart pe-2"></i>Support</a>
+                            <a class="nav-link mx-2 text-light" href="#"><i
+                                    class="fas fa-circle-info pe-2"></i>Support</a>
                         </li>
                         <li class="nav-item ms-3">
-                            <a class="btn btn-dark rounded-pill" href="./login.html">Sign in</a>
+                            <a class="btn btn-dark rounded-pill" href="#">Login</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <div id="carouselExampleCaptions" class="shadow-sm carousel slide  mb-5 mx-5 rounded-4 overflow-hidden"
-            style="margin-top: 100px !important;">
+
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-start">
+                <div class="col-lg-6 col-md-8 col-12">
+                    <div class="container-custom">
+                        <div class="card mt-3 p-4 rounded-4">
+                            <h3 class="display-6"><strong id="welcomeMessage"></strong></h3>
+                            <p class="text-secondary" id="mobileNumber"></p>
+                            <h5>Data</h5>
+                            <h3><span id="remainingData"></span> left of <span id="totalData"></span>
+                            </h3>
+                            <div class="progress mt-2">
+                                <div id="dataProgress" class="progress-bar bg-primary rounded-pill" style="width: 93%;">
+                                </div>
+                            </div>
+                            <p class="text-muted mt-2" id="renewsIn"></p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary rounded-pill w-100">Check Usage</button>
+                                <button class="btn btn-outline-primary rounded-pill w-100">Add Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-8 col-12 mt-3 mt-lg-0">
+                    <div class="container-custom">
+                        <div class="card p-4 rounded-4">
+                            <h5>Current Plan</h5>
+                            <h3>₹629</h3>
+                            <p><strong>Expires on:</strong> <span id="planExpiry">27th Mar, 2025</span></p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary rounded-pill w-100">Recharge</button>
+                                <button class="btn btn-outline-primary rounded-pill w-100">View Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="carouselExampleCaptions" class="shadow-sm carousel slide  mb-5 mx-5 rounded-4 overflow-hidden">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -162,10 +199,34 @@
             </footer>
 
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                crossorigin="anonymous"></script>
 
+            <script>
+                const userData = {
+                    name: "John Doe",
+                    mobileNumber: "9898957465",
+                    overallData: 2000,
+                    remainingData: 1865,
+                    planExpiry: "27th Mar, 2025",
+                    suggestedRecharge: "Unlimited Plan - $20/month"
+                };
+
+                document.getElementById("welcomeMessage").innerText = `Welcome, ${userData.name}!`;
+                document.getElementById("mobileNumber").innerText = userData.mobileNumber;
+                document.getElementById("planExpiry").innerText = userData.planExpiry;
+                document.getElementById("totalData").innerText = userData.overallData / 1000 + "GB";
+                document.getElementById("remainingData").innerText = (userData.remainingData) + "MB";
+
+                document.getElementById('renewsIn').innerText = getRemainingHrs
+                function getRemainingHrs() {
+                    let now = new Date();
+                    let hrs = now.getHours();
+                    console.log(hrs)
+                    return 69
+                }
+                if (userData.remainingData < 1000) {
+                    document.getElementById("dataWarning").textContent = "Warning: Low data! Consider recharging soon.";
+                }
+            </script>
     </body>
 
 </html>

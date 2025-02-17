@@ -88,12 +88,13 @@ const plans = [
     }
 ];
 plans.forEach(plan => {
+    let color = randomBG()
     document.getElementById('homePlans').innerHTML +=
         `
      <div class="col-md-4 col-sm-6 mb-4">
         <div class=" rounded-4 overflow-hidden card">
 
-                            <img src="${plan.image}" class="card-img-top rounded-4"
+                            <img src="${`https://placehold.jp/${color}/400x200.png?text=₹${plan.price}`}" class="card-img-top rounded-4"
                                 alt="Plan 6">
                             <div class="card-body">
                                 <span class="badge rounded-2 bg-dark ml-2">${plan.tag}</span>
@@ -157,3 +158,27 @@ faqs.forEach((faq, index) => {
         </div>
     `;
 });
+
+
+
+function randomBG() {
+    const r = Math.floor(Math.random() * 128) + 128;
+    const g = Math.floor(Math.random() * 128) + 128;
+    const b = Math.floor(Math.random() * 128) + 128;
+    const hexCode = r.toString(16).padStart(2, '0') +
+        g.toString(16).padStart(2, '0') +
+        b.toString(16).padStart(2, '0');
+
+    let lightHex = hexCode
+    const hex = lightHex.replace('#', '');
+    const rx = parseInt(hex.substring(0, 2), 16);
+    const gx = parseInt(hex.substring(2, 4), 16);
+    const bx = parseInt(hex.substring(4, 6), 16);
+    const darkR = Math.max(0, rx - 160);
+    const darkG = Math.max(0, gx - 160);
+    const darkB = Math.max(0, bx - 160);
+    const darkHex = darkR.toString(16).padStart(2, '0') +
+        darkG.toString(16).padStart(2, '0') +
+        darkB.toString(16).padStart(2, '0');
+    return `${lightHex}/${darkHex}`;
+}
