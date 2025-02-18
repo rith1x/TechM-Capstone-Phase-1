@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mobicomm - Support</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="../css/main.min.css">
+        <script src="./script.js" defer></script>
+    </head>
+
+    <body style="overflow-x: hidden;">
+        <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../images/mobicomm_logo_w.png" alt="Mobicomm Logo" draggable="false" height="30" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-light" href="index.html"><i
+                                    class="fas fa-home pe-2"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-light" href="#"><i class="fas fa-bell pe-2"></i>Recharge</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-light" href="#"><i
+                                    class="fas fa-circle-info pe-2"></i>Support</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="btn btn-dark rounded-pill" href="#">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container d-flex justify-content-center align-items-center mt-5 pt-5">
+            <div class="row w-100">
+                <div class="col-md-12">
+                    <h2 class="text-center mb-4">Mobicomm Support Center</h2>
+                    <p class="text-center mb-5">We are here to help! Choose the appropriate section for your needs.</p>
+                    <div class="mb-5">
+                        <h4>Frequently Asked Questions (FAQ)</h4>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What do I do if I forget my password?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        If you've forgotten your password, click on the 'Forgot Password' link on the
+                                        login page to reset it via your registered email or phone number.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How do I check my account balance?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        To check your account balance, simply log in to your account and navigate to the
+                                        "Account" section. You’ll see your balance there.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        How can I contact customer support?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        You can contact customer support via email at support@mobicomm.com or by calling
+                                        our helpline at 1-800-123-4567.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
+                                data-bs-target="#billingHelp" aria-expanded="false" aria-controls="billingHelp">
+                                Billing Issues
+                            </button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
+                                data-bs-target="#networkHelp" aria-expanded="false" aria-controls="networkHelp">
+                                Network Problems
+                            </button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
+                                data-bs-target="#accountHelp" aria-expanded="false" aria-controls="accountHelp">
+                                Account Management
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="collapse mt-3" id="billingHelp">
+                        <div class="card card-body">
+                            <h5>Billing Issues</h5>
+                            <p>If you are facing issues with billing, please check your transaction history. If the
+                                issue persists, contact customer support for assistance.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse mt-3" id="networkHelp">
+                        <div class="card card-body">
+                            <h5>Network Problems</h5>
+                            <p>If you're experiencing network issues, try restarting your device. If that doesn't work,
+                                check if there is any ongoing maintenance in your area. You can also try resetting your
+                                network settings.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse mt-3" id="accountHelp">
+                        <div class="card card-body">
+                            <h5>Account Management</h5>
+                            <p>If you're having trouble managing your account, ensure that your details are up-to-date.
+                                If you encounter any specific issues, feel free to reach out to our support team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 my-5 border-top">
+            <div class="col p-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <img src="../images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
+                </a>
+                <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
+            </div>
+
+            <div class="col d-none d-lg-block"></div> <!-- Empty column for spacing on large screens -->
+
+            <div class="col mb-4">
+                <h5>Services</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get a New Sim</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get an eSim</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Upgrade</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Callertunes</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-4">
+                <h5>Recharge</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Plans</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Data Addons</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">International Roaming</a>
+                    </li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Basic Plans</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Unlimited Plans</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5>Quick Links</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+</html>

@@ -8,156 +8,50 @@ document.addEventListener("DOMContentLoaded", function () {
         navbarCollapse.classList.toggle("show");
     });
 });
+let plansObj;
+fetch('./plans.json')
+    .then(res => res.json())
+    .then(plans => {
+        plansObj = plans
+        let count = 0;
+        for (let plan in plans) {
+            if (plans[plan].tag != ("POPULAR")) {
+                continue;
+            }
+            count++
+            if (count > 6) break
 
+            let color = randomBG()
 
-const plans = [
-    {
-        tag: "SUPER SAVER",
-        name: "Basic Plan",
-        features: [
-            "Unlimited Data",
-            "10GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        price: 199, // Change the price as needed
-        image: `https://placehold.jp/0047ab/ffffff/400x200.png?text=₹199`
-    },
-    {
-        tag: "POCKET FRIENDLY",
-        name: "Standard Plan",
-        features: [
-            "Unlimited Data",
-            "20GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS & Roaming"
-        ],
-        price: 299,
-        image: `https://placehold.jp/0047ab/ffffff/400x200.png?text=₹299`
-    },
-    {
-        tag: "INTERNATIONAL ROAMING",
-        name: "Premium Plan",
-        features: [
-            "Unlimited Data",
-            "50GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming & International Calls"
-        ],
-        price: 499,
-        image: `https://placehold.jp/0047ab/ffffff/400x200.png?text=₹499`
-    },
-    {
-        tag: "UNLIMITED",
-        name: "Ultra Plan",
-        features: [
-            "Unlimited Data",
-            "100GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and International Calls",
-            "Access to Premium Streaming Services"
-        ],
-        price: 799,
-        image: `https://placehold.jp/0047ab/ffffff/400x200.png?text=₹799`
-    },
-    {
-        tag: "POPULAR",
-        name: "Super Plan",
-        features: [
-            "Unlimited Data",
-            "200GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, and Data Sharing",
-            "VIP Support"
-        ],
-        price: 999,
-        image: `https://placehold.jp/0047ab/ffffff/400x200.png?text=₹999`
-    },
-    {
-        tag: "HIGH SPEED",
-        name: "Max Plan",
-        features: [
-            "Unlimited Data",
-            "500GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, Data Sharing & Family Plans",
-            "Exclusive Premium Support and Priority Services"
-        ],
-        price: 1499,
-        image: `https://placehold.jp/0047ab/ffffff/400x200.png?text=₹1499`
-    }
-];
-plans.forEach(plan => {
-    let color = randomBG()
-    document.getElementById('homePlans').innerHTML +=
-        `
-     <div class="col-md-4 col-sm-6 mb-4">
-        <div class=" rounded-4 overflow-hidden card">
-
-                            <img src="${`https://placehold.jp/${color}/400x200.png?text=₹${plan.price}`}" class="card-img-top rounded-4"
-                                alt="Plan 6">
-                            <div class="card-body">
-                                <span class="badge rounded-2 bg-dark ml-2">${plan.tag}</span>
-
-                                <h5 class="card-title">${plan.name}</h5>
-                                <ul>
-                                    ${plan.features.map(feature => `<li>${feature}</li>`).join("")}
-                                </ul>
-                                <button class="btn btn-primary">Recharge</button>
-                                <button class="btn text-primary">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-    `
-})
-
-
-const faqs = [
-    {
-        question: "What is Mobicomm?",
-        answer: "Mobicomm is a leading mobile network provider offering a variety of plans to suit your needs."
-    },
-    {
-        question: "How can I get a new SIM card?",
-        answer: "You can order a SIM card online through our website or visit the nearest Mobicomm store."
-    },
-    {
-        question: "Does Mobicomm support 5G?",
-        answer: "Yes! Mobicomm offers high-speed 5G connectivity in select cities."
-    },
-    {
-        question: "What are the recharge options available?",
-        answer: "We offer multiple recharge options including monthly, quarterly, and annual plans."
-    },
-    {
-        question: "How can I contact customer support?",
-        answer: "You can reach our 24/7 customer support through the Mobicomm app, website, or by calling our helpline."
-    }
-];
-
-const faqContainer = document.getElementById("faqAccordion");
-
-faqs.forEach((faq, index) => {
-    faqContainer.innerHTML += `
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="heading${index}">
-                <button class="accordion-button ${index === 0 ? '' : 'collapsed'}" 
-                    type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#collapse${index}" 
-                    aria-expanded="${index === 0 ? 'true' : 'false'}" 
-                    aria-controls="collapse${index}">
-                    ${faq.question}
-                </button>
-            </h2>
-            <div id="collapse${index}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" 
-                aria-labelledby="heading${index}" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    ${faq.answer}
+            document.getElementById('homePlans').innerHTML += `
+            <div class="col-md-4 col-sm-6 p-3 d-flex">
+              <div class="card bg-secondary rounded-4 overflow-hidden border-0 w-100 d-flex flex-column h-100">
+                
+                <img src="https://placehold.jp/${color}/200x100.png?text=₹${plans[plan].price}" 
+                     class="card-img-top rounded-4" 
+                     alt="${plans[plan].name}">
+          
+                <div class="card-body rounded-pill flex-grow-1 flex-column">
+                  <span class="badge rounded-pill bg-dark">${plans[plan].tag}</span>
+                  
+                  <h5 class="card-title mt-2">${plans[plan].name}</h5>
+                  
+                  <ul class="mb-3 flex-grow-1">
+                    ${getLiElems(plans[plan].features)}
+                  </ul>
+          
+                  <div class="mt-auto d-flex gap-2" style="display-flex; align-self:end !important;">
+                    <button class="btn btn-primary w-100" onclick="showPlan('${plan}')">Recharge</button>
+                    <button class="btn text-primary w-100">View Details</button>
+                  </div>
                 </div>
-            </div>
-        </div>
-    `;
-});
+          
+              </div>
+            </div>`;
+
+        }
+
+    })
 
 
 
@@ -181,4 +75,60 @@ function randomBG() {
         darkG.toString(16).padStart(2, '0') +
         darkB.toString(16).padStart(2, '0');
     return `${lightHex}/${darkHex}`;
+}
+
+function validateMobile() {
+    let mobileInput = document.getElementById("mobileNumber");
+    let mobile = mobileInput.value.trim();
+    let mobilePattern = /^[6-9]\d{9}$/;
+
+    if (mobilePattern.test(mobile)) {
+        mobileInput.classList.remove("is-invalid");
+        document.getElementById("mobileSection").style.display = "none";
+        document.getElementById("otpSection").style.display = "block";
+        document.getElementById('toastBody').innerText = "OTP has been sent to registered mobile number"
+        document.querySelector('.toast').classList.add('bg-success')
+        let toastElement = new bootstrap.Toast(document.getElementById('toaster'), { delay: 5000 });
+        toastElement.show();
+
+
+    } else {
+        mobileInput.classList.add("is-invalid");
+        document.getElementById('toastBody').innerText = "Invalid Mobile Number"
+        document.querySelector('.toast').classList.add('bg-danger')
+        let toastElement = new bootstrap.Toast(document.getElementById('toaster'), { delay: 5000 });
+        toastElement.show();
+
+    }
+}
+if (document.getElementById("loginForm")) {
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        let otpInput = document.getElementById("otp");
+        let otp = otpInput.value.trim();
+        let otpPattern = /^\d{6}$/;
+
+        if (otpPattern.test(otp)) {
+            otpInput.classList.remove("is-invalid");
+            window.location.href = 'dashboard.html'
+        } else {
+            otpInput.classList.add("is-invalid");
+            document.getElementById('toastBody').innerText = "Invalid OTP format"
+            document.querySelector('.toast').classList.add('bg-danger')
+            let toastElement = new bootstrap.Toast(document.getElementById('toaster'), { delay: 5000 });
+            toastElement.show();
+        }
+    });
+}
+function showPlan(id) {
+    console.log(plansObj[id])
+    window.location.href = `./recharge.html?planid=${id}`
+}
+
+function getLiElems(list) {
+    result = ''
+    for (item in list) {
+        result += `<li>${list[item]}</li>`
+    }
+    return result
 }

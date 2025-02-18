@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin Dashboard - User Management</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" style="height: 50px;"
+                        alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  w-100 justify-content-end text-white">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">About</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contact</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Services</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Other</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="d-flex vh-100" id="wrapper">
+            <!-- Sidebar -->
+            <div class="bg-dark text-white p-4" style="min-width:250px;">
+                <h4 class="text-center">Dashboard</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="userTab" href="#">User Information</a>
+                    </li>
+                    <!-- Other navigation links could go here -->
+                </ul>
+            </div>
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper" class="container-fluid p-4 " style="height: 50px;">
+                <h2>User Information</h2>
+                <div class="mb-3 d-flex gap-1">
+                    <input type="text" id="userSearch" class="form-control" placeholder="Search users">
+                    <button style="height: 40px;" id="openAddUserModal" class="btn btn-success w-25">Add
+                        User</button>
+                </div>
+                <table class="table table-bordered table-hover" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-col="name" style="cursor:pointer;">Name</th>
+                            <th class="sortable" data-col="email" style="cursor:pointer;">Email</th>
+                            <th class="sortable" data-col="phone" style="cursor:pointer;">Phone</th>
+                            <th class="sortable" data-col="rechargeStatus" style="cursor:pointer;">Recharge Status</th>
+                            <th class="sortable" data-col="currentPlan" style="cursor:pointer;">Current Plan</th>
+                            <th class="sortable" data-col="autopayStatus" style="cursor:pointer;">Autopay Status</th>
+                            <th class="sortable" data-col="validity" style="cursor:pointer;">Recharge Validity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- User rows will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Edit User Modal -->
+        <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <form id="editUserForm" class="modal-content" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editUserModalLabel">Edit User Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Hidden field for user id -->
+                        <input type="hidden" id="editUserId">
+                        <div class="mb-3">
+                            <label for="editName" class="form-label">Name</label>
+                            <input type="text" id="editName" class="form-control" required>
+                            <div class="invalid-feedback">Name is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmail" class="form-label">Email</label>
+                            <input type="email" id="editEmail" class="form-control" required>
+                            <div class="invalid-feedback">A valid email is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPhone" class="form-label">Phone</label>
+                            <input type="text" id="editPhone" class="form-control" placeholder="10-digit number"
+                                required pattern="^\d{10}$">
+                            <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRechargeStatus" class="form-label">Recharge Status</label>
+                            <select id="editRechargeStatus" class="form-select">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCurrentPlan" class="form-label">Current Plan</label>
+                            <select id="editCurrentPlan" class="form-select">
+                                <!-- Options will be populated from plans JSON -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAutopayStatus" class="form-label">Autopay Status</label>
+                            <select id="editAutopayStatus" class="form-select">
+                                <option value="Enabled">Enabled</option>
+                                <option value="Disabled">Disabled</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editValidity" class="form-label">Recharge Validity</label>
+                            <input type="date" id="editValidity" class="form-control" required>
+                            <div class="invalid-feedback">Recharge validity date is required.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form id="addUserForm" class="modal-content" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Name Input -->
+                        <div class="mb-3">
+                            <label for="addUserName" class="form-label">Name</label>
+                            <input type="text" id="addUserName" class="form-control" required>
+                            <div class="invalid-feedback">Name is required.</div>
+                        </div>
+                        <!-- Email Input -->
+                        <div class="mb-3">
+                            <label for="addUserEmail" class="form-label">Email</label>
+                            <input type="email" id="addUserEmail" class="form-control" required>
+                            <div class="invalid-feedback">A valid email is required.</div>
+                        </div>
+                        <!-- Phone Input -->
+                        <div class="mb-3">
+                            <label for="addUserPhone" class="form-label">Phone</label>
+                            <input type="text" id="addUserPhone" class="form-control" placeholder="10-digit number"
+                                required pattern="^\d{10}$">
+                            <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add User</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+        <script>
+            let users = JSON.parse(localStorage.getItem('usersData')) || [];
+
+            function saveUsers() {
+                localStorage.setItem('usersData', JSON.stringify(users));
+            }
+
+            function loadUsersTable() {
+                const tbody = document.getElementById('usersTableBody');
+                tbody.innerHTML = users.map(u => `
+    <tr>
+      <td>${u.name}</td>
+      <td>${u.email}</td>
+      <td>${u.phone}</td>
+      <td>${u.rechargeStatus}</td>
+      <td>${u.currentPlan}</td>
+      <td>${u.autopayStatus}</td>
+      <td>${u.validity}</td>
+      <td>
+        <button class="btn btn-sm btn-primary edit-btn" data-id="${u.id}">Edit</button>
+      </td>
+    </tr>
+  `).join('');
+            }
+
+            // Open the modal when the "Add New User" button is clicked
+            document.getElementById('openAddUserModal').addEventListener('click', () => {
+                new bootstrap.Modal(document.getElementById('addUserModal')).show();
+            });
+
+            // Handle the Add User form submission
+            document.getElementById('addUserForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                // Check form validity
+                if (!this.checkValidity()) {
+                    this.classList.add('was-validated');
+                    return;
+                }
+                // Retrieve user inputs
+                const name = document.getElementById('addUserName').value.trim();
+                const email = document.getElementById('addUserEmail').value.trim();
+                const phone = document.getElementById('addUserPhone').value.trim();
+
+                // Create a new user object with dummy defaults for other fields
+                const newUser = {
+                    id: new Date().getTime(), // simple unique id based on timestamp
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    rechargeStatus: "Active",      // default value
+                    currentPlan: "Basic Plan",     // default value; adjust as needed
+                    autopayStatus: "Disabled",       // default value
+                    validity: "2025-12-31"           // default expiry date; adjust as needed
+                };
+
+                // Add the new user to the array and update storage
+                users.push(newUser);
+                saveUsers();
+                loadUsersTable();
+
+                // Reset form and hide the modal
+                this.reset();
+                this.classList.remove('was-validated');
+                bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
+            });
+            let plans;
+            async function loadPlanOptions() {
+                await fetch('http://127.0.0.1:5501/plans.json').then(r => r.json()).then(data => { plans = data })
+                const select = document.getElementById('editCurrentPlan');
+                select.innerHTML = Object.entries(plans).map(([code, plan]) =>
+                    `<option value="${plan.name}">${plan.name}</option>`
+                ).join('');
+            }
+
+            // Filtering and sorting functionalities for the users table
+            function filterUsersTable() {
+                const search = document.getElementById('userSearch').value.toLowerCase();
+                document.querySelectorAll('#usersTableBody tr').forEach(row => {
+                    row.style.display = row.innerText.toLowerCase().includes(search) ? '' : 'none';
+                });
+            }
+
+            function sortUsersTable(col) {
+                users.sort((a, b) => {
+                    if (a[col] < b[col]) return -1;
+                    if (a[col] > b[col]) return 1;
+                    return 0;
+                });
+                saveUsers();
+                loadUsersTable();
+            }
+
+            // Attach sorting listeners on header cells
+            document.querySelectorAll('#usersTable th.sortable').forEach(th => {
+                th.addEventListener('click', () => {
+                    const col = th.getAttribute('data-col');
+                    sortUsersTable(col);
+                });
+            });
+
+            // Event listener for filtering
+            document.getElementById('userSearch').addEventListener('input', filterUsersTable);
+
+            // Attach event listener for edit buttons (using event delegation)
+            document.getElementById('usersTableBody').addEventListener('click', function (e) {
+                if (e.target.classList.contains('edit-btn')) {
+                    const userId = parseInt(e.target.getAttribute('data-id'));
+                    openEditModal(userId);
+                }
+            });
+
+            // Open the edit modal and populate with user data
+            function openEditModal(userId) {
+                const user = users.find(u => u.id === userId);
+                if (user) {
+                    document.getElementById('editUserId').value = user.id;
+                    document.getElementById('editName').value = user.name;
+                    document.getElementById('editEmail').value = user.email;
+                    document.getElementById('editPhone').value = user.phone;
+                    document.getElementById('editRechargeStatus').value = user.rechargeStatus;
+                    document.getElementById('editCurrentPlan').value = user.currentPlan;
+                    document.getElementById('editAutopayStatus').value = user.autopayStatus;
+                    document.getElementById('editValidity').value = user.validity;
+                    new bootstrap.Modal(document.getElementById('editUserModal')).show();
+                }
+            }
+
+            // Handle edit user form submission
+            document.getElementById('editUserForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                // Simple validation using HTML5 built-in methods
+                if (!this.checkValidity()) {
+                    this.classList.add('was-validated');
+                    return;
+                }
+                const id = parseInt(document.getElementById('editUserId').value);
+                const updatedUser = {
+                    id: id,
+                    name: document.getElementById('editName').value.trim(),
+                    email: document.getElementById('editEmail').value.trim(),
+                    phone: document.getElementById('editPhone').value.trim(),
+                    rechargeStatus: document.getElementById('editRechargeStatus').value,
+                    currentPlan: document.getElementById('editCurrentPlan').value,
+                    autopayStatus: document.getElementById('editAutopayStatus').value,
+                    validity: document.getElementById('editValidity').value
+                };
+                // Update user in the array
+                users = users.map(u => u.id === id ? updatedUser : u);
+                saveUsers();
+                loadUsersTable();
+                bootstrap.Modal.getInstance(document.getElementById('editUserModal')).hide();
+            });
+
+            // Initial load
+            loadPlanOptions();
+            loadUsersTable();
+        </script>
+    </body>
+
+</html>

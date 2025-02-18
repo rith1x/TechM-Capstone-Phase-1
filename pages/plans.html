@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Dashboard - Mobicomm</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/main.min.css">
+    </head>
+
+    <body style="overflow-x: hidden;">
+
+        <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="../images/mobicomm_logo_w.PNG" height="30" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  w-100 justify-content-end text-white">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">About</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contact</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Services</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Other</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container my-5">
+            <ul class="nav nav-tabs" id="planTabs">
+                <li class="nav-item">
+                    <button class="nav-link active" data-category="all">All Plans</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-category="data">Data</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-category="unlimited">Unlimited</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-category="roaming">Roaming</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-category="ott">OTT</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-category="family">Family</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-category="student">Student</button>
+                </li>
+            </ul>
+
+            <div class="row" id="plansPlans">
+            </div>
+        </div>
+
+
+
+        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 my-5 border-top">
+            <div class="col p-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <img src="../images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
+                </a>
+                <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
+            </div>
+
+            <div class="col d-none d-lg-block"></div> <!-- Empty column for spacing on large screens -->
+
+            <div class="col mb-4">
+                <h5>Services</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get a New Sim</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get an eSim</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Upgrade</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Callertunes</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-4">
+                <h5>Recharge</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Plans</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Data Addons</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">International Roaming</a>
+                    </li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Basic Plans</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Unlimited Plans</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5>Quick Links</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <script>
+            let plansObj;
+            const plansContainer = document.getElementById('plansPlans');
+            const planTabs = document.getElementById('planTabs');
+
+            fetch('http://127.0.0.1:5501/plans.json') // Make sure the path is correct
+                .then(res => res.json())
+                .then(plans => {
+                    plansObj = plans;
+                    displayPlans('all'); // Display all plans initially
+
+                    planTabs.addEventListener('click', (event) => {
+                        if (event.target.classList.contains('nav-link')) {
+                            const category = event.target.dataset.category;
+                            //Remove active class from all tabs and add it to the clicked one
+                            planTabs.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
+                            event.target.classList.add('active');
+
+                            displayPlans(category);
+                        }
+                    });
+                });
+
+            function displayPlans(category) {
+                plansContainer.innerHTML = ''; // Clear existing plans
+
+                for (let plan in plansObj) {
+                    if (category === 'all' || plansObj[plan].categories.includes(category)) {
+                        let color = randomBG();
+                        plansContainer.innerHTML += `
+                    <div class="col-md-4 col-sm-6 p-3 d-flex">
+                        <div class="card bg-secondary rounded-4 overflow-hidden border-0 w-100 d-flex flex-column h-100">
+                            <img src="https://placehold.jp/${color}/100x50.png?text=₹${plansObj[plan].price}" 
+                                 class="card-img-top rounded-4" 
+                                 alt="${plansObj[plan].name}">
+                            <div class="card-body rounded-pill flex-grow-1">
+                                <span class="badge rounded-pill bg-dark">${plansObj[plan].tag}</span>
+                                <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
+                                <ul class="mb-3 flex-grow-1">
+                                    ${getLiElems(plansObj[plan].features)}
+                                </ul>
+                                <div class="mt-auto d-flex gap-2">
+                                  <button class="btn btn-primary" onclick="showPlan('${plan}')">Recharge</button>
+                                  <button class="btn btn-outline-primary">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                    }
+                }
+            }
+
+
+            function randomBG() {
+                const r = Math.floor(Math.random() * 128) + 128;
+                const g = Math.floor(Math.random() * 128) + 128;
+                const b = Math.floor(Math.random() * 128) + 128;
+                const hexCode = r.toString(16).padStart(2, '0') +
+                    g.toString(16).padStart(2, '0') +
+                    b.toString(16).padStart(2, '0');
+
+                let lightHex = hexCode
+                const hex = lightHex.replace('#', '');
+                const rx = parseInt(hex.substring(0, 2), 16);
+                const gx = parseInt(hex.substring(2, 4), 16);
+                const bx = parseInt(hex.substring(4, 6), 16);
+                const darkR = Math.max(0, rx - 160);
+                const darkG = Math.max(0, gx - 160);
+                const darkB = Math.max(0, bx - 160);
+                const darkHex = darkR.toString(16).padStart(2, '0') +
+                    darkG.toString(16).padStart(2, '0') +
+                    darkB.toString(16).padStart(2, '0');
+                return `${lightHex}/${darkHex}`;
+            }
+
+            function showPlan(id) {
+                console.log(plansObj[id]);
+                window.location.href = `../recharge.html?planid=${id}`; // Corrected URL format
+            }
+
+            function getLiElems(list) {
+                let result = '';
+                for (const item of list) { // Use for...of loop for arrays
+                    result += `<li>${item}</li>`;
+                }
+                return result;
+            }
+        </script>
+    </body>
+
+</html>
