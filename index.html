@@ -11,32 +11,35 @@
         <link rel="stylesheet" href="./css/main.min.css">
         <script src="./node_modules/@popperjs/core/lib/popper.js" type="module" defer></script>
         <script src="./script.js" defer></script>
+
+        <script async src="https://kit.fontawesome.com/2f69883659.js" crossorigin="anonymous"></script>
     </head>
 
     <body style="overflow-x: hidden;">
         <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" style="height: 50px;"
-                        alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt=""></a>
+                <button class="navbar-toggler border-0 text-light" style="outline: none;" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"
+                        style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255, 255, 255, 1)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');outline: none;"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav  w-100 justify-content-end text-white">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="transition: all .4s ease;">
+                    <ul class="navbar-nav  w-100 justify-content-end text-white align-items-center">
                         <li class="nav-item active">
                             <a class="nav-link text-white" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">About</a>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Contact</a>
+                            <a class="nav-link text-white" href="plans.html">Plans</a>
+                        <li class=" nav-item">
+                            <a class="nav-link text-white" href="./support.html">Support</a>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Services</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Other</a>
+                            <a class="nav-link text-white" href="./login.html">
+                                <i class="fa-solid fa-user p-2 bg-light rounded-pill text-primary"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -87,10 +90,11 @@
         </div>
 
         <div class="container d-flex justify-content-center align-items-center my-5">
-            <div class="row w-100 align-items-start">
-                <div class="col-md-6 d-none d-md-block h-80">
+            <div class="row w-100 align-items-center">
+                <div class="col-md-6 d-none d-md-flex h-80 rounded-5 align-items-center justify-content-center"
+                    style="background: #0019bd20;">
                     <img src="./images/Mobile login-bro (3).svg" alt="Login Illustration" class="img-fluid"
-                        draggable="false">
+                        draggable="false" style="height: 60dvh;">
                 </div>
 
                 <div class="col-md-6">
@@ -127,7 +131,7 @@
 
                 </div>
                 <div class="link  d-flex align-center justify-content-center">
-                    <a href="./pages/plans.html">More Plans ></a>
+                    <a href="./plans.html">More Plans ></a>
                 </div>
             </div>
 

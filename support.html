@@ -7,36 +7,34 @@
         <title>Mobicomm - Support</title>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <link rel="stylesheet" href="../css/main.min.css">
+        <link rel="stylesheet" href="./css/main.min.css">
         <script src="./script.js" defer></script>
     </head>
 
     <body style="overflow-x: hidden;">
-        <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+        <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
             <div class="container">
-                <a class="navbar-brand" href="../index.html">
-                    <img src="../images/mobicomm_logo_w.png" alt="Mobicomm Logo" draggable="false" height="30" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt=""></a>
+                <button class="navbar-toggler border-0 text-light" style="outline: none;" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"
+                        style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255, 255, 255, 1)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');outline: none;"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="index.html"><i
-                                    class="fas fa-home pe-2"></i>Home</a>
+                    <ul class="navbar-nav  w-100 justify-content-end text-white">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#"><i class="fas fa-bell pe-2"></i>Recharge</a>
-                        </li>
+                            <a class="nav-link text-white" href="#">About</a>
                         <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#"><i
-                                    class="fas fa-circle-info pe-2"></i>Support</a>
-                        </li>
-                        <li class="nav-item ms-3">
-                            <a class="btn btn-dark rounded-pill" href="#">Login</a>
+                            <a class="nav-link text-white" href="#">Contact</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Services</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Other</a>
                         </li>
                     </ul>
                 </div>
@@ -98,59 +96,85 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                                data-bs-target="#billingHelp" aria-expanded="false" aria-controls="billingHelp">
-                                Billing Issues
-                            </button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                                data-bs-target="#networkHelp" aria-expanded="false" aria-controls="networkHelp">
-                                Network Problems
-                            </button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                                data-bs-target="#accountHelp" aria-expanded="false" aria-controls="accountHelp">
-                                Account Management
-                            </button>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs" id="helpTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="billing-tab" data-bs-toggle="tab" href="#billingHelp" role="tab"
+                        aria-controls="billingHelp" aria-selected="true">Billing Issues</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="network-tab" data-bs-toggle="tab" href="#networkHelp" role="tab"
+                        aria-controls="networkHelp" aria-selected="false">Network Problems</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="account-tab" data-bs-toggle="tab" href="#accountHelp" role="tab"
+                        aria-controls="accountHelp" aria-selected="false">Account Management</a>
+                </li>
+            </ul>
 
-                    <div class="collapse mt-3" id="billingHelp">
-                        <div class="card card-body">
-                            <h5>Billing Issues</h5>
-                            <p>If you are facing issues with billing, please check your transaction history. If the
-                                issue persists, contact customer support for assistance.</p>
-                        </div>
-                    </div>
+            <div class="tab-content mt-3" id="helpTabsContent">
+                <style>
+                    #billingHelp a {
+                        text-decoration: none;
 
-                    <div class="collapse mt-3" id="networkHelp">
-                        <div class="card card-body">
-                            <h5>Network Problems</h5>
-                            <p>If you're experiencing network issues, try restarting your device. If that doesn't work,
-                                check if there is any ongoing maintenance in your area. You can also try resetting your
-                                network settings.</p>
-                        </div>
+                    }
+                </style>
+                <div class="tab-pane fade show active" id="billingHelp" role="tabpanel" aria-labelledby="billing-tab">
+                    <div class="card card-body">
+                        <h5>Billing Issues</h5>
+                        <p>If you're facing issues with billing, follow these steps:</p>
+                        <ul>
+                            <li>Check your transaction history to identify any discrepancies.</li>
+                            <li>Review your payment method for any errors.</li>
+                            <li>If the issue persists, contact customer support for further assistance.</li>
+                        </ul>
+                        <p>If you need additional help, feel free to <a href="#">contact us here</a>.</p>
                     </div>
+                </div>
 
-                    <div class="collapse mt-3" id="accountHelp">
-                        <div class="card card-body">
-                            <h5>Account Management</h5>
-                            <p>If you're having trouble managing your account, ensure that your details are up-to-date.
-                                If you encounter any specific issues, feel free to reach out to our support team.</p>
-                        </div>
+                <div class="tab-pane fade" id="networkHelp" role="tabpanel" aria-labelledby="network-tab">
+                    <div class="card card-body">
+                        <h5>Network Problems</h5>
+                        <p>If you're having network issues, follow these steps:</p>
+                        <ul>
+                            <li>Restart your device to ensure it's connected to the network properly.</li>
+                            <li>Check for any ongoing service outages in your area by visiting our status page.</li>
+                            <li>Try resetting your network settings if the problem persists.</li>
+                            <li>If none of the above work, try connecting to a different Wi-Fi network or use mobile
+                                data.</li>
+                        </ul>
+                        <p>If you're still facing issues, you can <a href="#">reach out to support here</a> for further
+                            troubleshooting.</p>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="accountHelp" role="tabpanel" aria-labelledby="account-tab">
+                    <div class="card card-body">
+                        <h5>Account Management</h5>
+                        <p>If you're having trouble with your account, here are some things to check:</p>
+                        <ul>
+                            <li>Ensure your personal details are up to date in the account settings.</li>
+                            <li>If you've forgotten your password, try the <a href="#">password recovery process</a>.
+                            </li>
+                            <li>If you're facing issues with account verification, check your email for verification
+                                links or follow the <a href="#">verification guide</a>.</li>
+                        </ul>
+                        <p>Still facing issues? Our support team is ready to assist you. <a href="#">Contact support
+                                here</a>.</p>
                     </div>
                 </div>
             </div>
         </div>
 
+
         <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 my-5 border-top">
             <div class="col p-3">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                    <img src="../images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
+                    <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
                 </a>
                 <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
             </div>
@@ -162,7 +186,8 @@
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get a New Sim</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get an eSim</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a>
+                    </li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Upgrade</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Callertunes</a></li>
                 </ul>
@@ -173,10 +198,12 @@
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Plans</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Data Addons</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">International Roaming</a>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">International
+                            Roaming</a>
                     </li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Basic Plans</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Unlimited Plans</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Unlimited Plans</a>
+                    </li>
                 </ul>
             </div>
 

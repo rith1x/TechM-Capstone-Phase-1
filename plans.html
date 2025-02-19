@@ -8,14 +8,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../css/main.min.css">
+        <link rel="stylesheet" href="./css/main.min.css">
     </head>
 
     <body style="overflow-x: hidden;">
 
         <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="../images/mobicomm_logo_w.PNG" height="30" alt=""></a>
+                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -43,6 +43,11 @@
 
 
         <div class="container my-5">
+
+            <div class="mb-4">
+                <input type="text" id="searchBar" class="form-control" placeholder="Search plans...">
+            </div>
+
             <ul class="nav nav-tabs" id="planTabs">
                 <li class="nav-item">
                     <button class="nav-link active" data-category="all">All Plans</button>
@@ -69,6 +74,9 @@
 
             <div class="row" id="plansPlans">
             </div>
+            <div id="noResultsMessage" class="d-none text-center">
+                <p>No plans found for your search criteria.</p>
+            </div>
         </div>
 
 
@@ -76,7 +84,7 @@
         <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 my-5 border-top">
             <div class="col p-3">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                    <img src="../images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
+                    <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
                 </a>
                 <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
             </div>
@@ -119,58 +127,170 @@
         </footer>
 
         <script>
+            // let plansObj;
+            // const plansContainer = document.getElementById('plansPlans');
+            // const planTabs = document.getElementById('planTabs');
+
+            // fetch('http://127.0.0.1:5501/plans.json') // Make sure the path is correct
+            //     .then(res => res.json())
+            //     .then(plans => {
+            //         plansObj = plans;
+            //         displayPlans('all'); // Display all plans initially
+
+            //         planTabs.addEventListener('click', (event) => {
+            //             if (event.target.classList.contains('nav-link')) {
+            //                 const category = event.target.dataset.category;
+            //                 //Remove active class from all tabs and add it to the clicked one
+            //                 planTabs.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
+            //                 event.target.classList.add('active');
+
+            //                 displayPlans(category);
+            //             }
+            //         });
+            //     });
+
+            // function displayPlans(category) {
+            //     plansContainer.innerHTML = ''; // Clear existing plans
+
+            //     for (let plan in plansObj) {
+
+            //         if (category === 'all' || plansObj[plan].categories.includes(category)) {
+            //             let color = randomBG();
+            //             plansContainer.innerHTML += `
+            //         <div class="col-md-4 col-sm-6 p-3 d-flex">
+            //             <div class="card rounded-4 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:#eeedff;">
+            //                 <img src="https://placehold.jp/817ed9/0a075c/500x200.png?text=₹${plansObj[plan].price}" 
+            //                      class="card-img-top rounded-3" 
+            //                      alt="${plansObj[plan].name}">
+            //                 <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
+            //                     <span class="badge rounded-pill bg-dark">${plansObj[plan].tag}</span>
+            //                     <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
+            //                     <ul class="mb-3 flex-grow-1">
+            //                         ${getLiElems(plansObj[plan].features)}
+            //                     </ul>
+            //                     <div class="mt-5 d-flex gap-2 mb-0">
+            //                       <button class="btn btn-primary" onclick="showPlan('${plan}')">Recharge</button>
+            //                     </div>
+            //                 </div>
+            //             </div>
+            //         </div>`;
+            //         }
+            //     }
+
+            // }
+
+
+            // function randomBG() {
+            //     const r = Math.floor(Math.random() * 128) + 128;
+            //     const g = Math.floor(Math.random() * 128) + 128;
+            //     const b = Math.floor(Math.random() * 128) + 128;
+            //     const hexCode = r.toString(16).padStart(2, '0') +
+            //         g.toString(16).padStart(2, '0') +
+            //         b.toString(16).padStart(2, '0');
+
+            //     let lightHex = hexCode
+            //     const hex = lightHex.replace('#', '');
+            //     const rx = parseInt(hex.substring(0, 2), 16);
+            //     const gx = parseInt(hex.substring(2, 4), 16);
+            //     const bx = parseInt(hex.substring(4, 6), 16);
+            //     const darkR = Math.max(0, rx - 160);
+            //     const darkG = Math.max(0, gx - 160);
+            //     const darkB = Math.max(0, bx - 160);
+            //     const darkHex = darkR.toString(16).padStart(2, '0') +
+            //         darkG.toString(16).padStart(2, '0') +
+            //         darkB.toString(16).padStart(2, '0');
+            //     return `${lightHex}/${darkHex}`;
+            // }
+
+            // function showPlan(id) {
+            //     console.log(plansObj[id]);
+            //     window.location.href = `./recharge.html?planid=${id}`; // Corrected URL format
+            // }
+
+            // function getLiElems(list) {
+            //     let result = '';
+            //     for (const item of list) { // Use for...of loop for arrays
+            //         result += `<li>${item}</li>`;
+            //     }
+            //     return result;
+            // }
+
             let plansObj;
             const plansContainer = document.getElementById('plansPlans');
             const planTabs = document.getElementById('planTabs');
+            const searchBar = document.getElementById('searchBar');
+            const noResultsMessage = document.getElementById('noResultsMessage');
 
-            fetch('http://127.0.0.1:5501/plans.json') // Make sure the path is correct
+            // Fetch plans from the JSON file
+            fetch('http://127.0.0.1:5501/plans.json')
                 .then(res => res.json())
                 .then(plans => {
                     plansObj = plans;
                     displayPlans('all'); // Display all plans initially
 
+                    // Event listener for tab click to filter by category
                     planTabs.addEventListener('click', (event) => {
                         if (event.target.classList.contains('nav-link')) {
                             const category = event.target.dataset.category;
-                            //Remove active class from all tabs and add it to the clicked one
                             planTabs.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
                             event.target.classList.add('active');
-
                             displayPlans(category);
                         }
                     });
+
+                    // Event listener for search bar input to filter by search term
+                    searchBar.addEventListener('input', () => {
+                        const query = searchBar.value.trim().toLowerCase();
+                        displayPlans('all', query); // Filter all plans by search term
+                    });
                 });
 
-            function displayPlans(category) {
+            // Display plans based on selected category and search query
+            function displayPlans(category, query = '') {
                 plansContainer.innerHTML = ''; // Clear existing plans
+                let foundPlans = 0;
 
+                // Loop through plans
                 for (let plan in plansObj) {
-                    if (category === 'all' || plansObj[plan].categories.includes(category)) {
+                    // Check if plan matches category and search query
+                    if (
+                        (category === 'all' || plansObj[plan].categories.includes(category)) &&
+                        (plansObj[plan].name.toLowerCase().includes(query) || plansObj[plan].tag.toLowerCase().includes(query) ||
+                            plansObj[plan].price.toString().includes(query) ||
+                            plansObj[plan].features.some(feature => feature.toLowerCase().includes(query)))
+                    ) {
+                        foundPlans++;
                         let color = randomBG();
                         plansContainer.innerHTML += `
-                    <div class="col-md-4 col-sm-6 p-3 d-flex">
-                        <div class="card bg-secondary rounded-4 overflow-hidden border-0 w-100 d-flex flex-column h-100">
-                            <img src="https://placehold.jp/${color}/100x50.png?text=₹${plansObj[plan].price}" 
-                                 class="card-img-top rounded-4" 
-                                 alt="${plansObj[plan].name}">
-                            <div class="card-body rounded-pill flex-grow-1">
-                                <span class="badge rounded-pill bg-dark">${plansObj[plan].tag}</span>
-                                <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
-                                <ul class="mb-3 flex-grow-1">
-                                    ${getLiElems(plansObj[plan].features)}
-                                </ul>
-                                <div class="mt-auto d-flex gap-2">
-                                  <button class="btn btn-primary" onclick="showPlan('${plan}')">Recharge</button>
-                                  <button class="btn btn-outline-primary">View Details</button>
-                                </div>
+                <div class="col-md-4 col-sm-6 p-3 d-flex">
+                    <div class="card rounded-4 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:#eeedff;">
+                        <img src="https://placehold.jp/817ed9/0a075c/500x200.png?text=₹${plansObj[plan].price}" 
+                            class="card-img-top rounded-3" 
+                            alt="${plansObj[plan].name}">
+                        <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
+                            <span class="badge rounded-pill bg-dark">${plansObj[plan].tag}</span>
+                            <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
+                            <ul class="mb-3 flex-grow-1">
+                                ${getLiElems(plansObj[plan].features)}
+                            </ul>
+                            <div class="mt-auto d-flex gap-2 mb-0">
+                                <button class="btn btn-primary" onclick="showPlan('${plan}')">Recharge</button>
                             </div>
                         </div>
-                    </div>`;
+                    </div>
+                </div>`;
                     }
+                }
+
+                // Show or hide the "No Results" message based on whether any plans were found
+                if (foundPlans === 0) {
+                    noResultsMessage.classList.remove('d-none');
+                } else {
+                    noResultsMessage.classList.add('d-none');
                 }
             }
 
-
+            // Function to generate random background color
             function randomBG() {
                 const r = Math.floor(Math.random() * 128) + 128;
                 const g = Math.floor(Math.random() * 128) + 128;
@@ -193,18 +313,23 @@
                 return `${lightHex}/${darkHex}`;
             }
 
+            // Function to handle plan click event
             function showPlan(id) {
                 console.log(plansObj[id]);
-                window.location.href = `../recharge.html?planid=${id}`; // Corrected URL format
+                window.location.href = `./recharge.html?planid=${id}`; // Correct URL format
             }
 
+            // Function to generate list items for features
             function getLiElems(list) {
                 let result = '';
-                for (const item of list) { // Use for...of loop for arrays
+                for (const item of list) {
                     result += `<li>${item}</li>`;
                 }
                 return result;
             }
+
+
+
         </script>
     </body>
 
