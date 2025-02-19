@@ -9,39 +9,44 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/main.min.css">
+        <script src="./node_modules/@popperjs/core/lib/popper.js" type="module" defer></script>
+
+        <script async src="https://kit.fontawesome.com/2f69883659.js" crossorigin="anonymous"></script>
+
     </head>
 
     <body style="overflow-x: hidden;">
 
         <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                <a class="navbar-brand" href="./index.html"><img src="./images/mobicomm_logo_w.PNG" height="30"
+                        alt=""></a>
+                <button class="navbar-toggler border-0 text-light" style="outline: none;" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"
+                        style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255, 255, 255, 1)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');outline: none;"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav  w-100 justify-content-end text-white">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="transition: all .4s ease;">
+                    <ul class="navbar-nav  w-100 justify-content-end text-white align-items-center">
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="#">Home</a>
+                            <a class="nav-link text-white" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">About</a>
+                            <a class="nav-link text-white" href="./index.html">About</a>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Contact</a>
+                            <a class="nav-link text-white" href="./plans.html">Plans</a>
+                        <li class=" nav-item">
+                            <a class="nav-link text-white" href="./support.html">Support</a>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Services</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Other</a>
+                            <a class="nav-link text-white" href="./login.html">
+                                <i class="fa-solid fa-user p-2 bg-light rounded-pill text-primary"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
         <div class="container my-5">
 
             <div class="mb-4">
@@ -80,30 +85,53 @@
         </div>
 
 
-
-        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 my-5 border-top">
+        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 mt-5 border-top bg-secondary">
             <div class="col p-3">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
                     <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
                 </a>
                 <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
+                <div class="social-links d-flex align-items-center gap-3">
+                    <div class="rounded-pill text-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="rounded-pill text-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="rounded-pill text-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="rounded-pill text-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="rounded-pill text-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
             </div>
 
             <div class="col d-none d-lg-block"></div> <!-- Empty column for spacing on large screens -->
 
             <div class="col mb-4">
-                <h5>Services</h5>
+                <h5 class="text-primary">Services</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get a New Sim</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get an eSim</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Upgrade</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Callertunes</a></li>
+                    <li class="nav-item mb-2"><a href="./admin-login.html" class="nav-link p-0 text-muted">Administrator
+                            Portal</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col mb-4">
-                <h5>Recharge</h5>
+                <h5 class="text-primary">Recharge</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Plans</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Data Addons</a></li>
@@ -115,7 +143,7 @@
             </div>
 
             <div class="col">
-                <h5>Quick Links</h5>
+                <h5 class="text-primary">Quick Links</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
@@ -126,126 +154,46 @@
             </div>
         </footer>
 
+
         <script>
-            // let plansObj;
-            // const plansContainer = document.getElementById('plansPlans');
-            // const planTabs = document.getElementById('planTabs');
-
-            // fetch('http://127.0.0.1:5501/plans.json') // Make sure the path is correct
-            //     .then(res => res.json())
-            //     .then(plans => {
-            //         plansObj = plans;
-            //         displayPlans('all'); // Display all plans initially
-
-            //         planTabs.addEventListener('click', (event) => {
-            //             if (event.target.classList.contains('nav-link')) {
-            //                 const category = event.target.dataset.category;
-            //                 //Remove active class from all tabs and add it to the clicked one
-            //                 planTabs.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
-            //                 event.target.classList.add('active');
-
-            //                 displayPlans(category);
-            //             }
-            //         });
-            //     });
-
-            // function displayPlans(category) {
-            //     plansContainer.innerHTML = ''; // Clear existing plans
-
-            //     for (let plan in plansObj) {
-
-            //         if (category === 'all' || plansObj[plan].categories.includes(category)) {
-            //             let color = randomBG();
-            //             plansContainer.innerHTML += `
-            //         <div class="col-md-4 col-sm-6 p-3 d-flex">
-            //             <div class="card rounded-4 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:#eeedff;">
-            //                 <img src="https://placehold.jp/817ed9/0a075c/500x200.png?text=₹${plansObj[plan].price}" 
-            //                      class="card-img-top rounded-3" 
-            //                      alt="${plansObj[plan].name}">
-            //                 <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
-            //                     <span class="badge rounded-pill bg-dark">${plansObj[plan].tag}</span>
-            //                     <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
-            //                     <ul class="mb-3 flex-grow-1">
-            //                         ${getLiElems(plansObj[plan].features)}
-            //                     </ul>
-            //                     <div class="mt-5 d-flex gap-2 mb-0">
-            //                       <button class="btn btn-primary" onclick="showPlan('${plan}')">Recharge</button>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //         </div>`;
-            //         }
-            //     }
-
-            // }
-
-
-            // function randomBG() {
-            //     const r = Math.floor(Math.random() * 128) + 128;
-            //     const g = Math.floor(Math.random() * 128) + 128;
-            //     const b = Math.floor(Math.random() * 128) + 128;
-            //     const hexCode = r.toString(16).padStart(2, '0') +
-            //         g.toString(16).padStart(2, '0') +
-            //         b.toString(16).padStart(2, '0');
-
-            //     let lightHex = hexCode
-            //     const hex = lightHex.replace('#', '');
-            //     const rx = parseInt(hex.substring(0, 2), 16);
-            //     const gx = parseInt(hex.substring(2, 4), 16);
-            //     const bx = parseInt(hex.substring(4, 6), 16);
-            //     const darkR = Math.max(0, rx - 160);
-            //     const darkG = Math.max(0, gx - 160);
-            //     const darkB = Math.max(0, bx - 160);
-            //     const darkHex = darkR.toString(16).padStart(2, '0') +
-            //         darkG.toString(16).padStart(2, '0') +
-            //         darkB.toString(16).padStart(2, '0');
-            //     return `${lightHex}/${darkHex}`;
-            // }
-
-            // function showPlan(id) {
-            //     console.log(plansObj[id]);
-            //     window.location.href = `./recharge.html?planid=${id}`; // Corrected URL format
-            // }
-
-            // function getLiElems(list) {
-            //     let result = '';
-            //     for (const item of list) { // Use for...of loop for arrays
-            //         result += `<li>${item}</li>`;
-            //     }
-            //     return result;
-            // }
-
             let plansObj;
             const plansContainer = document.getElementById('plansPlans');
             const planTabs = document.getElementById('planTabs');
             const searchBar = document.getElementById('searchBar');
             const noResultsMessage = document.getElementById('noResultsMessage');
 
-            // Fetch plans from the JSON file
-            fetch('http://127.0.0.1:5501/plans.json')
-                .then(res => res.json())
-                .then(plans => {
-                    plansObj = plans;
-                    displayPlans('all'); // Display all plans initially
-
-                    // Event listener for tab click to filter by category
-                    planTabs.addEventListener('click', (event) => {
-                        if (event.target.classList.contains('nav-link')) {
-                            const category = event.target.dataset.category;
-                            planTabs.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
-                            event.target.classList.add('active');
-                            displayPlans(category);
-                        }
+            // First check if plansData exists in localStorage (from the admin modifications)
+            if (localStorage.getItem("plansData")) {
+                plansObj = JSON.parse(localStorage.getItem("plansData"));
+                displayPlans('all'); // Display all plans initially
+            } else {
+                // Otherwise, fetch from the JSON file
+                fetch('http://127.0.0.1:5501/plans.json') // Make sure the path is correct
+                    .then(res => res.json())
+                    .then(plans => {
+                        plansObj = plans;
+                        displayPlans('all'); // Display all plans initially
                     });
+            }
 
-                    // Event listener for search bar input to filter by search term
-                    searchBar.addEventListener('input', () => {
-                        const query = searchBar.value.trim().toLowerCase();
-                        displayPlans('all', query); // Filter all plans by search term
-                    });
-                });
+            // Listen for tab clicks to filter by category
+            planTabs.addEventListener('click', (event) => {
+                if (event.target.classList.contains('nav-link')) {
+                    const category = event.target.dataset.category;
+                    // Remove active class from all tabs and add it to the clicked one
+                    planTabs.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
+                    event.target.classList.add('active');
+                    displayPlans(category);
+                }
+            });
 
-            // Display plans based on selected category and search query
+            // Listen for search bar input to filter plans
+            searchBar.addEventListener('input', () => {
+                const query = searchBar.value.trim().toLowerCase();
+                displayPlans('all', query); // Filter all plans by search term
+            });
+
+            // Display plans based on category and search query
             function displayPlans(category, query = '') {
                 plansContainer.innerHTML = ''; // Clear existing plans
                 let foundPlans = 0;
@@ -265,8 +213,8 @@
                 <div class="col-md-4 col-sm-6 p-3 d-flex">
                     <div class="card rounded-4 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:#eeedff;">
                         <img src="https://placehold.jp/817ed9/0a075c/500x200.png?text=₹${plansObj[plan].price}" 
-                            class="card-img-top rounded-3" 
-                            alt="${plansObj[plan].name}">
+                             class="card-img-top rounded-3" 
+                             alt="${plansObj[plan].name}">
                         <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
                             <span class="badge rounded-pill bg-dark">${plansObj[plan].tag}</span>
                             <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
@@ -290,7 +238,7 @@
                 }
             }
 
-            // Function to generate random background color
+            // Function to generate a random background color (dummy function)
             function randomBG() {
                 const r = Math.floor(Math.random() * 128) + 128;
                 const g = Math.floor(Math.random() * 128) + 128;
@@ -299,7 +247,7 @@
                     g.toString(16).padStart(2, '0') +
                     b.toString(16).padStart(2, '0');
 
-                let lightHex = hexCode
+                let lightHex = hexCode;
                 const hex = lightHex.replace('#', '');
                 const rx = parseInt(hex.substring(0, 2), 16);
                 const gx = parseInt(hex.substring(2, 4), 16);
@@ -316,7 +264,7 @@
             // Function to handle plan click event
             function showPlan(id) {
                 console.log(plansObj[id]);
-                window.location.href = `./recharge.html?planid=${id}`; // Correct URL format
+                window.location.href = `./recharge.html?planid=${id}`;
             }
 
             // Function to generate list items for features
@@ -327,9 +275,6 @@
                 }
                 return result;
             }
-
-
-
         </script>
     </body>
 

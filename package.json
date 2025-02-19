@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rith1x/TechM-Capstone-Phase-1#readme",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "json-server": "^1.0.0-beta.3"
   }
 }

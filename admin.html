@@ -4,141 +4,186 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Admin Dashboard - User Management</title>
+        <title>Admin Dashboard</title>
         <link rel="stylesheet" href="./css/main.min.css" />
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+
+            #sidebarCollapse {
+                min-height: 100vh;
+            }
+
+            .nav-link.active {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            .chart-canvas {
+                width: 100%;
+                height: 300px;
+            }
+        </style>
     </head>
 
     <body>
-        <!-- Navbar -->
         <nav class="navbar sticky-top navbar-expand-lg bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="./images/mobicomm_logo_w.PNG" height="30" alt="Mobicomm Logo" />
                 </a>
-                <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"
-                        style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255,255,255,1)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');"></span>
+                <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false"
+                    aria-label="Toggle sidebar">
+                    Menu
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item active"><a class="nav-link text-white" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="./support.html">Help</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="./login.html">Login</a></li>
-                    </ul>
-                </div>
             </div>
         </nav>
 
-        <!-- Main Wrapper -->
         <div class="container-fluid">
-            <div class="row flex-column flex-md-row vh-100" id="wrapper">
-                <!-- Sidebar -->
-                <div class="col-12 col-md-3 bg-dark text-white p-4" id="sidebar">
-                    <h4 class="text-center">Admin Dashboard</h4>
+            <div class="row">
+                <div class="col-md-3 col-12 collapse d-md-block bg-dark text-white p-4" id="sidebarCollapse">
+                    <h4>Admin Dashboard</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link text-white" id="userTab" href="#">User Information</a>
+                            <a class="nav-link active text-white" href="#" id="dashboardLink">Dashboard</a>
                         </li>
-                        <!-- Other navigation links can be added here -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" id="planManagementLink">Plan Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="index.html">Logout</a>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- Page Content -->
-                <div id="page-content-wrapper" class="col-12 col-md-9 p-4">
-                    <h2>User Information</h2>
-                    <div class="mb-3">
-                        <div class="input-group">
-                            <select id="filterType" class="form-select" style="max-width:150px;">
-                                <option value="name" selected>Name</option>
-                                <option value="email">Email</option>
-                                <option value="phone">Phone</option>
-                                <option value="currentPlan">Current Plan</option>
-                                <option value="rechargeStatus">Recharge Status</option>
-                            </select>
-                            <input type="text" id="userSearch" class="form-control" placeholder="Search users" />
+                <!-- Main Content -->
+                <div class="col-md-9 col-12 p-4" id="mainContent">
+                    <!-- Dashboard Section -->
+                    <div id="dashboardSection">
+                        <h2>Dashboard</h2>
+                        <div class="row">
+                            <!-- Dummy Card: Most Recharged Plan -->
+                            <div class="col-md-4 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Most Recharged Plan</h5>
+                                        <p class="card-text">Super Plan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Dummy Card: Total Users -->
+                            <div class="col-md-4 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Users</h5>
+                                        <p class="card-text">1,234</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Dummy Card: Active Plans -->
+                            <div class="col-md-4 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Active Plans</h5>
+                                        <p class="card-text">8</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Charts Section -->
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="barChart" class="chart-canvas"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="pieChart" class="chart-canvas"></canvas>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <button id="openAddUserModal" class="btn btn-success" style="min-width:150px;">Add User</button>
-                    </div>
-                    <div class="table-responsive rounded-4">
-                        <table class="table table-hover" id="usersTable">
-                            <thead>
-                                <tr>
-                                    <th class="sortable" data-col="name" style="cursor:pointer;">Name</th>
-                                    <th class="sortable" data-col="email" style="cursor:pointer;">Email</th>
-                                    <th class="sortable" data-col="phone" style="cursor:pointer;">Phone</th>
-                                    <th class="sortable" data-col="rechargeStatus" style="cursor:pointer;">Recharge
-                                        Status</th>
-                                    <th class="sortable" data-col="currentPlan" style="cursor:pointer;">Current Plan
-                                    </th>
-                                    <th class="sortable" data-col="validity" style="cursor:pointer;">Validity</th>
-                                    <th>Validity Remaining</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="usersTableBody"></tbody>
-                        </table>
+
+                    <!-- Plan Management Section (hidden by default) -->
+                    <div id="planManagementSection" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2>Plan Management</h2>
+                            <button id="downloadPlansBtn" class="btn btn-outline-primary">
+                                Download Plans
+                            </button>
+                        </div>
+                        <div class="mb-3">
+                            <button id="openAddPlanModal" class="btn btn-success">
+                                Add Plan
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="plansTable">
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Tag</th>
+                                        <th>Name</th>
+                                        <th>Features</th>
+                                        <th>Price</th>
+                                        <th>Categories</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="plansTableBody">
+                                    <!-- Rows will be injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Edit User Modal -->
-        <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
+        <!-- Edit Plan Modal -->
+        <div class="modal fade" id="editPlanModal" tabindex="-1" aria-labelledby="editPlanModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
-                <form id="editUserForm" class="modal-content" novalidate>
+                <form id="editPlanForm" class="modal-content" novalidate>
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editUserModalLabel">Edit User Information</h5>
+                        <h5 class="modal-title" id="editPlanModalLabel">Edit Plan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" id="editUserId" />
+                        <!-- Hidden field for plan code -->
+                        <input type="hidden" id="editPlanCode" />
                         <div class="mb-3">
-                            <label for="editName" class="form-label">Name</label>
-                            <input type="text" id="editName" class="form-control" required />
+                            <label for="editPlanTag" class="form-label">Tag</label>
+                            <input type="text" id="editPlanTag" class="form-control" required />
+                            <div class="invalid-feedback">Tag is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPlanName" class="form-label">Name</label>
+                            <input type="text" id="editPlanName" class="form-control" required />
                             <div class="invalid-feedback">Name is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="editEmail" class="form-label">Email</label>
-                            <input type="email" id="editEmail" class="form-control" required />
-                            <div class="invalid-feedback">A valid email is required.</div>
+                            <label for="editPlanFeatures" class="form-label">Features (comma separated)</label>
+                            <input type="text" id="editPlanFeatures" class="form-control" required />
+                            <div class="invalid-feedback">At least one feature is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="editPhone" class="form-label">Phone</label>
-                            <input type="text" id="editPhone" class="form-control" placeholder="10-digit number"
-                                required pattern="^\d{10}$" />
-                            <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                            <label for="editPlanPrice" class="form-label">Price</label>
+                            <input type="number" id="editPlanPrice" class="form-control" required />
+                            <div class="invalid-feedback">Price is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="editRechargeStatus" class="form-label">Recharge Status</label>
-                            <select id="editRechargeStatus" class="form-select">
-                                <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editCurrentPlan" class="form-label">Current Plan</label>
-                            <select id="editCurrentPlan" class="form-select">
-                                <!-- Options populated from plans JSON -->
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editAutopayStatus" class="form-label">Autopay Status</label>
-                            <select id="editAutopayStatus" class="form-select">
-                                <option value="Enabled">Enabled</option>
-                                <option value="Disabled">Disabled</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editValidity" class="form-label">Recharge Validity</label>
-                            <input type="date" id="editValidity" class="form-control" required />
-                            <div class="invalid-feedback">Recharge validity date is required.</div>
+                            <label for="editPlanCategories" class="form-label">Categories (comma separated)</label>
+                            <input type="text" id="editPlanCategories" class="form-control" required />
+                            <div class="invalid-feedback">At least one category is required.</div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -149,217 +194,251 @@
             </div>
         </div>
 
-        <!-- Add User Modal -->
-        <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <!-- Add Plan Modal -->
+        <div class="modal fade" id="addPlanModal" tabindex="-1" aria-labelledby="addPlanModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form id="addUserForm" class="modal-content" novalidate>
+                <form id="addPlanForm" class="modal-content" novalidate>
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                        <h5 class="modal-title" id="addPlanModalLabel">Add New Plan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="addUserName" class="form-label">Name</label>
-                            <input type="text" id="addUserName" class="form-control" required />
+                            <label for="addPlanCode" class="form-label">Plan Code</label>
+                            <input type="text" id="addPlanCode" class="form-control" required />
+                            <div class="invalid-feedback">Plan Code is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanTag" class="form-label">Tag</label>
+                            <input type="text" id="addPlanTag" class="form-control" required />
+                            <div class="invalid-feedback">Tag is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanName" class="form-label">Name</label>
+                            <input type="text" id="addPlanName" class="form-control" required />
                             <div class="invalid-feedback">Name is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="addUserEmail" class="form-label">Email</label>
-                            <input type="email" id="addUserEmail" class="form-control" required />
-                            <div class="invalid-feedback">A valid email is required.</div>
+                            <label for="addPlanFeatures" class="form-label">Features (comma separated)</label>
+                            <input type="text" id="addPlanFeatures" class="form-control" required />
+                            <div class="invalid-feedback">At least one feature is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="addUserPhone" class="form-label">Phone</label>
-                            <input type="text" id="addUserPhone" class="form-control" placeholder="10-digit number"
-                                required pattern="^\d{10}$" />
-                            <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                            <label for="addPlanPrice" class="form-label">Price</label>
+                            <input type="number" id="addPlanPrice" class="form-control" required />
+                            <div class="invalid-feedback">Price is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanCategories" class="form-label">Categories (comma separated)</label>
+                            <input type="text" id="addPlanCategories" class="form-control" required />
+                            <div class="invalid-feedback">At least one category is required.</div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Add User</button>
+                        <button type="submit" class="btn btn-primary">Add Plan</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </form>
             </div>
         </div>
 
+        <!-- Scripts: Bootstrap JS, Popper, and Chart.js -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
-            let users = JSON.parse(localStorage.getItem('usersData')) || [];
+            // Sidebar navigation toggle between Dashboard and Plan Management
+            document.getElementById("dashboardLink").addEventListener("click", function (e) {
+                e.preventDefault();
+                document.getElementById("dashboardSection").style.display = "block";
+                document.getElementById("planManagementSection").style.display = "none";
+                this.classList.add("active");
+                document.getElementById("planManagementLink").classList.remove("active");
+            });
+            document.getElementById("planManagementLink").addEventListener("click", function (e) {
+                e.preventDefault();
+                document.getElementById("dashboardSection").style.display = "none";
+                document.getElementById("planManagementSection").style.display = "block";
+                this.classList.add("active");
+                document.getElementById("dashboardLink").classList.remove("active");
+            });
 
-            function saveUsers() {
-                localStorage.setItem('usersData', JSON.stringify(users));
+            // Dummy Bar Chart
+            const barCtx = document.getElementById("barChart").getContext("2d");
+            const barChart = new Chart(barCtx, {
+                type: "bar",
+                data: {
+                    labels: ["Plan A", "Plan B", "Plan C", "Plan D"],
+                    datasets: [{
+                        label: "Recharge Count",
+                        data: [12, 19, 3, 5],
+                        backgroundColor: "rgba(54, 162, 235, 0.6)",
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                },
+            });
+
+            // Dummy Pie Chart
+            const pieCtx = document.getElementById("pieChart").getContext("2d");
+            const pieChart = new Chart(pieCtx, {
+                type: "pie",
+                data: {
+                    labels: ["Plan A", "Plan B", "Plan C"],
+                    datasets: [{
+                        data: [10, 20, 30],
+                        backgroundColor: [
+                            "rgba(255, 99, 132, 0.6)",
+                            "rgba(54, 162, 235, 0.6)",
+                            "rgba(255, 206, 86, 0.6)",
+                        ],
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                },
+            });
+
+            /* === Plan Management Code (using localStorage as dummy storage) === */
+            let plansData = {};
+
+            if (localStorage.getItem("plansData")) {
+                try {
+                    plansData = JSON.parse(localStorage.getItem("plansData"));
+                    loadPlansTable();
+                } catch (e) {
+                    console.error("Error parsing plansData from localStorage:", e);
+                }
+            } else {
+                fetch("./plans.json")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        plansData = data;
+                        localStorage.setItem("plansData", JSON.stringify(plansData));
+                        loadPlansTable();
+                    })
+                    .catch((err) => console.error("Error fetching plans.json:", err));
             }
 
-            function loadUsersTable() {
-                const tbody = document.getElementById('usersTableBody');
-                tbody.innerHTML = users.map(u => {
-                    // Calculate validity remaining (in days)
-                    const today = new Date();
-                    const validityDate = new Date(u.validity);
-                    let daysRemaining = Math.ceil((validityDate - today) / (1000 * 60 * 60 * 24));
-                    daysRemaining = daysRemaining > 0 ? daysRemaining + " days" : "Expired";
+            function updateLocalStorage() {
+                localStorage.setItem("plansData", JSON.stringify(plansData));
+            }
 
-                    return `
-            <tr>
-              <td>${u.name}</td>
-              <td>${u.email}</td>
-              <td>${u.phone}</td>
-              <td>${u.rechargeStatus}</td>
-              <td>${u.currentPlan}</td>
-              <td>${u.validity}</td>
-              <td>${daysRemaining}</td>
+            function loadPlansTable() {
+                const tbody = document.getElementById("plansTableBody");
+                tbody.innerHTML = "";
+                for (const code in plansData) {
+                    if (plansData.hasOwnProperty(code)) {
+                        const plan = plansData[code];
+                        const featuresText = Array.isArray(plan.features) ? plan.features.join(", ") : "";
+                        const categoriesText = Array.isArray(plan.categories) ? plan.categories.join(", ") : "";
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+              <td>${code}</td>
+              <td>${plan.tag}</td>
+              <td>${plan.name}</td>
+              <td>${featuresText}</td>
+              <td>${plan.price}</td>
+              <td>${categoriesText}</td>
               <td>
-                <button class="btn btn-sm btn-primary edit-btn" data-id="${u.id}">Edit</button>
-                <button class="btn btn-sm btn-warning" onclick="sendNotification(${u.id})">Send Notification</button>
+                <button class="btn btn-sm btn-primary edit-plan-btn" data-code="${code}">Edit</button>
               </td>
-          </tr>
-          `;
-                }).join('');
+            `;
+                        tbody.appendChild(tr);
+                    }
+                }
+                if (Object.keys(plansData).length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="7" class="text-center">No plans found.</td></tr>`;
+                }
             }
 
-            // Open modal for adding a user
-            document.getElementById('openAddUserModal').addEventListener('click', () => {
-                new bootstrap.Modal(document.getElementById('addUserModal')).show();
+            document.getElementById("downloadPlansBtn").addEventListener("click", () => {
+                const dataStr = JSON.stringify(plansData, null, 4);
+                const blob = new Blob([dataStr], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "plans.json";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
             });
 
-            // Add User form submission
-            document.getElementById('addUserForm').addEventListener('submit', function (e) {
+            document.getElementById("plansTableBody").addEventListener("click", function (e) {
+                if (e.target.classList.contains("edit-plan-btn")) {
+                    const code = e.target.getAttribute("data-code");
+                    openEditPlanModal(code);
+                }
+            });
+
+            function openEditPlanModal(code) {
+                const plan = plansData[code];
+                if (plan) {
+                    document.getElementById("editPlanCode").value = code;
+                    document.getElementById("editPlanTag").value = plan.tag;
+                    document.getElementById("editPlanName").value = plan.name;
+                    document.getElementById("editPlanFeatures").value = Array.isArray(plan.features)
+                        ? plan.features.join(", ")
+                        : "";
+                    document.getElementById("editPlanPrice").value = plan.price;
+                    document.getElementById("editPlanCategories").value = Array.isArray(plan.categories)
+                        ? plan.categories.join(", ")
+                        : "";
+                    new bootstrap.Modal(document.getElementById("editPlanModal")).show();
+                }
+            }
+
+            document.getElementById("editPlanForm").addEventListener("submit", function (e) {
                 e.preventDefault();
                 if (!this.checkValidity()) {
-                    this.classList.add('was-validated');
+                    this.classList.add("was-validated");
                     return;
                 }
-                const name = document.getElementById('addUserName').value.trim();
-                const email = document.getElementById('addUserEmail').value.trim();
-                const phone = document.getElementById('addUserPhone').value.trim();
-
-                const newUser = {
-                    id: new Date().getTime(),
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    rechargeStatus: "Active",
-                    currentPlan: "Basic Plan",
-                    autopayStatus: "Disabled",
-                    validity: "2025-12-31"
+                const code = document.getElementById("editPlanCode").value;
+                plansData[code] = {
+                    tag: document.getElementById("editPlanTag").value.trim(),
+                    name: document.getElementById("editPlanName").value.trim(),
+                    features: document.getElementById("editPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
+                    price: parseFloat(document.getElementById("editPlanPrice").value),
+                    categories: document.getElementById("editPlanCategories").value.split(",").map(c => c.trim()).filter(c => c)
                 };
+                updateLocalStorage();
+                loadPlansTable();
+                bootstrap.Modal.getInstance(document.getElementById("editPlanModal")).hide();
+            });
 
-                users.push(newUser);
-                saveUsers();
-                loadUsersTable();
+            document.getElementById("openAddPlanModal").addEventListener("click", function () {
+                new bootstrap.Modal(document.getElementById("addPlanModal")).show();
+            });
 
+            document.getElementById("addPlanForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (!this.checkValidity()) {
+                    this.classList.add("was-validated");
+                    return;
+                }
+                const code = document.getElementById("addPlanCode").value.trim();
+                if (plansData.hasOwnProperty(code)) {
+                    alert("Plan code already exists.");
+                    return;
+                }
+                plansData[code] = {
+                    tag: document.getElementById("addPlanTag").value.trim(),
+                    name: document.getElementById("addPlanName").value.trim(),
+                    features: document.getElementById("addPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
+                    price: parseFloat(document.getElementById("addPlanPrice").value),
+                    categories: document.getElementById("addPlanCategories").value.split(",").map(c => c.trim()).filter(c => c)
+                };
+                updateLocalStorage();
+                loadPlansTable();
                 this.reset();
-                this.classList.remove('was-validated');
-                bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
+                this.classList.remove("was-validated");
+                bootstrap.Modal.getInstance(document.getElementById("addPlanModal")).hide();
             });
-
-            function filterUsersTable() {
-                const search = document.getElementById('userSearch').value.toLowerCase();
-                const filterType = document.getElementById('filterType').value;
-                document.querySelectorAll('#usersTableBody tr').forEach(row => {
-                    // Get the text from the cell that corresponds to the selected filter type
-                    let cellText = row.querySelector(`td:nth-child(${getColumnIndex(filterType)})`).innerText.toLowerCase();
-                    row.style.display = cellText.includes(search) ? '' : 'none';
-                });
-            }
-
-            function getColumnIndex(filterType) {
-                // Order: Name (1), Email (2), Phone (3), Recharge Status (4), Current Plan (5)
-                switch (filterType) {
-                    case 'name': return 1;
-                    case 'email': return 2;
-                    case 'phone': return 3;
-                    case 'rechargeStatus': return 4;
-                    case 'currentPlan': return 5;
-                    default: return 1;
-                }
-            }
-
-            function sortUsersTable(col) {
-                users.sort((a, b) => {
-                    if (a[col] < b[col]) return -1;
-                    if (a[col] > b[col]) return 1;
-                    return 0;
-                });
-                saveUsers();
-                loadUsersTable();
-            }
-
-            document.querySelectorAll('#usersTable th.sortable').forEach(th => {
-                th.addEventListener('click', () => {
-                    const col = th.getAttribute('data-col');
-                    sortUsersTable(col);
-                });
-            });
-
-            document.getElementById('userSearch').addEventListener('input', filterUsersTable);
-
-            document.getElementById('usersTableBody').addEventListener('click', function (e) {
-                if (e.target.classList.contains('edit-btn')) {
-                    const userId = parseInt(e.target.getAttribute('data-id'));
-                    openEditModal(userId);
-                }
-            });
-
-            async function loadPlanOptions() {
-                await fetch('http://127.0.0.1:5501/plans.json')
-                    .then(r => r.json())
-                    .then(data => { plans = data });
-                const select = document.getElementById('editCurrentPlan');
-                select.innerHTML = Object.entries(plans).map(([code, plan]) =>
-                    `<option value="${plan.name}">${plan.name}</option>`
-                ).join('');
-            }
-
-            function openEditModal(userId) {
-                const user = users.find(u => u.id === userId);
-                if (user) {
-                    document.getElementById('editUserId').value = user.id;
-                    document.getElementById('editName').value = user.name;
-                    document.getElementById('editEmail').value = user.email;
-                    document.getElementById('editPhone').value = user.phone;
-                    document.getElementById('editRechargeStatus').value = user.rechargeStatus;
-                    document.getElementById('editCurrentPlan').value = user.currentPlan;
-                    document.getElementById('editAutopayStatus').value = user.autopayStatus;
-                    document.getElementById('editValidity').value = user.validity;
-                    new bootstrap.Modal(document.getElementById('editUserModal')).show();
-                }
-            }
-
-            document.getElementById('editUserForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                if (!this.checkValidity()) {
-                    this.classList.add('was-validated');
-                    return;
-                }
-                const id = parseInt(document.getElementById('editUserId').value);
-                const updatedUser = {
-                    id: id,
-                    name: document.getElementById('editName').value.trim(),
-                    email: document.getElementById('editEmail').value.trim(),
-                    phone: document.getElementById('editPhone').value.trim(),
-                    rechargeStatus: document.getElementById('editRechargeStatus').value,
-                    currentPlan: document.getElementById('editCurrentPlan').value,
-                    autopayStatus: document.getElementById('editAutopayStatus').value,
-                    validity: document.getElementById('editValidity').value
-                };
-                users = users.map(u => u.id === id ? updatedUser : u);
-                saveUsers();
-                loadUsersTable();
-                bootstrap.Modal.getInstance(document.getElementById('editUserModal')).hide();
-            });
-
-            function sendNotification(userId) {
-                const user = users.find(u => u.id === userId);
-                if (user) {
-                    alert(`Notification sent to ${user.name} (${user.email}).\nPlan: ${user.currentPlan}\nValidity: ${user.validity}`);
-                }
-            }
-
-            loadPlanOptions();
-            loadUsersTable();
         </script>
     </body>
 

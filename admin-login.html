@@ -76,9 +76,12 @@
             // Function to handle login submission (used for both layouts)
             async function handleLogin(email, password, messageElem) {
                 try {
-                    const response = await fetch('data.json');
-                    if (!response.ok) throw new Error('Network error');
-                    const data = await response.json();
+                    const data = {
+                        admin: {
+                            email: 'admin@mobicomm.in',
+                            password: 'admin123'
+                        }
+                    }
                     if (data.admin.email === email && data.admin.password === password) {
                         messageElem.innerHTML = '<div class="alert alert-success">Login successful!</div>';
                         window.location.href = 'admin.html';

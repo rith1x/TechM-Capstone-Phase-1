@@ -43,7 +43,7 @@
         <div class="container d-flex justify-content-center align-items-center mt-5 pt-5">
             <div class="row w-100">
                 <div class="col-md-12">
-                    <h2 class="text-center mb-4">Mobicomm Support Center</h2>
+                    <h1 class="text-center mb-4 fw-bold">Mobicomm Support Center</h1>
                     <p class="text-center mb-5">We are here to help! Choose the appropriate section for your needs.</p>
                     <div class="mb-5">
                         <h4>Frequently Asked Questions (FAQ)</h4>
@@ -169,46 +169,97 @@
                 </div>
             </div>
         </div>
+        <div id="center" class="container my-5 py-5">
+            <div class="row align-items-center">
+                <!-- Left: Contact Information -->
+                <div class="col-md-6 mb-4">
+                    <h2 class="text-primary">Nearby Service Center</h2>
+                    <p class="fs-5">Location: Salem, TN</p>
+                    <p><strong>Address:</strong> 123 Service Road, Salem, TN, 123456</p>
+                    <p><strong>Phone:</strong> +91 98765 43210</p>
+                    <p><strong>Email:</strong> servicecenter@dummyemail.com</p>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <button class="btn btn-primary"
+                            onclick="window.open('https://www.google.com/maps?q=Salem,+TN','_blank')">
+                            View on Map
+                        </button>
+                        <button class="btn btn-secondary"
+                            onclick="alert('Call +91 98765 43210 for service inquiries.')">
+                            Call Now
+                        </button>
+                    </div>
+                </div>
+                <!-- Right: Embedded Google Map -->
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.092847531293!2d78.12210081526198!3d11.664410981284663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8ba86d3c68bbf%3A0x7e189c4ec61c5a24!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1616432435100!5m2!1sen!2sin"
+                            style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 my-5 border-top">
+        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 mt-5 border-top bg-secondary">
             <div class="col p-3">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
                     <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
                 </a>
                 <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
+                <div class="social-links d-flex text-light align-items-center gap-3">
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px;width: 30px;">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
             </div>
 
             <div class="col d-none d-lg-block"></div> <!-- Empty column for spacing on large screens -->
 
             <div class="col mb-4">
-                <h5>Services</h5>
+                <h5 class="text-primary">Services</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get a New Sim</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get an eSim</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a>
-                    </li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Connectivity</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">5G Upgrade</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Callertunes</a></li>
+                    <li class="nav-item mb-2"><a href="./admin-login.html" class="nav-link p-0 text-muted">Administrator
+                            Portal</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="col mb-4">
-                <h5>Recharge</h5>
+                <h5 class="text-primary">Recharge</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Plans</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Data Addons</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">International
-                            Roaming</a>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">International Roaming</a>
                     </li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Basic Plans</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Unlimited Plans</a>
-                    </li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Unlimited Plans</a></li>
                 </ul>
             </div>
 
             <div class="col">
-                <h5>Quick Links</h5>
+                <h5 class="text-primary">Quick Links</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
@@ -218,6 +269,7 @@
                 </ul>
             </div>
         </footer>
+
     </body>
 
 </html>
