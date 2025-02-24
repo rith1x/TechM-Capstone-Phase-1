@@ -9,65 +9,46 @@
                 "Unlimited Local Calls",
                 "Free SMS"
             ],
-            "price": 149,
+            "price": 199,
             "categories": [
                 "data",
                 "unlimited"
             ]
         },
         "MC02": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
             "tag": "POCKET FRIENDLY",
             "name": "Standard Plan",
-            "price": 299,
-            "validity": 30,
             "features": [
                 "Unlimited Data",
                 "20GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
+            "price": 299,
+            "categories": [
+                "data",
+                "unlimited"
             ]
         },
         "MC03": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
             "tag": "INTERNATIONAL ROAMING",
             "name": "Premium Plan",
-            "price": 499,
-            "validity": 30,
             "features": [
                 "Unlimited Data",
                 "50GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming & International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC04": {
+            "price": 499,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
+                "roaming"
+            ]
+        },
+        "MC04": {
             "tag": "UNLIMITED",
             "name": "Ultra Plan",
-            "price": 799,
-            "validity": 30,
             "features": [
                 "Unlimited Data",
                 "100GB High-speed Data",
@@ -75,46 +56,39 @@
                 "Free SMS, Roaming, and International Calls",
                 "Access to Premium Streaming Services"
             ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "hbomax"
-            ]
-        },
-        "MC05": {
+            "price": 799,
             "categories": [
                 "data",
                 "unlimited",
                 "ott"
-            ],
-            "tag": "POPULAR",
+            ]
+        },
+        "MC05": {
+            "tag": "RECOMMENDED",
             "name": "Super Plan",
-            "price": 999,
-            "validity": 30,
+            "recommended": true,
+            "bg": "#E8F5E9",
+            "l1": "#C8E6C9",
+            "l2": "#A5D6A7",
+            "tc": "#1B5E20",
+            "ix": "A5D6A7/1B5E20",
             "features": [
                 "Unlimited Data",
                 "200GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo"
-            ]
-        },
-        "MC06": {
+            "price": 999,
             "categories": [
+                "recommended",
                 "data",
                 "unlimited",
                 "ott"
-            ],
+            ]
+        },
+        "MC06": {
             "tag": "HIGH SPEED",
             "name": "Max Plan",
-            "price": 1499,
-            "validity": 30,
             "features": [
                 "Unlimited Data",
                 "500GB High-speed Data",
@@ -122,192 +96,133 @@
                 "Free SMS, Roaming, International Calls, Data Sharing & Family Plans",
                 "Exclusive Premium Support and Priority Services"
             ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "hulu"
+            "price": 1499,
+            "categories": [
+                "data",
+                "unlimited",
+                "ott"
             ]
         },
         "MC07": {
-            "categories": [
-                "data"
-            ],
             "tag": "ECONOMY",
             "name": "Lite Plan",
-            "price": 179,
-            "validity": 30,
             "features": [
                 "30GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax"
+            "price": 179,
+            "categories": [
+                "data"
             ]
         },
         "MC08": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
             "tag": "FAMILY",
             "name": "Family Plan",
-            "price": 599,
-            "validity": 30,
             "features": [
                 "100GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS & Roaming",
                 "Data Sharing for Family"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "disney+"
+            "price": 599,
+            "categories": [
+                "data",
+                "unlimited",
+                "family"
             ]
         },
         "MC09": {
-            "categories": [
-                "data"
-            ],
             "tag": "BUDGET",
             "name": "Economy Plus Plan",
-            "price": 249,
-            "validity": 30,
             "features": [
                 "15GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
+            "price": 249,
+            "categories": [
+                "data"
             ]
         },
         "MC10": {
-            "categories": [
-                "data",
-                "unlimited",
-                "student"
-            ],
             "tag": "STUDENT",
             "name": "Student Plan",
-            "price": 399,
-            "validity": 30,
             "features": [
                 "50GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu"
-            ]
-        },
-        "MC11": {
+            "price": 399,
             "categories": [
                 "data",
                 "unlimited",
-                "roaming"
-            ],
+                "student"
+            ]
+        },
+        "MC11": {
             "tag": "HIGH DATA",
             "name": "Mega Plan",
-            "price": 799,
-            "validity": 30,
             "features": [
                 "100GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "netflix"
-            ]
-        },
-        "MC12": {
+            "price": 799,
             "categories": [
                 "data",
                 "unlimited",
                 "roaming"
-            ],
+            ]
+        },
+        "MC12": {
             "tag": "PREMIUM",
             "name": "Pro Plan",
-            "price": 1299,
-            "validity": 30,
             "features": [
                 "150GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming & International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "disney+"
+            "price": 1299,
+            "categories": [
+                "data",
+                "unlimited",
+                "roaming"
             ]
         },
         "MC13": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
             "tag": "SUPER SAVER",
             "name": "Economy Ultra Plan",
-            "price": 329,
-            "validity": 30,
             "features": [
                 "20GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "hbomax"
+            "price": 329,
+            "categories": [
+                "data",
+                "unlimited"
             ]
         },
         "MC14": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
             "tag": "EXCLUSIVE",
             "name": "VIP Plan",
-            "price": 1999,
-            "validity": 30,
             "features": [
                 "300GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls & Data Sharing",
                 "VIP Access to OTT"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix"
-            ]
-        },
-        "MC15": {
+            "price": 1999,
             "categories": [
                 "data",
                 "unlimited",
                 "ott"
-            ],
+            ]
+        },
+        "MC15": {
             "tag": "MAXIMUM",
             "name": "Ultra Max Plan",
-            "price": 2499,
-            "validity": 30,
             "features": [
                 "Unlimited Data",
                 "Unlimited High-speed Data",
@@ -315,765 +230,542 @@
                 "Free SMS, Roaming, International Calls, Data Sharing",
                 "Access to All OTT Services"
             ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "hulu"
+            "price": 2499,
+            "categories": [
+                "data",
+                "unlimited",
+                "ott"
             ]
         },
         "MC16": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
             "tag": "MID-RANGE",
             "name": "Standard Plus Plan",
-            "price": 449,
-            "validity": 30,
             "features": [
                 "35GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
+            "price": 449,
+            "categories": [
+                "data",
+                "unlimited"
             ]
         },
         "MC17": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
             "tag": "FAMILY PLAN",
             "name": "Family Data Plan",
-            "price": 1399,
-            "validity": 30,
             "features": [
                 "250GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Family Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "primevideo"
+            "price": 1399,
+            "categories": [
+                "data",
+                "unlimited",
+                "family"
             ]
         },
         "MC18": {
-            "categories": [
-                "data"
-            ],
             "tag": "LOW COST",
             "name": "Basic Data Plan",
-            "price": 149,
-            "validity": 30,
             "features": [
                 "5GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hulu"
+            "price": 149,
+            "categories": [
+                "data"
             ]
         },
         "MC19": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
             "tag": "PREMIUM",
             "name": "Streaming Plan",
-            "price": 799,
-            "validity": 30,
             "features": [
                 "100GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & OTT Services"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC20": {
+            "price": 799,
             "categories": [
                 "data",
                 "unlimited",
                 "ott"
-            ],
+            ]
+        },
+        "MC20": {
             "tag": "ALL-INCLUSIVE",
             "name": "All-in-One Plan",
-            "price": 2999,
-            "validity": 30,
             "features": [
                 "Unlimited Data",
                 "Unlimited High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls, and OTT Services"
             ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo",
-                "hbomax"
-            ]
-        },
-        "MC21": {
+            "price": 2999,
             "categories": [
                 "data",
                 "unlimited",
-                "roaming"
-            ],
+                "ott"
+            ]
+        },
+        "MC21": {
             "tag": "PREMIUM ROAMING",
             "name": "Global Plan",
-            "price": 1899,
-            "validity": 30,
             "features": [
                 "500GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS & International Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "hulu"
-            ]
-        },
-        "MC22": {
+            "price": 1899,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
+                "roaming"
+            ]
+        },
+        "MC22": {
             "tag": "EXPLORE",
             "name": "Explorer Plan",
-            "price": 399,
-            "validity": 30,
             "features": [
                 "20GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS & OTT Access"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hbomax"
+            "price": 399,
+            "categories": [
+                "data",
+                "unlimited",
+                "ott"
             ]
         },
         "MC23": {
-            "categories": [
-                "data"
-            ],
-            "tag": "POPULAR",
+            "tag": "RECOMMENDED",
             "name": "Value Pack Plan",
-            "price": 129,
-            "validity": 30,
             "features": [
                 "10GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "disney+"
+            "price": 129,
+            "categories": [
+                "data"
             ]
         },
         "MC24": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
             "tag": "GLOBAL ROAMING",
             "name": "International Plan",
-            "price": 999,
-            "validity": 30,
             "features": [
                 "50GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & International Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "netflix"
-            ]
-        },
-        "MC25": {
+            "price": 999,
             "categories": [
                 "data",
                 "unlimited",
-                "family"
-            ],
+                "roaming"
+            ]
+        },
+        "MC25": {
             "tag": "ULTIMATE",
             "name": "Ultimate Pro Plan",
-            "price": 1799,
-            "validity": 30,
             "features": [
                 "500GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls & Family Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "disney+"
+            "price": 1799,
+            "categories": [
+                "data",
+                "unlimited",
+                "family"
             ]
         },
         "MC26": {
-            "categories": [
-                "data"
-            ],
             "tag": "ENTRY",
             "name": "Entry Level Plan",
-            "price": 249,
-            "validity": 30,
             "features": [
                 "15GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
+            "price": 249,
+            "categories": [
+                "data"
             ]
         },
         "MC27": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
             "tag": "PROGRESSIVE",
             "name": "Progressive Plan",
-            "price": 599,
-            "validity": 30,
             "features": [
                 "40GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS, Roaming & Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu"
+            "price": 599,
+            "categories": [
+                "data",
+                "unlimited"
             ]
         },
         "MC28": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
             "tag": "UNLIMITED DATA",
             "name": "Super Unlimited Plan",
-            "price": 1599,
-            "validity": 30,
             "features": [
                 "Unlimited High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hbomax"
+            "price": 1599,
+            "categories": [
+                "data",
+                "unlimited",
+                "roaming"
             ]
         },
         "MC29": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
             "tag": "MOBILE ONLY",
             "name": "Mobile Specific Plan",
-            "price": 249,
-            "validity": 30,
             "features": [
                 "20GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
+            "price": 249,
+            "categories": [
+                "data",
+                "unlimited"
             ]
         },
         "MC30": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
             "tag": "ALL INCLUSIVE",
             "name": "All Inclusive Plus Plan",
-            "price": 1499,
-            "validity": 30,
             "features": [
                 "100GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and OTT Access"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "hulu"
+            "price": 1499,
+            "categories": [
+                "data",
+                "unlimited",
+                "ott"
             ]
         },
         "MC31": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "POPULAR",
+            "tag": "RECOMMENDED",
             "name": "Budget Plan",
-            "price": 399,
-            "validity": 30,
             "features": [
                 "40GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix"
-            ]
-        },
-        "MC32": {
+            "price": 399,
             "categories": [
                 "data",
                 "unlimited"
-            ],
-            "tag": "POPULAR",
+            ]
+        },
+        "MC32": {
+            "tag": "RECOMMENDED",
             "name": "Essential Plan",
-            "price": 499,
-            "validity": 30,
             "features": [
                 "60GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS & Roaming"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "primevideo"
+            "price": 499,
+            "categories": [
+                "data",
+                "unlimited"
             ]
         },
         "MC33": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
+            "tag": "RECOMMENDED",
             "name": "Smart Plan",
-            "price": 649,
-            "validity": 30,
             "features": [
                 "80GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax"
-            ]
-        },
-        "MC34": {
+            "price": 649,
             "categories": [
                 "data",
                 "unlimited",
                 "family"
-            ],
-            "tag": "POPULAR",
+            ]
+        },
+        "MC34": {
+            "tag": "RECOMMENDED",
             "name": "Ultimate Lite Plan",
-            "price": 799,
-            "validity": 30,
             "features": [
                 "70GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Family Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hulu"
-            ]
-        },
-        "MC35": {
+            "price": 799,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
+                "family"
+            ]
+        },
+        "MC35": {
+            "tag": "RECOMMENDED",
             "name": "Flexi Plan",
-            "price": 999,
-            "validity": 30,
             "features": [
                 "120GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and OTT Services"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "hbomax"
-            ]
-        },
-        "MC36": {
+            "price": 999,
             "categories": [
                 "data",
                 "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
+                "ott"
+            ]
+        },
+        "MC36": {
+            "tag": "RECOMMENDED",
             "name": "Power Plan",
-            "price": 1299,
-            "validity": 30,
             "features": [
                 "150GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls, and Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC37": {
+            "price": 1299,
             "categories": [
                 "data",
                 "unlimited",
                 "roaming"
-            ],
-            "tag": "POPULAR",
+            ]
+        },
+        "MC37": {
+            "tag": "RECOMMENDED",
             "name": "Global Explorer Plan",
-            "price": 1499,
-            "validity": 30,
             "features": [
                 "200GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS, Roaming & International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo"
-            ]
-        },
-        "MC38": {
+            "price": 1499,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
+                "roaming"
+            ]
+        },
+        "MC38": {
+            "tag": "RECOMMENDED",
             "name": "Data Max Plan",
-            "price": 1799,
-            "validity": 30,
             "features": [
                 "250GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and OTT Access"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "disney+"
-            ]
-        },
-        "MC39": {
+            "price": 1799,
             "categories": [
                 "data",
                 "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
+                "ott"
+            ]
+        },
+        "MC39": {
+            "tag": "RECOMMENDED",
             "name": "Pro+ Plan",
-            "price": 2099,
-            "validity": 30,
             "features": [
                 "350GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "netflix"
-            ]
-        },
-        "MC40": {
+            "price": 2099,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
+                "family"
+            ]
+        },
+        "MC40": {
+            "tag": "RECOMMENDED",
             "name": "Super Explorer Plan",
-            "price": 2399,
-            "validity": 30,
             "features": [
                 "450GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and OTT Services"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "disney+"
-            ]
-        },
-        "MC41": {
+            "price": 2399,
             "categories": [
                 "data",
                 "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
+                "ott"
+            ]
+        },
+        "MC41": {
+            "tag": "RECOMMENDED",
             "name": "Supreme Plan",
-            "price": 2599,
-            "validity": 30,
             "features": [
                 "500GB High-speed Data",
                 "Unlimited Local Calls",
                 "Free SMS, Roaming & International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu"
-            ]
-        },
-        "MC42": {
+            "price": 2599,
             "categories": [
                 "data",
                 "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
+                "roaming"
+            ]
+        },
+        "MC42": {
+            "tag": "RECOMMENDED",
             "name": "Family Plus Plan",
-            "price": 2899,
-            "validity": 30,
             "features": [
                 "550GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Family Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "primevideo"
-            ]
-        },
-        "MC43": {
+            "price": 2899,
             "categories": [
                 "data",
                 "unlimited",
                 "family"
-            ],
-            "tag": "POPULAR",
+            ]
+        },
+        "MC43": {
+            "tag": "RECOMMENDED",
             "name": "Mega Pro Plan",
-            "price": 2999,
-            "validity": 30,
             "features": [
                 "600GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "disney+"
-            ]
-        },
-        "MC44": {
+            "price": 2999,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
+                "family"
+            ]
+        },
+        "MC44": {
+            "tag": "RECOMMENDED",
             "name": "Platinum Plan",
-            "price": 3299,
-            "validity": 30,
             "features": [
                 "700GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and OTT Access"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "hbomax"
-            ]
-        },
-        "MC45": {
+            "price": 3299,
             "categories": [
                 "data",
                 "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
+                "ott"
+            ]
+        },
+        "MC45": {
+            "tag": "RECOMMENDED",
             "name": "Elite Plan",
-            "price": 3599,
-            "validity": 30,
             "features": [
                 "800GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and Family Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
-            ]
-        },
-        "MC46": {
+            "price": 3599,
             "categories": [
                 "data",
                 "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
+                "family"
+            ]
+        },
+        "MC46": {
+            "tag": "RECOMMENDED",
             "name": "Diamond Plan",
-            "price": 3899,
-            "validity": 30,
             "features": [
                 "900GB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, and OTT Services"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hulu",
-                "disney+"
-            ]
-        },
-        "MC47": {
+            "price": 3899,
             "categories": [
                 "data",
                 "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
+                "ott"
+            ]
+        },
+        "MC47": {
+            "tag": "RECOMMENDED",
             "name": "Global Max Plan",
-            "price": 4199,
-            "validity": 30,
             "features": [
                 "1TB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming & International Calls"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax"
-            ]
-        },
-        "MC48": {
+            "price": 4199,
             "categories": [
                 "data",
                 "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
+                "roaming"
+            ]
+        },
+        "MC48": {
+            "tag": "RECOMMENDED",
             "name": "Super Family Plan",
-            "price": 4499,
-            "validity": 30,
             "features": [
                 "1.2TB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming & Family Data Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "netflix"
-            ]
-        },
-        "MC49": {
+            "price": 4499,
             "categories": [
                 "data",
                 "unlimited",
-                "roaming",
-                "ott"
-            ],
-            "tag": "POPULAR",
+                "family"
+            ]
+        },
+        "MC49": {
+            "tag": "RECOMMENDED OTT",
             "name": "Ultra Premium Plan",
-            "price": 4999,
-            "validity": 30,
+            "recommended": true,
+            "bg": "#F3E5F5",
+            "l1": "#E1BEE7",
+            "l2": "#CE93D8",
+            "tc": "#4A148C",
+            "ix": "CE93D8/4A148C",
             "features": [
                 "1.5TB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, International Calls, and OTT Access"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "hbomax"
+            "price": 4999,
+            "categories": [
+                "recommended",
+                "data",
+                "unlimited",
+                "roaming",
+                "ott"
             ]
         },
         "MC50": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family",
-                "ott"
-            ],
-            "tag": "POPULAR",
+            "tag": "RECOMMENDED PREMIUM",
+            "recommended": true,
+            "bg": "#FFF3E0",
+            "l1": "#FFE3E0",
+            "l2": "#FFE0B2",
+            "tc": "#E65100",
+            "ix": "FFE0B2/E65100",
             "name": "Mega Explorer Plan",
-            "price": 5999,
-            "validity": 30,
             "features": [
                 "2TB High-speed Data",
                 "Unlimited Local & STD Calls",
                 "Free SMS, Roaming, OTT Access, and Family Sharing"
             ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo",
-                "hulu"
+            "price": 5999,
+            "categories": [
+                "recommended",
+                "data",
+                "unlimited",
+                "family",
+                "ott"
             ]
         }
     },
@@ -1091,7 +783,7 @@
             "name": "Alice Johnson",
             "mobile": "9000000001",
             "plan_id": "MC01",
-            "expiry": "2025-02-26",
+            "expiry": "2025-03-15",
             "email": "alice.johnson@example.com",
             "status": "active",
             "rechargeHistory": [
@@ -1105,14 +797,13 @@
                     "date": "2025-03-05",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "a4da"
+            ]
         },
         {
             "name": "Bob Smith",
             "mobile": "9000000002",
             "plan_id": "MC02",
-            "expiry": "2025-02-26",
+            "expiry": "2025-03-16",
             "email": "bob.smith@example.com",
             "status": "inactive",
             "rechargeHistory": [
@@ -1126,14 +817,13 @@
                     "date": "2025-03-06",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "9da3"
+            ]
         },
         {
             "name": "Charlie Davis",
             "mobile": "9000000003",
             "plan_id": "MC03",
-            "expiry": "2025-02-27",
+            "expiry": "2025-03-17",
             "email": "charlie.davis@example.com",
             "status": "active",
             "rechargeHistory": [
@@ -1147,14 +837,13 @@
                     "date": "2025-03-07",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "50b6"
+            ]
         },
         {
             "name": "Diana Prince",
             "mobile": "9000000004",
             "plan_id": "MC04",
-            "expiry": "2025-02-25",
+            "expiry": "2025-03-18",
             "email": "diana.prince@example.com",
             "status": "inactive",
             "rechargeHistory": [
@@ -1168,8 +857,7 @@
                     "date": "2025-03-08",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "08df"
+            ]
         },
         {
             "name": "Ethan Hunt",
@@ -1189,8 +877,7 @@
                     "date": "2025-03-09",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "9a03"
+            ]
         },
         {
             "name": "Fiona Gallagher",
@@ -1210,8 +897,7 @@
                     "date": "2025-03-10",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "b8f6"
+            ]
         },
         {
             "name": "George Martin",
@@ -1231,8 +917,7 @@
                     "date": "2025-03-11",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "a07c"
+            ]
         },
         {
             "name": "Hannah Lee",
@@ -1252,8 +937,7 @@
                     "date": "2025-03-12",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "576e"
+            ]
         },
         {
             "name": "Ian McKellen",
@@ -1273,8 +957,7 @@
                     "date": "2025-03-13",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "7120"
+            ]
         },
         {
             "name": "Julia Roberts",
@@ -1294,8 +977,7 @@
                     "date": "2025-03-14",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "a78d"
+            ]
         },
         {
             "name": "Kevin Bacon",
@@ -1315,8 +997,7 @@
                     "date": "2025-03-15",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "6b15"
+            ]
         },
         {
             "name": "Laura Palmer",
@@ -1336,8 +1017,7 @@
                     "date": "2025-03-16",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "28b5"
+            ]
         },
         {
             "name": "Michael Jordan",
@@ -1357,8 +1037,7 @@
                     "date": "2025-03-17",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "477f"
+            ]
         },
         {
             "name": "Nina Simone",
@@ -1378,8 +1057,7 @@
                     "date": "2025-03-18",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "b5f4"
+            ]
         },
         {
             "name": "Oscar Wilde",
@@ -1399,8 +1077,7 @@
                     "date": "2025-03-19",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "f212"
+            ]
         },
         {
             "name": "Pam Beesly",
@@ -1420,8 +1097,7 @@
                     "date": "2025-03-20",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "e564"
+            ]
         },
         {
             "name": "Quentin Tarantino",
@@ -1441,8 +1117,7 @@
                     "date": "2025-03-21",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "98be"
+            ]
         },
         {
             "name": "Rachel Green",
@@ -1462,8 +1137,7 @@
                     "date": "2025-03-22",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "955c"
+            ]
         },
         {
             "name": "Samuel L. Jackson",
@@ -1483,8 +1157,7 @@
                     "date": "2025-03-23",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "45cb"
+            ]
         },
         {
             "name": "Tina Turner",
@@ -1504,8 +1177,7 @@
                     "date": "2025-03-24",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "34ac"
+            ]
         },
         {
             "name": "Uma Thurman",
@@ -1525,8 +1197,7 @@
                     "date": "2025-03-25",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "73e9"
+            ]
         },
         {
             "name": "Victor Hugo",
@@ -1546,8 +1217,7 @@
                     "date": "2025-03-26",
                     "paymentType": "Bank Transfer"
                 }
-            ],
-            "id": "c7a1"
+            ]
         },
         {
             "name": "Wendy Darling",
@@ -1567,8 +1237,7 @@
                     "date": "2025-03-27",
                     "paymentType": "Debit Card"
                 }
-            ],
-            "id": "5c57"
+            ]
         }
     ],
     "transactions": [
@@ -1577,7 +1246,7 @@
             "user": "Alice Johnson",
             "mobile": "9000000001",
             "plan_id": "MC01",
-            "amount": 199,
+            "amount": 299,
             "paymentMode": "UPI",
             "date": "2025-03-15"
         },
@@ -1586,7 +1255,7 @@
             "user": "Bob Smith",
             "mobile": "9000000002",
             "plan_id": "MC02",
-            "amount": 299,
+            "amount": 399,
             "paymentMode": "Credit Card",
             "date": "2025-03-14"
         },
@@ -1595,7 +1264,7 @@
             "user": "Charlie Davis",
             "mobile": "9000000003",
             "plan_id": "MC03",
-            "amount": 499,
+            "amount": 199,
             "paymentMode": "Debit Card",
             "date": "2025-03-13"
         },
@@ -1604,7 +1273,7 @@
             "user": "Diana Prince",
             "mobile": "9000000004",
             "plan_id": "MC04",
-            "amount": 799,
+            "amount": 599,
             "paymentMode": "Bank Transfer",
             "date": "2025-03-12"
         },
@@ -1613,7 +1282,7 @@
             "user": "Ethan Hunt",
             "mobile": "9000000005",
             "plan_id": "MC05",
-            "amount": 999,
+            "amount": 199,
             "paymentMode": "UPI",
             "date": "2025-03-11"
         },
@@ -1622,7 +1291,7 @@
             "user": "Fiona Gallagher",
             "mobile": "9000000006",
             "plan_id": "MC06",
-            "amount": 1499,
+            "amount": 399,
             "paymentMode": "Debit Card",
             "date": "2025-03-10"
         },
@@ -1631,7 +1300,7 @@
             "user": "George Martin",
             "mobile": "9000000007",
             "plan_id": "MC07",
-            "amount": 179,
+            "amount": 500,
             "paymentMode": "Credit Card",
             "date": "2025-03-09"
         },
@@ -1640,7 +1309,7 @@
             "user": "Hannah Lee",
             "mobile": "9000000008",
             "plan_id": "MC08",
-            "amount": 599,
+            "amount": 550,
             "paymentMode": "Bank Transfer",
             "date": "2025-03-08"
         },
@@ -1649,7 +1318,7 @@
             "user": "Ian McKellen",
             "mobile": "9000000009",
             "plan_id": "MC09",
-            "amount": 249,
+            "amount": 420,
             "paymentMode": "UPI",
             "date": "2025-03-07"
         },
@@ -1658,7 +1327,7 @@
             "user": "Julia Roberts",
             "mobile": "9000000010",
             "plan_id": "MC10",
-            "amount": 399,
+            "amount": 300,
             "paymentMode": "Debit Card",
             "date": "2025-03-06"
         },
@@ -1667,7 +1336,7 @@
             "user": "Kevin Bacon",
             "mobile": "9000000011",
             "plan_id": "MC11",
-            "amount": 799,
+            "amount": 560,
             "paymentMode": "Credit Card",
             "date": "2025-03-05"
         },
@@ -1676,7 +1345,7 @@
             "user": "Laura Palmer",
             "mobile": "9000000012",
             "plan_id": "MC12",
-            "amount": 1299,
+            "amount": 390,
             "paymentMode": "UPI",
             "date": "2025-03-04"
         },
@@ -1685,7 +1354,7 @@
             "user": "Michael Jordan",
             "mobile": "9000000013",
             "plan_id": "MC13",
-            "amount": 329,
+            "amount": 410,
             "paymentMode": "Debit Card",
             "date": "2025-03-03"
         },
@@ -1694,7 +1363,7 @@
             "user": "Nina Simone",
             "mobile": "9000000014",
             "plan_id": "MC14",
-            "amount": 1999,
+            "amount": 570,
             "paymentMode": "Bank Transfer",
             "date": "2025-03-02"
         },
@@ -1703,7 +1372,7 @@
             "user": "Oscar Wilde",
             "mobile": "9000000015",
             "plan_id": "MC15",
-            "amount": 2499,
+            "amount": 320,
             "paymentMode": "Credit Card",
             "date": "2025-03-01"
         },
@@ -1712,7 +1381,7 @@
             "user": "Pam Beesly",
             "mobile": "9000000016",
             "plan_id": "MC16",
-            "amount": 449,
+            "amount": 260,
             "paymentMode": "UPI",
             "date": "2025-03-31"
         },
@@ -1721,7 +1390,7 @@
             "user": "Quentin Tarantino",
             "mobile": "9000000017",
             "plan_id": "MC17",
-            "amount": 1399,
+            "amount": 430,
             "paymentMode": "Debit Card",
             "date": "2025-03-30"
         },
@@ -1730,7 +1399,7 @@
             "user": "Rachel Green",
             "mobile": "9000000018",
             "plan_id": "MC18",
-            "amount": 149,
+            "amount": 480,
             "paymentMode": "Bank Transfer",
             "date": "2025-03-29"
         },
@@ -1739,7 +1408,7 @@
             "user": "Samuel L. Jackson",
             "mobile": "9000000019",
             "plan_id": "MC19",
-            "amount": 799,
+            "amount": 540,
             "paymentMode": "Credit Card",
             "date": "2025-03-28"
         },
@@ -1748,7 +1417,7 @@
             "user": "Tina Turner",
             "mobile": "9000000020",
             "plan_id": "MC20",
-            "amount": 2999,
+            "amount": 380,
             "paymentMode": "UPI",
             "date": "2025-03-27"
         },
@@ -1757,7 +1426,7 @@
             "user": "Uma Thurman",
             "mobile": "9000000021",
             "plan_id": "MC21",
-            "amount": 1899,
+            "amount": 450,
             "paymentMode": "Debit Card",
             "date": "2025-03-26"
         },
@@ -1766,7 +1435,7 @@
             "user": "Victor Hugo",
             "mobile": "9000000022",
             "plan_id": "MC22",
-            "amount": 399,
+            "amount": 270,
             "paymentMode": "UPI",
             "date": "2025-03-25"
         },
@@ -1775,7 +1444,7 @@
             "user": "Wendy Darling",
             "mobile": "9000000023",
             "plan_id": "MC23",
-            "amount": 129,
+            "amount": 410,
             "paymentMode": "Credit Card",
             "date": "2025-03-24"
         }
