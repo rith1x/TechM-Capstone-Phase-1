@@ -12,7 +12,7 @@
     </head>
 
     <body style="overflow-x: hidden;">
-        <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+        <nav class="navbar navbar-expand-lg bg-primary fixed-top ">
             <div class="container">
                 <a class="navbar-brand" href="./index.html">
                     <img src="./images/mobicomm_logo_w.png" alt="Mobicomm Logo" draggable="false" height="30" />
@@ -26,46 +26,40 @@
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
                             <a class="nav-link mx-2 text-light" href="index.html"><i
-                                    class="fas fa-home pe-2"></i>Home</a>
+                                    class="fa-solid fa-arrow-right-from-bracket px-2"></i>Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#"><i class="fas fa-bell pe-2"></i>Recharge</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 text-light" href="#"><i
-                                    class="fas fa-circle-info pe-2"></i>Support</a>
-                        </li>
-                        <li class="nav-item ms-3">
-                            <a class="btn btn-dark rounded-pill" href="#">Login</a>
-                        </li>
+
+
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="container d-flex justify-content-center align-items-center my-5 mt-5 pt-5">
             <div class="row w-100 align-items-center">
-                <div class="col-md-6 d-none d-md-block">
-                    <img src="./images/Mobile login-bro (2).svg" alt="Login Illustration" class="img-fluid"
-                        draggable="false">
+                <div class="col-md-6 d-none d-md-flex h-80 rounded-5 align-items-center justify-content-center"
+                    style="background: #0019bd20;">
+                    <img src="./images/Mobile login-bro (3).svg" alt="Login Illustration" class="img-fluid"
+                        draggable="false" style="height: 60dvh;">
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card p-4 rounded-5" style="max-width: 400px; margin: auto;">
-                        <h3 class="text-center mb-3">Sign In to Mobicomm</h3>
+                    <div class="card p-4 border-0" style="max-width: 400px; margin: auto;">
+                        <h2 class=" mb-3 fw-bold ">Login to Mobicomm</h2>
+                        <p class="mb-5">Manage your account on-the-go</p>
                         <form id="loginForm">
-                            <div class="mb-3">
+                            <div class="mb-3" id="mobileSection">
                                 <label for="mobileNumber" class="form-label">Mobile Number</label>
                                 <input type="tel" class="form-control" id="mobileNumber"
                                     placeholder="Enter 10-digit number" pattern="[0-9]{10}" maxlength="10" required>
                                 <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+                                <button type="button" class="btn btn-primary w-100 mt-3" onclick="validateMobile()">Get
+                                    OTP</button>
                             </div>
-                            <button type="button" class="btn btn-primary w-100" onclick="validateMobile()">Get
-                                OTP</button>
 
-                            <div id="otpSection" class="mt-3" style="display: none;">
+                            <div id="otpSection" class="" style="display: none;">
                                 <label for="otp" class="form-label">Enter OTP</label>
-                                <input type="text" class="form-control" id="otp" placeholder="Enter 6-digit OTP"
+                                <input type="number" class="form-control" id="otp" placeholder="Enter 6-digit OTP"
                                     pattern="[0-9]{6}" maxlength="6" required>
                                 <div class="invalid-feedback">Enter a valid 6-digit OTP.</div>
                                 <button type="submit" class="btn btn-success w-100 mt-3">Verify OTP</button>
@@ -75,6 +69,84 @@
                 </div>
             </div>
         </div>
+        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 mt-5 border-top bg-secondary">
+            <div class="col p-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
+                </a>
+                <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
+                <div class="social-links d-flex text-light align-items-center gap-3">
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px !important ;width: 30px !important;">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px !important;width: 30px !important;">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px !important ;width: 30px !important;">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px !important;width: 30px !important;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
+                        style="height: 30px !important;width: 30px !important">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-none d-lg-block"></div> <!-- Empty column for spacing on large screens -->
+
+            <div class="col mb-4">
+                <h5 class="text-primary">Services</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="./index.html#cardNewSim" class="nav-link p-0 text-muted">Get
+                            a New Sim</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#cardEsim" class="nav-link p-0 text-muted">Get an
+                            eSim</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#card5GConnectivity"
+                            class="nav-link p-0 text-muted">5G Connectivity</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#card5GUpgrade" class="nav-link p-0 text-muted">5G
+                            Upgrade</a></li>
+                    <li class="nav-item mb-2"><a href="./admin-login.html" class="nav-link p-0 text-muted">Administrator
+                            Portal</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col mb-4">
+                <h5 class="text-primary">Recharge</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="./plans.html?p=recommended"
+                            class="nav-link p-0 text-muted">Popular Plans</a></li>
+                    <li class="nav-item mb-2"><a href="./plans.html?p=data" class="nav-link p-0 text-muted">Data
+                            Addons</a></li>
+                    <li class="nav-item mb-2"><a href="./plans.html?p=roaming"
+                            class="nav-link p-0 text-muted">International Roaming</a></li>
+                    <li class="nav-item mb-2"><a href="./plans.html?p=student" class="nav-link p-0 text-muted">Student
+                            Plans</a></li>
+                    <li class="nav-item mb-2"><a href="./plans.html?p=unlimited"
+                            class="nav-link p-0 text-muted">Unlimited Plans</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5 class="text-primary">Quick Links</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="./support.html" class="nav-link p-0 text-muted">Support</a></li>
+                    <li class="nav-item mb-2"><a href="./plans.html" class="nav-link p-0 text-muted">Plans</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#faQ" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="./aboutus.html" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+        </footer>
+
+
 
         <script>
             function validateMobile() {

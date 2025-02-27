@@ -1,749 +1,900 @@
 {
     "MC01": {
-        "tag": "SUPER SAVER",
-        "name": "Basic Plan",
-        "features": [
-            "Unlimited Data",
-            "10GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        "price": 199,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "SUPER SAVER",
+      "name": "Basic Plan",
+      "price": 199,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "10GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC02": {
-        "tag": "POCKET FRIENDLY",
-        "name": "Standard Plan",
-        "features": [
-            "Unlimited Data",
-            "20GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 299,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "POCKET FRIENDLY",
+      "name": "Standard Plan",
+      "price": 299,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "20GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC03": {
-        "tag": "INTERNATIONAL ROAMING",
-        "name": "Premium Plan",
-        "features": [
-            "Unlimited Data",
-            "50GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming & International Calls"
-        ],
-        "price": 499,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "INTERNATIONAL ROAMING",
+      "name": "Premium Plan",
+      "price": 499,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "50GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming & International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC04": {
-        "tag": "UNLIMITED",
-        "name": "Ultra Plan",
-        "features": [
-            "Unlimited Data",
-            "100GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and International Calls",
-            "Access to Premium Streaming Services"
-        ],
-        "price": 799,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "UNLIMITED",
+      "name": "Ultra Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "100GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and International Calls",
+        "Access to Premium Streaming Services"
+      ],
+      "isRecommended": true,
+      "isActive": true
     },
     "MC05": {
-        "tag": "POPULAR",
-        "name": "Super Plan",
-        "features": [
-            "Unlimited Data",
-            "200GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls"
-        ],
-        "price": 999,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Super Plan",
+      "price": 999,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "200GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC06": {
-        "tag": "HIGH SPEED",
-        "name": "Max Plan",
-        "features": [
-            "Unlimited Data",
-            "500GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, Data Sharing & Family Plans",
-            "Exclusive Premium Support and Priority Services"
-        ],
-        "price": 1499,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "HIGH SPEED",
+      "name": "Max Plan",
+      "price": 1499,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "500GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls, Data Sharing & Family Plans",
+        "Exclusive Premium Support and Priority Services"
+      ],
+      "isRecommended": true,
+      "isActive": true
     },
     "MC07": {
-        "tag": "ECONOMY",
-        "name": "Lite Plan",
-        "features": [
-            "30GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        "price": 179,
-        "categories": [
-            "data"
-        ]
+      "categories": [
+        "data"
+      ],
+      "tag": "ECONOMY",
+      "name": "Lite Plan",
+      "price": 179,
+      "validity": 30,
+      "features": [
+        "30GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC08": {
-        "tag": "FAMILY",
-        "name": "Family Plan",
-        "features": [
-            "100GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS & Roaming",
-            "Data Sharing for Family"
-        ],
-        "price": 599,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "FAMILY",
+      "name": "Family Plan",
+      "price": 599,
+      "validity": 30,
+      "features": [
+        "100GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS & Roaming",
+        "Data Sharing for Family"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC09": {
-        "tag": "BUDGET",
-        "name": "Economy Plus Plan",
-        "features": [
-            "15GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        "price": 249,
-        "categories": [
-            "data"
-        ]
+      "categories": [
+        "data"
+      ],
+      "tag": "BUDGET",
+      "name": "Economy Plus Plan",
+      "price": 249,
+      "validity": 30,
+      "features": [
+        "15GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC10": {
-        "tag": "STUDENT",
-        "name": "Student Plan",
-        "features": [
-            "50GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 399,
-        "categories": [
-            "data",
-            "unlimited",
-            "student"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "student"
+      ],
+      "tag": "STUDENT",
+      "name": "Student Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "50GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC11": {
-        "tag": "HIGH DATA",
-        "name": "Mega Plan",
-        "features": [
-            "100GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls"
-        ],
-        "price": 799,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "HIGH DATA",
+      "name": "Mega Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "100GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC12": {
-        "tag": "PREMIUM",
-        "name": "Pro Plan",
-        "features": [
-            "150GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming & International Calls"
-        ],
-        "price": 1299,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "PREMIUM",
+      "name": "Pro Plan",
+      "price": 1299,
+      "validity": 30,
+      "features": [
+        "150GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming & International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC13": {
-        "tag": "SUPER SAVER",
-        "name": "Economy Ultra Plan",
-        "features": [
-            "20GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 329,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "SUPER SAVER",
+      "name": "Economy Ultra Plan",
+      "price": 329,
+      "validity": 30,
+      "features": [
+        "20GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC14": {
-        "tag": "EXCLUSIVE",
-        "name": "VIP Plan",
-        "features": [
-            "300GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls & Data Sharing",
-            "VIP Access to OTT"
-        ],
-        "price": 1999,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "EXCLUSIVE",
+      "name": "VIP Plan",
+      "price": 1999,
+      "validity": 30,
+      "features": [
+        "300GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls & Data Sharing",
+        "VIP Access to OTT"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC15": {
-        "tag": "MAXIMUM",
-        "name": "Ultra Max Plan",
-        "features": [
-            "Unlimited Data",
-            "Unlimited High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, Data Sharing",
-            "Access to All OTT Services"
-        ],
-        "price": 2499,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "MAXIMUM",
+      "name": "Ultra Max Plan",
+      "price": 2499,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "Unlimited High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls, Data Sharing",
+        "Access to All OTT Services"
+      ],
+      "isRecommended": true,
+      "isActive": true
     },
     "MC16": {
-        "tag": "MID-RANGE",
-        "name": "Standard Plus Plan",
-        "features": [
-            "35GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 449,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "MID-RANGE",
+      "name": "Standard Plus Plan",
+      "price": 449,
+      "validity": 30,
+      "features": [
+        "35GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC17": {
-        "tag": "FAMILY PLAN",
-        "name": "Family Data Plan",
-        "features": [
-            "250GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Family Data Sharing"
-        ],
-        "price": 1399,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "FAMILY PLAN",
+      "name": "Family Data Plan",
+      "price": 1399,
+      "validity": 30,
+      "features": [
+        "250GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Family Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC18": {
-        "tag": "LOW COST",
-        "name": "Basic Data Plan",
-        "features": [
-            "5GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        "price": 149,
-        "categories": [
-            "data"
-        ]
+      "categories": [
+        "data"
+      ],
+      "tag": "LOW COST",
+      "name": "Basic Data Plan",
+      "price": 149,
+      "validity": 30,
+      "features": [
+        "5GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC19": {
-        "tag": "PREMIUM",
-        "name": "Streaming Plan",
-        "features": [
-            "100GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & OTT Services"
-        ],
-        "price": 799,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "PREMIUM",
+      "name": "Streaming Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "100GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & OTT Services"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC20": {
-        "tag": "ALL-INCLUSIVE",
-        "name": "All-in-One Plan",
-        "features": [
-            "Unlimited Data",
-            "Unlimited High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, and OTT Services"
-        ],
-        "price": 2999,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "ALL-INCLUSIVE",
+      "name": "All-in-One Plan",
+      "price": 2999,
+      "validity": 30,
+      "features": [
+        "Unlimited Data",
+        "Unlimited High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls, and OTT Services"
+      ],
+      "isRecommended": true,
+      "isActive": true
     },
     "MC21": {
-        "tag": "PREMIUM ROAMING",
-        "name": "Global Plan",
-        "features": [
-            "500GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS & International Roaming"
-        ],
-        "price": 1899,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "PREMIUM ROAMING",
+      "name": "Global Plan",
+      "price": 1899,
+      "validity": 30,
+      "features": [
+        "500GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS & International Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC22": {
-        "tag": "EXPLORE",
-        "name": "Explorer Plan",
-        "features": [
-            "20GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS & OTT Access"
-        ],
-        "price": 399,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "EXPLORE",
+      "name": "Explorer Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "20GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS & OTT Access"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC23": {
-        "tag": "POPULAR",
-        "name": "Value Pack Plan",
-        "features": [
-            "10GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        "price": 129,
-        "categories": [
-            "data"
-        ]
+      "categories": [
+        "data"
+      ],
+      "tag": "POPULAR",
+      "name": "Value Pack Plan",
+      "price": 129,
+      "validity": 30,
+      "features": [
+        "10GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC24": {
-        "tag": "GLOBAL ROAMING",
-        "name": "International Plan",
-        "features": [
-            "50GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & International Roaming"
-        ],
-        "price": 999,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "GLOBAL ROAMING",
+      "name": "International Plan",
+      "price": 999,
+      "validity": 30,
+      "features": [
+        "50GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & International Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC25": {
-        "tag": "ULTIMATE",
-        "name": "Ultimate Pro Plan",
-        "features": [
-            "500GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls & Family Sharing"
-        ],
-        "price": 1799,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "ULTIMATE",
+      "name": "Ultimate Pro Plan",
+      "price": 1799,
+      "validity": 30,
+      "features": [
+        "500GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls & Family Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC26": {
-        "tag": "ENTRY",
-        "name": "Entry Level Plan",
-        "features": [
-            "15GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS"
-        ],
-        "price": 249,
-        "categories": [
-            "data"
-        ]
+      "categories": [
+        "data"
+      ],
+      "tag": "ENTRY",
+      "name": "Entry Level Plan",
+      "price": 249,
+      "validity": 30,
+      "features": [
+        "15GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC27": {
-        "tag": "PROGRESSIVE",
-        "name": "Progressive Plan",
-        "features": [
-            "40GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS, Roaming & Data Sharing"
-        ],
-        "price": 599,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "PROGRESSIVE",
+      "name": "Progressive Plan",
+      "price": 599,
+      "validity": 30,
+      "features": [
+        "40GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS, Roaming & Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC28": {
-        "tag": "UNLIMITED DATA",
-        "name": "Super Unlimited Plan",
-        "features": [
-            "Unlimited High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 1599,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "UNLIMITED DATA",
+      "name": "Super Unlimited Plan",
+      "price": 1599,
+      "validity": 30,
+      "features": [
+        "Unlimited High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC29": {
-        "tag": "MOBILE ONLY",
-        "name": "Mobile Specific Plan",
-        "features": [
-            "20GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS"
-        ],
-        "price": 249,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "MOBILE ONLY",
+      "name": "Mobile Specific Plan",
+      "price": 249,
+      "validity": 30,
+      "features": [
+        "20GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC30": {
-        "tag": "ALL INCLUSIVE",
-        "name": "All Inclusive Plus Plan",
-        "features": [
-            "100GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and OTT Access"
-        ],
-        "price": 1499,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "ALL INCLUSIVE",
+      "name": "All Inclusive Plus Plan",
+      "price": 1499,
+      "validity": 30,
+      "features": [
+        "100GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and OTT Access"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC31": {
-        "tag": "POPULAR",
-        "name": "Budget Plan",
-        "features": [
-            "40GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 399,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "POPULAR",
+      "name": "Budget Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "40GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC32": {
-        "tag": "POPULAR",
-        "name": "Essential Plan",
-        "features": [
-            "60GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS & Roaming"
-        ],
-        "price": 499,
-        "categories": [
-            "data",
-            "unlimited"
-        ]
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "POPULAR",
+      "name": "Essential Plan",
+      "price": 499,
+      "validity": 30,
+      "features": [
+        "60GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS & Roaming"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC33": {
-        "tag": "POPULAR",
-        "name": "Smart Plan",
-        "features": [
-            "80GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Data Sharing"
-        ],
-        "price": 649,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Smart Plan",
+      "price": 649,
+      "validity": 30,
+      "features": [
+        "80GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC34": {
-        "tag": "POPULAR",
-        "name": "Ultimate Lite Plan",
-        "features": [
-            "70GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Family Sharing"
-        ],
-        "price": 799,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Ultimate Lite Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "70GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Family Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC35": {
-        "tag": "POPULAR",
-        "name": "Flexi Plan",
-        "features": [
-            "120GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and OTT Services"
-        ],
-        "price": 999,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Flexi Plan",
+      "price": 999,
+      "validity": 30,
+      "features": [
+        "120GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and OTT Services"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC36": {
-        "tag": "POPULAR",
-        "name": "Power Plan",
-        "features": [
-            "150GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, and Data Sharing"
-        ],
-        "price": 1299,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Power Plan",
+      "price": 1299,
+      "validity": 30,
+      "features": [
+        "150GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls, and Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC37": {
-        "tag": "POPULAR",
-        "name": "Global Explorer Plan",
-        "features": [
-            "200GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS, Roaming & International Calls"
-        ],
-        "price": 1499,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Global Explorer Plan",
+      "price": 1499,
+      "validity": 30,
+      "features": [
+        "200GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS, Roaming & International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC38": {
-        "tag": "POPULAR",
-        "name": "Data Max Plan",
-        "features": [
-            "250GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and OTT Access"
-        ],
-        "price": 1799,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Data Max Plan",
+      "price": 1799,
+      "validity": 30,
+      "features": [
+        "250GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and OTT Access"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC39": {
-        "tag": "POPULAR",
-        "name": "Pro+ Plan",
-        "features": [
-            "350GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Data Sharing"
-        ],
-        "price": 2099,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Pro+ Plan",
+      "price": 2099,
+      "validity": 30,
+      "features": [
+        "350GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC40": {
-        "tag": "POPULAR",
-        "name": "Super Explorer Plan",
-        "features": [
-            "450GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and OTT Services"
-        ],
-        "price": 2399,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Super Explorer Plan",
+      "price": 2399,
+      "validity": 30,
+      "features": [
+        "450GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and OTT Services"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC41": {
-        "tag": "POPULAR",
-        "name": "Supreme Plan",
-        "features": [
-            "500GB High-speed Data",
-            "Unlimited Local Calls",
-            "Free SMS, Roaming & International Calls"
-        ],
-        "price": 2599,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Supreme Plan",
+      "price": 2599,
+      "validity": 30,
+      "features": [
+        "500GB High-speed Data",
+        "Unlimited Local Calls",
+        "Free SMS, Roaming & International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC42": {
-        "tag": "POPULAR",
-        "name": "Family Plus Plan",
-        "features": [
-            "550GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Family Sharing"
-        ],
-        "price": 2899,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Family Plus Plan",
+      "price": 2899,
+      "validity": 30,
+      "features": [
+        "550GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Family Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC43": {
-        "tag": "POPULAR",
-        "name": "Mega Pro Plan",
-        "features": [
-            "600GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Data Sharing"
-        ],
-        "price": 2999,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Mega Pro Plan",
+      "price": 2999,
+      "validity": 30,
+      "features": [
+        "600GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC44": {
-        "tag": "POPULAR",
-        "name": "Platinum Plan",
-        "features": [
-            "700GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and OTT Access"
-        ],
-        "price": 3299,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Platinum Plan",
+      "price": 3299,
+      "validity": 30,
+      "features": [
+        "700GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and OTT Access"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC45": {
-        "tag": "POPULAR",
-        "name": "Elite Plan",
-        "features": [
-            "800GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and Family Sharing"
-        ],
-        "price": 3599,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Elite Plan",
+      "price": 3599,
+      "validity": 30,
+      "features": [
+        "800GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and Family Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC46": {
-        "tag": "POPULAR",
-        "name": "Diamond Plan",
-        "features": [
-            "900GB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, and OTT Services"
-        ],
-        "price": 3899,
-        "categories": [
-            "data",
-            "unlimited",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Diamond Plan",
+      "price": 3899,
+      "validity": 30,
+      "features": [
+        "900GB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, and OTT Services"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC47": {
-        "tag": "POPULAR",
-        "name": "Global Max Plan",
-        "features": [
-            "1TB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming & International Calls"
-        ],
-        "price": 4199,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Global Max Plan",
+      "price": 4199,
+      "validity": 30,
+      "features": [
+        "1TB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming & International Calls"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC48": {
-        "tag": "POPULAR",
-        "name": "Super Family Plan",
-        "features": [
-            "1.2TB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming & Family Data Sharing"
-        ],
-        "price": 4499,
-        "categories": [
-            "data",
-            "unlimited",
-            "family"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Super Family Plan",
+      "price": 4499,
+      "validity": 30,
+      "features": [
+        "1.2TB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming & Family Data Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC49": {
-        "tag": "POPULAR",
-        "name": "Ultra Premium Plan",
-        "features": [
-            "1.5TB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, International Calls, and OTT Access"
-        ],
-        "price": 4999,
-        "categories": [
-            "data",
-            "unlimited",
-            "roaming",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Ultra Premium Plan",
+      "price": 4999,
+      "validity": 30,
+      "features": [
+        "1.5TB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, International Calls, and OTT Access"
+      ],
+      "isRecommended": false,
+      "isActive": true
     },
     "MC50": {
-        "tag": "POPULAR",
-        "name": "Mega Explorer Plan",
-        "features": [
-            "2TB High-speed Data",
-            "Unlimited Local & STD Calls",
-            "Free SMS, Roaming, OTT Access, and Family Sharing"
-        ],
-        "price": 5999,
-        "categories": [
-            "data",
-            "unlimited",
-            "family",
-            "ott"
-        ]
+      "categories": [
+        "data",
+        "unlimited",
+        "family",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Mega Explorer Plan",
+      "price": 5999,
+      "validity": 30,
+      "features": [
+        "2TB High-speed Data",
+        "Unlimited Local & STD Calls",
+        "Free SMS, Roaming, OTT Access, and Family Sharing"
+      ],
+      "isRecommended": false,
+      "isActive": true
     }
-}
+  }
+  

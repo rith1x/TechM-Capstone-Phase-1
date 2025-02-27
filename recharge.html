@@ -100,26 +100,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Transaction Status</h5>
-                    </div>
-                    <div class="modal-body text-center">
-                        <div class="donut-chart">
-                            <img src="./images/Animation - 1739948359037.gif" id="tick" class=""
-                                style="width: 108px; height: 108px; border-radius: 50%;" alt="">
-                        </div>
-                        <p id="message">Please wait...</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="closeBtn" class="btn btn-secondary btn-close d-none"
-                            data-bs-dismiss="modal"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 mt-5 border-top bg-secondary">
             <div class="col p-3">
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
@@ -155,10 +136,14 @@
             <div class="col mb-4">
                 <h5 class="text-primary">Services</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="./index.html#cardNewSim" class="nav-link p-0 text-muted">Get a New Sim</a></li>
-                    <li class="nav-item mb-2"><a href="./index.html#cardEsim" class="nav-link p-0 text-muted">Get an eSim</a></li>
-                    <li class="nav-item mb-2"><a href="./index.html#card5GConnectivity" class="nav-link p-0 text-muted">5G Connectivity</a></li>
-                    <li class="nav-item mb-2"><a href="./index.html#card5GUpgrade" class="nav-link p-0 text-muted">5G Upgrade</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#cardNewSim" class="nav-link p-0 text-muted">Get a
+                            New Sim</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#cardEsim" class="nav-link p-0 text-muted">Get an
+                            eSim</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#card5GConnectivity"
+                            class="nav-link p-0 text-muted">5G Connectivity</a></li>
+                    <li class="nav-item mb-2"><a href="./index.html#card5GUpgrade" class="nav-link p-0 text-muted">5G
+                            Upgrade</a></li>
                     <li class="nav-item mb-2"><a href="./admin-login.html" class="nav-link p-0 text-muted">Administrator
                             Portal</a>
                     </li>
@@ -267,13 +252,12 @@
             }
 
             function showTransactionModal() {
-                const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-                myModal.show();
+                window.location.href = `./gateway.html?a=${price}`;
             }
             let paramsearcher = new URLSearchParams(window.location.search);
 
             let price = 0;
-            fetch('./plans.json')
+            fetch('http://localhost:3000/plans')
                 .then(res => res.json())
                 .then(data => {
                     let id = paramsearcher.get('planid');
@@ -291,54 +275,6 @@
                 });
 
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const myModal = document.getElementById('myModal');
-                myModal.addEventListener('shown.bs.modal', function () {
-                    const message = document.getElementById('message');
-                    const progress = document.getElementById('progress');
-                    const closeButton = myModal.querySelector('.btn-close');
-                    const steps = [
-                        { text: "Please wait...", duration: 1000, progress: 0 },
-                        { text: "Starting transaction...", duration: 2000, progress: 50 },
-                        { text: "Verifying transaction...", duration: 2000, progress: 100 },
-                        { text: "Payment successful!", duration: 0, progress: 100 }
-                    ];
-
-                    let currentStep = 0;
-
-                    function showStep(step) {
-                        message.textContent = step.text;
-                        if (currentStep === steps.length - 1) {
-                            closeButton.style.display = 'block';
-                            setTimeout(() => {
-                                document.getElementById('tick').src = './images/tick.png'
-
-                            }, 400)
-                        }
-                    }
-
-                    function processSteps() {
-                        if (currentStep < steps.length) {
-                            showStep(steps[currentStep]);
-
-                            if (steps[currentStep].duration > 0) {
-                                setTimeout(processSteps, steps[currentStep].duration);
-                            } else {
-                                setTimeout(processSteps, 500);
-                            }
-                            currentStep++;
-                        }
-                    }
-
-                    processSteps();
-                });
-
-                myModal.addEventListener('hidden.bs.modal', function () {
-                    const closeButton = document.getElementById('closeBtn');
-
-                    closeButton.classList.remove('d-none');
-                });
-            });
 
         </script>
 

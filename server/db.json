@@ -1,1783 +1,2362 @@
 {
-    "plans": {
-        "MC01": {
-            "tag": "SUPER SAVER",
-            "name": "Basic Plan",
-            "features": [
-                "Unlimited Data",
-                "10GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS"
-            ],
-            "price": 149,
-            "categories": [
-                "data",
-                "unlimited"
-            ]
-        },
-        "MC02": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "POCKET FRIENDLY",
-            "name": "Standard Plan",
-            "price": 299,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "20GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
-            ]
-        },
-        "MC03": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "INTERNATIONAL ROAMING",
-            "name": "Premium Plan",
-            "price": 499,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "50GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming & International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC04": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "UNLIMITED",
-            "name": "Ultra Plan",
-            "price": 799,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "100GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and International Calls",
-                "Access to Premium Streaming Services"
-            ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "hbomax"
-            ]
-        },
-        "MC05": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Super Plan",
-            "price": 999,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "200GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo"
-            ]
-        },
-        "MC06": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "HIGH SPEED",
-            "name": "Max Plan",
-            "price": 1499,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "500GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls, Data Sharing & Family Plans",
-                "Exclusive Premium Support and Priority Services"
-            ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "hulu"
-            ]
-        },
-        "MC07": {
-            "categories": [
-                "data"
-            ],
-            "tag": "ECONOMY",
-            "name": "Lite Plan",
-            "price": 179,
-            "validity": 30,
-            "features": [
-                "30GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax"
-            ]
-        },
-        "MC08": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "FAMILY",
-            "name": "Family Plan",
-            "price": 599,
-            "validity": 30,
-            "features": [
-                "100GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS & Roaming",
-                "Data Sharing for Family"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "disney+"
-            ]
-        },
-        "MC09": {
-            "categories": [
-                "data"
-            ],
-            "tag": "BUDGET",
-            "name": "Economy Plus Plan",
-            "price": 249,
-            "validity": 30,
-            "features": [
-                "15GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
-            ]
-        },
-        "MC10": {
-            "categories": [
-                "data",
-                "unlimited",
-                "student"
-            ],
-            "tag": "STUDENT",
-            "name": "Student Plan",
-            "price": 399,
-            "validity": 30,
-            "features": [
-                "50GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu"
-            ]
-        },
-        "MC11": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "HIGH DATA",
-            "name": "Mega Plan",
-            "price": 799,
-            "validity": 30,
-            "features": [
-                "100GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "netflix"
-            ]
-        },
-        "MC12": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "PREMIUM",
-            "name": "Pro Plan",
-            "price": 1299,
-            "validity": 30,
-            "features": [
-                "150GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming & International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "disney+"
-            ]
-        },
-        "MC13": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "SUPER SAVER",
-            "name": "Economy Ultra Plan",
-            "price": 329,
-            "validity": 30,
-            "features": [
-                "20GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "hbomax"
-            ]
-        },
-        "MC14": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "EXCLUSIVE",
-            "name": "VIP Plan",
-            "price": 1999,
-            "validity": 30,
-            "features": [
-                "300GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls & Data Sharing",
-                "VIP Access to OTT"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix"
-            ]
-        },
-        "MC15": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "MAXIMUM",
-            "name": "Ultra Max Plan",
-            "price": 2499,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "Unlimited High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls, Data Sharing",
-                "Access to All OTT Services"
-            ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "hulu"
-            ]
-        },
-        "MC16": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "MID-RANGE",
-            "name": "Standard Plus Plan",
-            "price": 449,
-            "validity": 30,
-            "features": [
-                "35GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC17": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "FAMILY PLAN",
-            "name": "Family Data Plan",
-            "price": 1399,
-            "validity": 30,
-            "features": [
-                "250GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Family Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "primevideo"
-            ]
-        },
-        "MC18": {
-            "categories": [
-                "data"
-            ],
-            "tag": "LOW COST",
-            "name": "Basic Data Plan",
-            "price": 149,
-            "validity": 30,
-            "features": [
-                "5GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hulu"
-            ]
-        },
-        "MC19": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "PREMIUM",
-            "name": "Streaming Plan",
-            "price": 799,
-            "validity": 30,
-            "features": [
-                "100GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & OTT Services"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC20": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "ALL-INCLUSIVE",
-            "name": "All-in-One Plan",
-            "price": 2999,
-            "validity": 30,
-            "features": [
-                "Unlimited Data",
-                "Unlimited High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls, and OTT Services"
-            ],
-            "isRecommended": true,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo",
-                "hbomax"
-            ]
-        },
-        "MC21": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "PREMIUM ROAMING",
-            "name": "Global Plan",
-            "price": 1899,
-            "validity": 30,
-            "features": [
-                "500GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS & International Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "hulu"
-            ]
-        },
-        "MC22": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "EXPLORE",
-            "name": "Explorer Plan",
-            "price": 399,
-            "validity": 30,
-            "features": [
-                "20GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS & OTT Access"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hbomax"
-            ]
-        },
-        "MC23": {
-            "categories": [
-                "data"
-            ],
-            "tag": "POPULAR",
-            "name": "Value Pack Plan",
-            "price": 129,
-            "validity": 30,
-            "features": [
-                "10GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "disney+"
-            ]
-        },
-        "MC24": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "GLOBAL ROAMING",
-            "name": "International Plan",
-            "price": 999,
-            "validity": 30,
-            "features": [
-                "50GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & International Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "netflix"
-            ]
-        },
-        "MC25": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "ULTIMATE",
-            "name": "Ultimate Pro Plan",
-            "price": 1799,
-            "validity": 30,
-            "features": [
-                "500GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls & Family Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "disney+"
-            ]
-        },
-        "MC26": {
-            "categories": [
-                "data"
-            ],
-            "tag": "ENTRY",
-            "name": "Entry Level Plan",
-            "price": 249,
-            "validity": 30,
-            "features": [
-                "15GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
-            ]
-        },
-        "MC27": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "PROGRESSIVE",
-            "name": "Progressive Plan",
-            "price": 599,
-            "validity": 30,
-            "features": [
-                "40GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS, Roaming & Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu"
-            ]
-        },
-        "MC28": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "UNLIMITED DATA",
-            "name": "Super Unlimited Plan",
-            "price": 1599,
-            "validity": 30,
-            "features": [
-                "Unlimited High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hbomax"
-            ]
-        },
-        "MC29": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "MOBILE ONLY",
-            "name": "Mobile Specific Plan",
-            "price": 249,
-            "validity": 30,
-            "features": [
-                "20GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC30": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "ALL INCLUSIVE",
-            "name": "All Inclusive Plus Plan",
-            "price": 1499,
-            "validity": 30,
-            "features": [
-                "100GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and OTT Access"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "hulu"
-            ]
-        },
-        "MC31": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "POPULAR",
-            "name": "Budget Plan",
-            "price": 399,
-            "validity": 30,
-            "features": [
-                "40GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix"
-            ]
-        },
-        "MC32": {
-            "categories": [
-                "data",
-                "unlimited"
-            ],
-            "tag": "POPULAR",
-            "name": "Essential Plan",
-            "price": 499,
-            "validity": 30,
-            "features": [
-                "60GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS & Roaming"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "primevideo"
-            ]
-        },
-        "MC33": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Smart Plan",
-            "price": 649,
-            "validity": 30,
-            "features": [
-                "80GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax"
-            ]
-        },
-        "MC34": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Ultimate Lite Plan",
-            "price": 799,
-            "validity": 30,
-            "features": [
-                "70GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Family Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hulu"
-            ]
-        },
-        "MC35": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Flexi Plan",
-            "price": 999,
-            "validity": 30,
-            "features": [
-                "120GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and OTT Services"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "hbomax"
-            ]
-        },
-        "MC36": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
-            "name": "Power Plan",
-            "price": 1299,
-            "validity": 30,
-            "features": [
-                "150GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls, and Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+"
-            ]
-        },
-        "MC37": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
-            "name": "Global Explorer Plan",
-            "price": 1499,
-            "validity": 30,
-            "features": [
-                "200GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS, Roaming & International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo"
-            ]
-        },
-        "MC38": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Data Max Plan",
-            "price": 1799,
-            "validity": 30,
-            "features": [
-                "250GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and OTT Access"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "disney+"
-            ]
-        },
-        "MC39": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Pro+ Plan",
-            "price": 2099,
-            "validity": 30,
-            "features": [
-                "350GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "netflix"
-            ]
-        },
-        "MC40": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Super Explorer Plan",
-            "price": 2399,
-            "validity": 30,
-            "features": [
-                "450GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and OTT Services"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "disney+"
-            ]
-        },
-        "MC41": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
-            "name": "Supreme Plan",
-            "price": 2599,
-            "validity": 30,
-            "features": [
-                "500GB High-speed Data",
-                "Unlimited Local Calls",
-                "Free SMS, Roaming & International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu"
-            ]
-        },
-        "MC42": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Family Plus Plan",
-            "price": 2899,
-            "validity": 30,
-            "features": [
-                "550GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Family Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax",
-                "primevideo"
-            ]
-        },
-        "MC43": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Mega Pro Plan",
-            "price": 2999,
-            "validity": 30,
-            "features": [
-                "600GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "disney+"
-            ]
-        },
-        "MC44": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Platinum Plan",
-            "price": 3299,
-            "validity": 30,
-            "features": [
-                "700GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and OTT Access"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hulu",
-                "hbomax"
-            ]
-        },
-        "MC45": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Elite Plan",
-            "price": 3599,
-            "validity": 30,
-            "features": [
-                "800GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and Family Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo"
-            ]
-        },
-        "MC46": {
-            "categories": [
-                "data",
-                "unlimited",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Diamond Plan",
-            "price": 3899,
-            "validity": 30,
-            "features": [
-                "900GB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, and OTT Services"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "hulu",
-                "disney+"
-            ]
-        },
-        "MC47": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming"
-            ],
-            "tag": "POPULAR",
-            "name": "Global Max Plan",
-            "price": 4199,
-            "validity": 30,
-            "features": [
-                "1TB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming & International Calls"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "hbomax"
-            ]
-        },
-        "MC48": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family"
-            ],
-            "tag": "POPULAR",
-            "name": "Super Family Plan",
-            "price": 4499,
-            "validity": 30,
-            "features": [
-                "1.2TB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming & Family Data Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "primevideo",
-                "netflix"
-            ]
-        },
-        "MC49": {
-            "categories": [
-                "data",
-                "unlimited",
-                "roaming",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Ultra Premium Plan",
-            "price": 4999,
-            "validity": 30,
-            "features": [
-                "1.5TB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, International Calls, and OTT Access"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "disney+",
-                "hbomax"
-            ]
-        },
-        "MC50": {
-            "categories": [
-                "data",
-                "unlimited",
-                "family",
-                "ott"
-            ],
-            "tag": "POPULAR",
-            "name": "Mega Explorer Plan",
-            "price": 5999,
-            "validity": 30,
-            "features": [
-                "2TB High-speed Data",
-                "Unlimited Local & STD Calls",
-                "Free SMS, Roaming, OTT Access, and Family Sharing"
-            ],
-            "isRecommended": false,
-            "isActive": true,
-            "featuredApps": [
-                "netflix",
-                "primevideo",
-                "hulu"
-            ]
-        }
+  "plans": {
+    "MC01": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "SUPER SAVER",
+      "name": "Basic Plan",
+      "price": 199,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "2GB Data",
+        "30 days",
+        "Basic OTT streaming access",
+        "Complimentary caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
     },
-    "admin": {
-        "username": "admin",
-        "password": "admin"
+    "MC02": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "POCKET FRIENDLY",
+      "name": "Standard Plan",
+      "price": 299,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "4GB Data",
+        "30 days",
+        "Personalized caller tunes service",
+        "Enjoy bonus free data hour"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
     },
-    "mobicomm_users": {
-        "0": "7695978577",
-        "1": "7695978566",
-        "2": "7695978555"
+    "MC03": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "INTERNATIONAL ROAMING",
+      "name": "Premium Plan",
+      "price": 499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "6GB Data",
+        "30 days",
+        "Premium OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
     },
-    "users": [
+    "MC04": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "UNLIMITED",
+      "name": "Ultra Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "8GB Data",
+        "30 days",
+        "High quality OTT streaming",
+        "Enjoy bonus free data hour"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+",
+        "hbomax"
+      ]
+    },
+    "MC05": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Super Plan",
+      "price": 999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "10GB Data",
+        "30 days",
+        "Standard caller tunes package",
+        "Complimentary OTT service activation"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC06": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "HIGH SPEED",
+      "name": "Max Plan",
+      "price": 1499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "15GB Data",
+        "30 days",
+        "Premium OTT streaming",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC07": {
+      "categories": [
+        "data"
+      ],
+      "tag": "ECONOMY",
+      "name": "Lite Plan",
+      "price": 179,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "1GB Data",
+        "30 days",
+        "Basic caller tunes service",
+        "Entry-level OTT streaming"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC08": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "FAMILY",
+      "name": "Family Plan",
+      "price": 599,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "5GB Data",
+        "30 days",
+        "Comprehensive family OTT streaming",
+        "Enhanced caller tunes for families"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC09": {
+      "categories": [
+        "data"
+      ],
+      "tag": "BUDGET",
+      "name": "Economy Plus Plan",
+      "price": 249,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "2GB Data",
+        "30 days",
+        "Standard caller tunes service",
+        "Enjoy bonus free data hour"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC10": {
+      "categories": [
+        "data",
+        "unlimited",
+        "student"
+      ],
+      "tag": "STUDENT",
+      "name": "Student Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "3GB Data",
+        "30 days",
+        "Student OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC11": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "HIGH DATA",
+      "name": "Mega Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "7GB Data",
+        "30 days",
+        "Premium OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC12": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "PREMIUM",
+      "name": "Pro Plan",
+      "price": 1299,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "8GB Data",
+        "30 days",
+        "Advanced caller tunes service",
+        "Enjoy bonus free data hour"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC13": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "SUPER SAVER",
+      "name": "Economy Ultra Plan",
+      "price": 329,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "2GB Data",
+        "30 days",
+        "Basic OTT streaming access",
+        "Standard caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC14": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "EXCLUSIVE",
+      "name": "VIP Plan",
+      "price": 1999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "12GB Data",
+        "30 days",
+        "Exclusive OTT streaming access",
+        "Complimentary caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC15": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "MAXIMUM",
+      "name": "Ultra Max Plan",
+      "price": 2499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "20GB Data",
+        "30 days",
+        "Personalized caller tunes service",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix",
+        "primevideo"
+      ]
+    },
+    "MC16": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "MID-RANGE",
+      "name": "Standard Plus Plan",
+      "price": 449,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "4GB Data",
+        "30 days",
+        "Standard OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC17": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "FAMILY PLAN",
+      "name": "Family Data Plan",
+      "price": 1399,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "10GB Data",
+        "30 days",
+        "Family OTT streaming benefits",
+        "Exclusive caller tunes for families"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC18": {
+      "categories": [
+        "data"
+      ],
+      "tag": "LOW COST",
+      "name": "Basic Data Plan",
+      "price": 149,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "500MB Data",
+        "30 days",
+        "Basic caller tunes service",
+        "Bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC19": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "PREMIUM",
+      "name": "Streaming Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "8GB Data",
+        "30 days",
+        "Premium OTT streaming access",
+        "Complimentary caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC20": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "ALL-INCLUSIVE",
+      "name": "All-in-One Plan",
+      "price": 2999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "Unlimited Data",
+        "30 days",
+        "All-inclusive OTT streaming",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC21": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "PREMIUM ROAMING",
+      "name": "Global Plan",
+      "price": 1899,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "10GB Data",
+        "30 days",
+        "High quality international OTT access",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC22": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "EXPLORE",
+      "name": "Explorer Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "3GB Data",
+        "30 days",
+        "Advanced OTT streaming service",
+        "Personalized caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC23": {
+      "categories": [
+        "data"
+      ],
+      "tag": "POPULAR",
+      "name": "Value Pack Plan",
+      "price": 129,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "1GB Data",
+        "30 days",
+        "Basic caller tunes service",
+        "Access to basic OTT streaming"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC24": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "GLOBAL ROAMING",
+      "name": "International Plan",
+      "price": 999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "6GB Data",
+        "30 days",
+        "Premium OTT streaming service",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC25": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "ULTIMATE",
+      "name": "Ultimate Pro Plan",
+      "price": 1799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "20GB Data",
+        "30 days",
+        "Comprehensive family OTT streaming",
+        "Exclusive caller tunes for families"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC26": {
+      "categories": [
+        "data"
+      ],
+      "tag": "ENTRY",
+      "name": "Entry Level Plan",
+      "price": 249,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "1GB Data",
+        "30 days",
+        "Personalized caller tunes service",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC27": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "PROGRESSIVE",
+      "name": "Progressive Plan",
+      "price": 599,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "5GB Data",
+        "30 days",
+        "Standard OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC28": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "UNLIMITED DATA",
+      "name": "Super Unlimited Plan",
+      "price": 1599,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "Unlimited Data",
+        "30 days",
+        "Unlimited OTT streaming access",
+        "Bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC29": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "MOBILE ONLY",
+      "name": "Mobile Specific Plan",
+      "price": 249,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "2GB Data",
+        "30 days",
+        "Standard caller tunes service",
+        "Access to basic OTT streaming"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC30": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "ALL INCLUSIVE",
+      "name": "All Inclusive Plus Plan",
+      "price": 1499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "15GB Data",
+        "30 days",
+        "Inclusive OTT streaming service",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC31": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "POPULAR",
+      "name": "Budget Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "1GB Data",
+        "30 days",
+        "Basic caller tunes service",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC32": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "POPULAR",
+      "name": "Essential Plan",
+      "price": 499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "3GB Data",
+        "30 days",
+        "Essential OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC33": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Smart Plan",
+      "price": 649,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "4GB Data",
+        "30 days",
+        "Premium OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC34": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Ultimate Lite Plan",
+      "price": 799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "5GB Data",
+        "30 days",
+        "High quality OTT streaming access",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC35": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Flexi Plan",
+      "price": 999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "7GB Data",
+        "30 days",
+        "Personalized caller tunes service",
+        "Access to premium OTT streaming"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC36": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Power Plan",
+      "price": 1299,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "10GB Data",
+        "30 days",
+        "Advanced OTT streaming service",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC37": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Global Explorer Plan",
+      "price": 1499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "12GB Data",
+        "30 days",
+        "High quality OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC38": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Data Max Plan",
+      "price": 1799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "Unlimited Data",
+        "30 days",
+        "All-inclusive OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC39": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Pro+ Plan",
+      "price": 2099,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "15GB Data",
+        "30 days",
+        "Exclusive caller tunes package",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC40": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Super Explorer Plan",
+      "price": 2399,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "18GB Data",
+        "30 days",
+        "Premium OTT streaming service",
+        "Personalized caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC41": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Supreme Plan",
+      "price": 2599,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "20GB Data",
+        "30 days",
+        "High quality international OTT access",
+        "Complimentary caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC42": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Family Plus Plan",
+      "price": 2899,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "25GB Data",
+        "30 days",
+        "Comprehensive family OTT streaming access",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC43": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Mega Pro Plan",
+      "price": 2999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "30GB Data",
+        "30 days",
+        "Advanced OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC44": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Platinum Plan",
+      "price": 3299,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "35GB Data",
+        "30 days",
+        "Exclusive OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC45": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Elite Plan",
+      "price": 3599,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "40GB Data",
+        "30 days",
+        "Standard caller tunes service",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC46": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Diamond Plan",
+      "price": 3899,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "45GB Data",
+        "30 days",
+        "Premium OTT streaming access",
+        "Complimentary caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC47": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "POPULAR",
+      "name": "Global Max Plan",
+      "price": 4199,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "50GB Data",
+        "30 days",
+        "High quality global OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC48": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "POPULAR",
+      "name": "Super Family Plan",
+      "price": 4499,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "55GB Data",
+        "30 days",
+        "Comprehensive family OTT streaming access",
+        "Enjoy bonus free data hour offer"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC49": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Ultra Premium Plan",
+      "price": 4999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "60GB Data",
+        "30 days",
+        "All-inclusive OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC50": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family",
+        "ott"
+      ],
+      "tag": "POPULAR",
+      "name": "Mega Explorer Plan",
+      "price": 5999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "65GB Data",
+        "30 days",
+        "Premium family OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC51": {
+      "categories": [
+        "data"
+      ],
+      "tag": "BASIC",
+      "name": "Starter Plan",
+      "price": 99,
+      "validity": 30,
+      "features": [
+        "50mins Calls",
+        "500MB Data",
+        "30 days",
+        "Basic OTT streaming access",
+        "Limited caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC52": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "VALUE",
+      "name": "Value Plan",
+      "price": 149,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "1GB Data",
+        "30 days",
+        "Standard OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC53": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "ADVANCED",
+      "name": "Advanced Plan",
+      "price": 549,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "8GB Data",
+        "30 days",
+        "High quality OTT streaming access",
+        "Complimentary caller tunes package"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC54": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "DELUXE",
+      "name": "Deluxe Plan",
+      "price": 899,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "10GB Data",
+        "30 days",
+        "Premium OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC55": {
+      "categories": [
+        "data"
+      ],
+      "tag": "ECONOMY PLUS",
+      "name": "Economy Plus 2.0",
+      "price": 279,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "2GB Data",
+        "30 days",
+        "Basic OTT streaming access",
+        "Standard caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC56": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "FAMILY PLUS",
+      "name": "Family Plus 2.0",
+      "price": 699,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "5GB Data",
+        "30 days",
+        "Comprehensive family OTT streaming access",
+        "Enhanced caller tunes for families"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC57": {
+      "categories": [
+        "data",
+        "unlimited",
+        "student"
+      ],
+      "tag": "STUDENT PLUS",
+      "name": "Student Plus Plan",
+      "price": 449,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "4GB Data",
+        "30 days",
+        "Student OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC58": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming",
+        "ott"
+      ],
+      "tag": "PREMIUM PLUS",
+      "name": "Premium Plus Plan",
+      "price": 1299,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "12GB Data",
+        "30 days",
+        "Advanced OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC59": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "ULTIMATE PLUS",
+      "name": "Ultimate Plus Plan",
+      "price": 1999,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "16GB Data",
+        "30 days",
+        "All-inclusive OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC60": {
+      "categories": [
+        "data"
+      ],
+      "tag": "EXPRESS",
+      "name": "Express Plan",
+      "price": 399,
+      "validity": 30,
+      "features": [
+        "200mins Calls",
+        "3GB Data",
+        "30 days",
+        "Express OTT streaming access",
+        "Basic caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC61": {
+      "categories": [
+        "data"
+      ],
+      "tag": "MINI",
+      "name": "Mini Plan",
+      "price": 89,
+      "validity": 30,
+      "features": [
+        "50mins Calls",
+        "300MB Data",
+        "30 days",
+        "Compact OTT streaming access",
+        "Limited caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC62": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "STANDARD",
+      "name": "Standard Plus 2.0",
+      "price": 549,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "6GB Data",
+        "30 days",
+        "Standard OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC63": {
+      "categories": [
+        "data",
+        "unlimited",
+        "family"
+      ],
+      "tag": "FAMILY DELUXE",
+      "name": "Family Deluxe Plan",
+      "price": 1099,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "10GB Data",
+        "30 days",
+        "Deluxe family OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC64": {
+      "categories": [
+        "data",
+        "unlimited",
+        "roaming"
+      ],
+      "tag": "INTERNATIONAL",
+      "name": "International Plus Plan",
+      "price": 1399,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "8GB Data",
+        "30 days",
+        "International OTT streaming access",
+        "Premium caller tunes service"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC65": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "ADVANTAGE",
+      "name": "Advantage Plan",
+      "price": 649,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "7GB Data",
+        "30 days",
+        "Advantage OTT streaming service",
+        "Standard caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hulu"
+      ]
+    },
+    "MC66": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott",
+        "family"
+      ],
+      "tag": "ELITE",
+      "name": "Elite Plus Plan",
+      "price": 1799,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "18GB Data",
+        "30 days",
+        "Elite OTT streaming access",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "disney+"
+      ]
+    },
+    "MC67": {
+      "categories": [
+        "data"
+      ],
+      "tag": "BASIC PLUS",
+      "name": "Basic Plus Plan",
+      "price": 199,
+      "validity": 30,
+      "features": [
+        "100mins Calls",
+        "2GB Data",
+        "30 days",
+        "Basic OTT streaming access",
+        "Standard caller tunes service"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "hbomax"
+      ]
+    },
+    "MC68": {
+      "categories": [
+        "data",
+        "unlimited"
+      ],
+      "tag": "VALUE PLUS",
+      "name": "Value Plus Plan",
+      "price": 349,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "3GB Data",
+        "30 days",
+        "Value OTT streaming service",
+        "Complimentary caller tunes package"
+      ],
+      "isRecommended": false,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    },
+    "MC69": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott"
+      ],
+      "tag": "PRO",
+      "name": "Pro Plus Plan",
+      "price": 899,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "7GB Data",
+        "30 days",
+        "Pro OTT streaming access",
+        "Exclusive caller tunes package"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "netflix"
+      ]
+    },
+    "MC70": {
+      "categories": [
+        "data",
+        "unlimited",
+        "ott",
+        "roaming"
+      ],
+      "tag": "ULTIMATE",
+      "name": "Ultimate Explorer Plan",
+      "price": 2599,
+      "validity": 30,
+      "features": [
+        "Unlimited Calls",
+        "25GB Data",
+        "30 days",
+        "Ultimate OTT streaming experience",
+        "Personalized caller tunes service"
+      ],
+      "isRecommended": true,
+      "isActive": true,
+      "isHidden": false,
+      "featuredApps": [
+        "primevideo"
+      ]
+    }
+  },
+  "admin": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "mobicomm_users": {
+    "0": "7695978577",
+    "1": "7695978566",
+    "2": "7695978555"
+  },
+  "users": [
+    {
+      "name": "Alice Johnson",
+      "mobile": "9000000001",
+      "plan_id": "MC01",
+      "expiry": "2025-02-26",
+      "email": "alice.johnson@example.com",
+      "status": "active",
+      "rechargeHistory": [
         {
-            "name": "Alice Johnson",
-            "mobile": "9000000001",
-            "plan_id": "MC01",
-            "expiry": "2025-02-26",
-            "email": "alice.johnson@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Basic Recharge",
-                    "date": "2025-03-01",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Data Boost",
-                    "date": "2025-03-05",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "a4da"
+          "planName": "Basic Recharge",
+          "date": "2025-03-01",
+          "paymentType": "UPI"
         },
         {
-            "name": "Bob Smith",
-            "mobile": "9000000002",
-            "plan_id": "MC02",
-            "expiry": "2025-02-26",
-            "email": "bob.smith@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Standard Recharge",
-                    "date": "2025-03-02",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-06",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "9da3"
-        },
-        {
-            "name": "Charlie Davis",
-            "mobile": "9000000003",
-            "plan_id": "MC03",
-            "expiry": "2025-02-27",
-            "email": "charlie.davis@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Premium Recharge",
-                    "date": "2025-03-03",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Data Plan",
-                    "date": "2025-03-07",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "50b6"
-        },
-        {
-            "name": "Diana Prince",
-            "mobile": "9000000004",
-            "plan_id": "MC04",
-            "expiry": "2025-02-25",
-            "email": "diana.prince@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Ultra Recharge",
-                    "date": "2025-03-04",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Standard Recharge",
-                    "date": "2025-03-08",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "08df"
-        },
-        {
-            "name": "Ethan Hunt",
-            "mobile": "9000000005",
-            "plan_id": "MC05",
-            "expiry": "2025-03-19",
-            "email": "ethan.hunt@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Family Recharge",
-                    "date": "2025-03-05",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Data Recharge",
-                    "date": "2025-03-09",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "9a03"
-        },
-        {
-            "name": "Fiona Gallagher",
-            "mobile": "9000000006",
-            "plan_id": "MC06",
-            "expiry": "2025-03-20",
-            "email": "fiona.gallagher@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Max Recharge",
-                    "date": "2025-03-06",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-10",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "b8f6"
-        },
-        {
-            "name": "George Martin",
-            "mobile": "9000000007",
-            "plan_id": "MC07",
-            "expiry": "2025-03-21",
-            "email": "george.martin@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Lite Recharge",
-                    "date": "2025-03-07",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Standard Recharge",
-                    "date": "2025-03-11",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "a07c"
-        },
-        {
-            "name": "Hannah Lee",
-            "mobile": "9000000008",
-            "plan_id": "MC08",
-            "expiry": "2025-03-22",
-            "email": "hannah.lee@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Family Recharge",
-                    "date": "2025-03-08",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-12",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "576e"
-        },
-        {
-            "name": "Ian McKellen",
-            "mobile": "9000000009",
-            "plan_id": "MC09",
-            "expiry": "2025-03-23",
-            "email": "ian.mckellen@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Economy Recharge",
-                    "date": "2025-03-09",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Data Boost",
-                    "date": "2025-03-13",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "7120"
-        },
-        {
-            "name": "Julia Roberts",
-            "mobile": "9000000010",
-            "plan_id": "MC10",
-            "expiry": "2025-03-24",
-            "email": "julia.roberts@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Student Recharge",
-                    "date": "2025-03-10",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Top Up Recharge",
-                    "date": "2025-03-14",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "a78d"
-        },
-        {
-            "name": "Kevin Bacon",
-            "mobile": "9000000011",
-            "plan_id": "MC11",
-            "expiry": "2025-03-25",
-            "email": "kevin.bacon@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Mega Recharge",
-                    "date": "2025-03-11",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Premium Recharge",
-                    "date": "2025-03-15",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "6b15"
-        },
-        {
-            "name": "Laura Palmer",
-            "mobile": "9000000012",
-            "plan_id": "MC12",
-            "expiry": "2025-03-26",
-            "email": "laura.palmer@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Pro Recharge",
-                    "date": "2025-03-12",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Data Plan Recharge",
-                    "date": "2025-03-16",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "28b5"
-        },
-        {
-            "name": "Michael Jordan",
-            "mobile": "9000000013",
-            "plan_id": "MC13",
-            "expiry": "2025-03-27",
-            "email": "michael.jordan@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Economy Ultra Recharge",
-                    "date": "2025-03-13",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Standard Recharge",
-                    "date": "2025-03-17",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "477f"
-        },
-        {
-            "name": "Nina Simone",
-            "mobile": "9000000014",
-            "plan_id": "MC14",
-            "expiry": "2025-03-28",
-            "email": "nina.simone@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "VIP Recharge",
-                    "date": "2025-03-14",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-18",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "b5f4"
-        },
-        {
-            "name": "Oscar Wilde",
-            "mobile": "9000000015",
-            "plan_id": "MC15",
-            "expiry": "2025-03-29",
-            "email": "oscar.wilde@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Ultra Max Recharge",
-                    "date": "2025-03-15",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Family Recharge",
-                    "date": "2025-03-19",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "f212"
-        },
-        {
-            "name": "Pam Beesly",
-            "mobile": "9000000016",
-            "plan_id": "MC16",
-            "expiry": "2025-03-30",
-            "email": "pam.beesly@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Standard Plus Recharge",
-                    "date": "2025-03-16",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Data Recharge",
-                    "date": "2025-03-20",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "e564"
-        },
-        {
-            "name": "Quentin Tarantino",
-            "mobile": "9000000017",
-            "plan_id": "MC17",
-            "expiry": "2025-03-31",
-            "email": "quentin.tarantino@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Family Data Recharge",
-                    "date": "2025-03-17",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-21",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "98be"
-        },
-        {
-            "name": "Rachel Green",
-            "mobile": "9000000018",
-            "plan_id": "MC18",
-            "expiry": "2025-04-01",
-            "email": "rachel.green@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Basic Data Recharge",
-                    "date": "2025-03-18",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Standard Recharge",
-                    "date": "2025-03-22",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "955c"
-        },
-        {
-            "name": "Samuel L. Jackson",
-            "mobile": "9000000019",
-            "plan_id": "MC19",
-            "expiry": "2025-04-02",
-            "email": "samuel.jackson@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Streaming Recharge",
-                    "date": "2025-03-19",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-23",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "45cb"
-        },
-        {
-            "name": "Tina Turner",
-            "mobile": "9000000020",
-            "plan_id": "MC20",
-            "expiry": "2025-04-03",
-            "email": "tina.turner@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "All-in-One Recharge",
-                    "date": "2025-03-20",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Data Recharge",
-                    "date": "2025-03-24",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "34ac"
-        },
-        {
-            "name": "Uma Thurman",
-            "mobile": "9000000021",
-            "plan_id": "MC21",
-            "expiry": "2025-04-04",
-            "email": "uma.thurman@example.com",
-            "status": "inactive",
-            "rechargeHistory": [
-                {
-                    "planName": "Global Recharge",
-                    "date": "2025-03-21",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-25",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "73e9"
-        },
-        {
-            "name": "Victor Hugo",
-            "mobile": "9000000022",
-            "plan_id": "MC22",
-            "expiry": "2025-04-05",
-            "email": "victor.hugo@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Explorer Recharge",
-                    "date": "2025-03-22",
-                    "paymentType": "Credit Card"
-                },
-                {
-                    "planName": "Standard Recharge",
-                    "date": "2025-03-26",
-                    "paymentType": "Bank Transfer"
-                }
-            ],
-            "id": "c7a1"
-        },
-        {
-            "name": "Wendy Darling",
-            "mobile": "9000000023",
-            "plan_id": "MC23",
-            "expiry": "2025-04-06",
-            "email": "wendy.darling@example.com",
-            "status": "active",
-            "rechargeHistory": [
-                {
-                    "planName": "Value Pack Recharge",
-                    "date": "2025-03-23",
-                    "paymentType": "UPI"
-                },
-                {
-                    "planName": "Combo Recharge",
-                    "date": "2025-03-27",
-                    "paymentType": "Debit Card"
-                }
-            ],
-            "id": "5c57"
+          "planName": "Data Boost",
+          "date": "2025-03-05",
+          "paymentType": "Debit Card"
         }
-    ],
-    "transactions": [
+      ],
+      "id": "a4da"
+    },
+    {
+      "name": "Bob Smith",
+      "mobile": "9000000002",
+      "plan_id": "MC02",
+      "expiry": "2025-02-26",
+      "email": "bob.smith@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
         {
-            "id": "TXN000000001",
-            "user": "Alice Johnson",
-            "mobile": "9000000001",
-            "plan_id": "MC01",
-            "amount": 199,
-            "paymentMode": "UPI",
-            "date": "2025-03-15"
+          "planName": "Standard Recharge",
+          "date": "2025-03-02",
+          "paymentType": "Credit Card"
         },
         {
-            "id": "TXN000000002",
-            "user": "Bob Smith",
-            "mobile": "9000000002",
-            "plan_id": "MC02",
-            "amount": 299,
-            "paymentMode": "Credit Card",
-            "date": "2025-03-14"
-        },
-        {
-            "id": "TXN000000003",
-            "user": "Charlie Davis",
-            "mobile": "9000000003",
-            "plan_id": "MC03",
-            "amount": 499,
-            "paymentMode": "Debit Card",
-            "date": "2025-03-13"
-        },
-        {
-            "id": "TXN000000004",
-            "user": "Diana Prince",
-            "mobile": "9000000004",
-            "plan_id": "MC04",
-            "amount": 799,
-            "paymentMode": "Bank Transfer",
-            "date": "2025-03-12"
-        },
-        {
-            "id": "TXN000000005",
-            "user": "Ethan Hunt",
-            "mobile": "9000000005",
-            "plan_id": "MC05",
-            "amount": 999,
-            "paymentMode": "UPI",
-            "date": "2025-03-11"
-        },
-        {
-            "id": "TXN000000006",
-            "user": "Fiona Gallagher",
-            "mobile": "9000000006",
-            "plan_id": "MC06",
-            "amount": 1499,
-            "paymentMode": "Debit Card",
-            "date": "2025-03-10"
-        },
-        {
-            "id": "TXN000000007",
-            "user": "George Martin",
-            "mobile": "9000000007",
-            "plan_id": "MC07",
-            "amount": 179,
-            "paymentMode": "Credit Card",
-            "date": "2025-03-09"
-        },
-        {
-            "id": "TXN000000008",
-            "user": "Hannah Lee",
-            "mobile": "9000000008",
-            "plan_id": "MC08",
-            "amount": 599,
-            "paymentMode": "Bank Transfer",
-            "date": "2025-03-08"
-        },
-        {
-            "id": "TXN000000009",
-            "user": "Ian McKellen",
-            "mobile": "9000000009",
-            "plan_id": "MC09",
-            "amount": 249,
-            "paymentMode": "UPI",
-            "date": "2025-03-07"
-        },
-        {
-            "id": "TXN000000010",
-            "user": "Julia Roberts",
-            "mobile": "9000000010",
-            "plan_id": "MC10",
-            "amount": 399,
-            "paymentMode": "Debit Card",
-            "date": "2025-03-06"
-        },
-        {
-            "id": "TXN000000011",
-            "user": "Kevin Bacon",
-            "mobile": "9000000011",
-            "plan_id": "MC11",
-            "amount": 799,
-            "paymentMode": "Credit Card",
-            "date": "2025-03-05"
-        },
-        {
-            "id": "TXN000000012",
-            "user": "Laura Palmer",
-            "mobile": "9000000012",
-            "plan_id": "MC12",
-            "amount": 1299,
-            "paymentMode": "UPI",
-            "date": "2025-03-04"
-        },
-        {
-            "id": "TXN000000013",
-            "user": "Michael Jordan",
-            "mobile": "9000000013",
-            "plan_id": "MC13",
-            "amount": 329,
-            "paymentMode": "Debit Card",
-            "date": "2025-03-03"
-        },
-        {
-            "id": "TXN000000014",
-            "user": "Nina Simone",
-            "mobile": "9000000014",
-            "plan_id": "MC14",
-            "amount": 1999,
-            "paymentMode": "Bank Transfer",
-            "date": "2025-03-02"
-        },
-        {
-            "id": "TXN000000015",
-            "user": "Oscar Wilde",
-            "mobile": "9000000015",
-            "plan_id": "MC15",
-            "amount": 2499,
-            "paymentMode": "Credit Card",
-            "date": "2025-03-01"
-        },
-        {
-            "id": "TXN000000016",
-            "user": "Pam Beesly",
-            "mobile": "9000000016",
-            "plan_id": "MC16",
-            "amount": 449,
-            "paymentMode": "UPI",
-            "date": "2025-03-31"
-        },
-        {
-            "id": "TXN000000017",
-            "user": "Quentin Tarantino",
-            "mobile": "9000000017",
-            "plan_id": "MC17",
-            "amount": 1399,
-            "paymentMode": "Debit Card",
-            "date": "2025-03-30"
-        },
-        {
-            "id": "TXN000000018",
-            "user": "Rachel Green",
-            "mobile": "9000000018",
-            "plan_id": "MC18",
-            "amount": 149,
-            "paymentMode": "Bank Transfer",
-            "date": "2025-03-29"
-        },
-        {
-            "id": "TXN000000019",
-            "user": "Samuel L. Jackson",
-            "mobile": "9000000019",
-            "plan_id": "MC19",
-            "amount": 799,
-            "paymentMode": "Credit Card",
-            "date": "2025-03-28"
-        },
-        {
-            "id": "TXN000000020",
-            "user": "Tina Turner",
-            "mobile": "9000000020",
-            "plan_id": "MC20",
-            "amount": 2999,
-            "paymentMode": "UPI",
-            "date": "2025-03-27"
-        },
-        {
-            "id": "TXN000000021",
-            "user": "Uma Thurman",
-            "mobile": "9000000021",
-            "plan_id": "MC21",
-            "amount": 1899,
-            "paymentMode": "Debit Card",
-            "date": "2025-03-26"
-        },
-        {
-            "id": "TXN000000022",
-            "user": "Victor Hugo",
-            "mobile": "9000000022",
-            "plan_id": "MC22",
-            "amount": 399,
-            "paymentMode": "UPI",
-            "date": "2025-03-25"
-        },
-        {
-            "id": "TXN000000023",
-            "user": "Wendy Darling",
-            "mobile": "9000000023",
-            "plan_id": "MC23",
-            "amount": 129,
-            "paymentMode": "Credit Card",
-            "date": "2025-03-24"
+          "planName": "Combo Recharge",
+          "date": "2025-03-06",
+          "paymentType": "Bank Transfer"
         }
-    ]
+      ],
+      "id": "9da3"
+    },
+    {
+      "name": "Charlie Davis",
+      "mobile": "9000000003",
+      "plan_id": "MC03",
+      "expiry": "2025-02-27",
+      "email": "charlie.davis@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Premium Recharge",
+          "date": "2025-03-03",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Data Plan",
+          "date": "2025-03-07",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "50b6"
+    },
+    {
+      "name": "Diana Prince",
+      "mobile": "9000000004",
+      "plan_id": "MC04",
+      "expiry": "2025-02-25",
+      "email": "diana.prince@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Ultra Recharge",
+          "date": "2025-03-04",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Standard Recharge",
+          "date": "2025-03-08",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "08df"
+    },
+    {
+      "name": "Ethan Hunt",
+      "mobile": "9000000005",
+      "plan_id": "MC05",
+      "expiry": "2025-03-19",
+      "email": "ethan.hunt@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Family Recharge",
+          "date": "2025-03-05",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Data Recharge",
+          "date": "2025-03-09",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "9a03"
+    },
+    {
+      "name": "Fiona Gallagher",
+      "mobile": "9000000006",
+      "plan_id": "MC06",
+      "expiry": "2025-03-20",
+      "email": "fiona.gallagher@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Max Recharge",
+          "date": "2025-03-06",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-10",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "b8f6"
+    },
+    {
+      "name": "George Martin",
+      "mobile": "9000000007",
+      "plan_id": "MC07",
+      "expiry": "2025-03-21",
+      "email": "george.martin@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Lite Recharge",
+          "date": "2025-03-07",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Standard Recharge",
+          "date": "2025-03-11",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "a07c"
+    },
+    {
+      "name": "Hannah Lee",
+      "mobile": "9000000008",
+      "plan_id": "MC08",
+      "expiry": "2025-03-22",
+      "email": "hannah.lee@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Family Recharge",
+          "date": "2025-03-08",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-12",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "576e"
+    },
+    {
+      "name": "Ian McKellen",
+      "mobile": "9000000009",
+      "plan_id": "MC09",
+      "expiry": "2025-03-23",
+      "email": "ian.mckellen@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Economy Recharge",
+          "date": "2025-03-09",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Data Boost",
+          "date": "2025-03-13",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "7120"
+    },
+    {
+      "name": "Julia Roberts",
+      "mobile": "9000000010",
+      "plan_id": "MC10",
+      "expiry": "2025-03-24",
+      "email": "julia.roberts@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Student Recharge",
+          "date": "2025-03-10",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Top Up Recharge",
+          "date": "2025-03-14",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "a78d"
+    },
+    {
+      "name": "Kevin Bacon",
+      "mobile": "9000000011",
+      "plan_id": "MC11",
+      "expiry": "2025-03-25",
+      "email": "kevin.bacon@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Mega Recharge",
+          "date": "2025-03-11",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Premium Recharge",
+          "date": "2025-03-15",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "6b15"
+    },
+    {
+      "name": "Laura Palmer",
+      "mobile": "9000000012",
+      "plan_id": "MC12",
+      "expiry": "2025-03-26",
+      "email": "laura.palmer@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Pro Recharge",
+          "date": "2025-03-12",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Data Plan Recharge",
+          "date": "2025-03-16",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "28b5"
+    },
+    {
+      "name": "Michael Jordan",
+      "mobile": "9000000013",
+      "plan_id": "MC13",
+      "expiry": "2025-03-27",
+      "email": "michael.jordan@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Economy Ultra Recharge",
+          "date": "2025-03-13",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Standard Recharge",
+          "date": "2025-03-17",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "477f"
+    },
+    {
+      "name": "Nina Simone",
+      "mobile": "9000000014",
+      "plan_id": "MC14",
+      "expiry": "2025-03-28",
+      "email": "nina.simone@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "VIP Recharge",
+          "date": "2025-03-14",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-18",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "b5f4"
+    },
+    {
+      "name": "Oscar Wilde",
+      "mobile": "9000000015",
+      "plan_id": "MC15",
+      "expiry": "2025-03-29",
+      "email": "oscar.wilde@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Ultra Max Recharge",
+          "date": "2025-03-15",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Family Recharge",
+          "date": "2025-03-19",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "f212"
+    },
+    {
+      "name": "Pam Beesly",
+      "mobile": "9000000016",
+      "plan_id": "MC16",
+      "expiry": "2025-03-30",
+      "email": "pam.beesly@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Standard Plus Recharge",
+          "date": "2025-03-16",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Data Recharge",
+          "date": "2025-03-20",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "e564"
+    },
+    {
+      "name": "Quentin Tarantino",
+      "mobile": "9000000017",
+      "plan_id": "MC17",
+      "expiry": "2025-03-31",
+      "email": "quentin.tarantino@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Family Data Recharge",
+          "date": "2025-03-17",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-21",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "98be"
+    },
+    {
+      "name": "Rachel Green",
+      "mobile": "9000000018",
+      "plan_id": "MC18",
+      "expiry": "2025-04-01",
+      "email": "rachel.green@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Basic Data Recharge",
+          "date": "2025-03-18",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Standard Recharge",
+          "date": "2025-03-22",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "955c"
+    },
+    {
+      "name": "Samuel L. Jackson",
+      "mobile": "9000000019",
+      "plan_id": "MC19",
+      "expiry": "2025-04-02",
+      "email": "samuel.jackson@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Streaming Recharge",
+          "date": "2025-03-19",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-23",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "45cb"
+    },
+    {
+      "name": "Tina Turner",
+      "mobile": "9000000020",
+      "plan_id": "MC20",
+      "expiry": "2025-04-03",
+      "email": "tina.turner@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "All-in-One Recharge",
+          "date": "2025-03-20",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Data Recharge",
+          "date": "2025-03-24",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "34ac"
+    },
+    {
+      "name": "Uma Thurman",
+      "mobile": "9000000021",
+      "plan_id": "MC21",
+      "expiry": "2025-04-04",
+      "email": "uma.thurman@example.com",
+      "status": "inactive",
+      "rechargeHistory": [
+        {
+          "planName": "Global Recharge",
+          "date": "2025-03-21",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-25",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "73e9"
+    },
+    {
+      "name": "Victor Hugo",
+      "mobile": "9000000022",
+      "plan_id": "MC22",
+      "expiry": "2025-04-05",
+      "email": "victor.hugo@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Explorer Recharge",
+          "date": "2025-03-22",
+          "paymentType": "Credit Card"
+        },
+        {
+          "planName": "Standard Recharge",
+          "date": "2025-03-26",
+          "paymentType": "Bank Transfer"
+        }
+      ],
+      "id": "c7a1"
+    },
+    {
+      "name": "Wendy Darling",
+      "mobile": "9000000023",
+      "plan_id": "MC23",
+      "expiry": "2025-04-06",
+      "email": "wendy.darling@example.com",
+      "status": "active",
+      "rechargeHistory": [
+        {
+          "planName": "Value Pack Recharge",
+          "date": "2025-03-23",
+          "paymentType": "UPI"
+        },
+        {
+          "planName": "Combo Recharge",
+          "date": "2025-03-27",
+          "paymentType": "Debit Card"
+        }
+      ],
+      "id": "5c57"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "TXN000000001",
+      "user": "Alice Johnson",
+      "mobile": "9000000001",
+      "plan_id": "MC01",
+      "amount": 199,
+      "paymentMode": "UPI",
+      "date": "2025-03-15"
+    },
+    {
+      "id": "TXN000000002",
+      "user": "Bob Smith",
+      "mobile": "9000000002",
+      "plan_id": "MC02",
+      "amount": 299,
+      "paymentMode": "Credit Card",
+      "date": "2025-03-14"
+    },
+    {
+      "id": "TXN000000003",
+      "user": "Charlie Davis",
+      "mobile": "9000000003",
+      "plan_id": "MC03",
+      "amount": 499,
+      "paymentMode": "Debit Card",
+      "date": "2025-03-13"
+    },
+    {
+      "id": "TXN000000004",
+      "user": "Diana Prince",
+      "mobile": "9000000004",
+      "plan_id": "MC04",
+      "amount": 799,
+      "paymentMode": "Bank Transfer",
+      "date": "2025-03-12"
+    },
+    {
+      "id": "TXN000000005",
+      "user": "Ethan Hunt",
+      "mobile": "9000000005",
+      "plan_id": "MC05",
+      "amount": 999,
+      "paymentMode": "UPI",
+      "date": "2025-03-11"
+    },
+    {
+      "id": "TXN000000006",
+      "user": "Fiona Gallagher",
+      "mobile": "9000000006",
+      "plan_id": "MC06",
+      "amount": 1499,
+      "paymentMode": "Debit Card",
+      "date": "2025-03-10"
+    },
+    {
+      "id": "TXN000000007",
+      "user": "George Martin",
+      "mobile": "9000000007",
+      "plan_id": "MC07",
+      "amount": 179,
+      "paymentMode": "Credit Card",
+      "date": "2025-03-09"
+    },
+    {
+      "id": "TXN000000008",
+      "user": "Hannah Lee",
+      "mobile": "9000000008",
+      "plan_id": "MC08",
+      "amount": 599,
+      "paymentMode": "Bank Transfer",
+      "date": "2025-03-08"
+    },
+    {
+      "id": "TXN000000009",
+      "user": "Ian McKellen",
+      "mobile": "9000000009",
+      "plan_id": "MC09",
+      "amount": 249,
+      "paymentMode": "UPI",
+      "date": "2025-03-07"
+    },
+    {
+      "id": "TXN000000010",
+      "user": "Julia Roberts",
+      "mobile": "9000000010",
+      "plan_id": "MC10",
+      "amount": 399,
+      "paymentMode": "Debit Card",
+      "date": "2025-03-06"
+    },
+    {
+      "id": "TXN000000011",
+      "user": "Kevin Bacon",
+      "mobile": "9000000011",
+      "plan_id": "MC11",
+      "amount": 799,
+      "paymentMode": "Credit Card",
+      "date": "2025-03-05"
+    },
+    {
+      "id": "TXN000000012",
+      "user": "Laura Palmer",
+      "mobile": "9000000012",
+      "plan_id": "MC12",
+      "amount": 1299,
+      "paymentMode": "UPI",
+      "date": "2025-03-04"
+    },
+    {
+      "id": "TXN000000013",
+      "user": "Michael Jordan",
+      "mobile": "9000000013",
+      "plan_id": "MC13",
+      "amount": 329,
+      "paymentMode": "Debit Card",
+      "date": "2025-03-03"
+    },
+    {
+      "id": "TXN000000014",
+      "user": "Nina Simone",
+      "mobile": "9000000014",
+      "plan_id": "MC14",
+      "amount": 1999,
+      "paymentMode": "Bank Transfer",
+      "date": "2025-03-02"
+    },
+    {
+      "id": "TXN000000015",
+      "user": "Oscar Wilde",
+      "mobile": "9000000015",
+      "plan_id": "MC15",
+      "amount": 2499,
+      "paymentMode": "Credit Card",
+      "date": "2025-03-01"
+    },
+    {
+      "id": "TXN000000016",
+      "user": "Pam Beesly",
+      "mobile": "9000000016",
+      "plan_id": "MC16",
+      "amount": 449,
+      "paymentMode": "UPI",
+      "date": "2025-03-31"
+    },
+    {
+      "id": "TXN000000017",
+      "user": "Quentin Tarantino",
+      "mobile": "9000000017",
+      "plan_id": "MC17",
+      "amount": 1399,
+      "paymentMode": "Debit Card",
+      "date": "2025-03-30"
+    },
+    {
+      "id": "TXN000000018",
+      "user": "Rachel Green",
+      "mobile": "9000000018",
+      "plan_id": "MC18",
+      "amount": 149,
+      "paymentMode": "Bank Transfer",
+      "date": "2025-03-29"
+    },
+    {
+      "id": "TXN000000019",
+      "user": "Samuel L. Jackson",
+      "mobile": "9000000019",
+      "plan_id": "MC19",
+      "amount": 799,
+      "paymentMode": "Credit Card",
+      "date": "2025-03-28"
+    },
+    {
+      "id": "TXN000000020",
+      "user": "Tina Turner",
+      "mobile": "9000000020",
+      "plan_id": "MC20",
+      "amount": 2999,
+      "paymentMode": "UPI",
+      "date": "2025-03-27"
+    },
+    {
+      "id": "TXN000000021",
+      "user": "Uma Thurman",
+      "mobile": "9000000021",
+      "plan_id": "MC21",
+      "amount": 1899,
+      "paymentMode": "Debit Card",
+      "date": "2025-03-26"
+    },
+    {
+      "id": "TXN000000022",
+      "user": "Victor Hugo",
+      "mobile": "9000000022",
+      "plan_id": "MC22",
+      "amount": 399,
+      "paymentMode": "UPI",
+      "date": "2025-03-25"
+    },
+    {
+      "id": "TXN000000023",
+      "user": "Wendy Darling",
+      "mobile": "9000000023",
+      "plan_id": "MC23",
+      "amount": 129,
+      "paymentMode": "Credit Card",
+      "date": "2025-03-24"
+    }
+  ]
 }

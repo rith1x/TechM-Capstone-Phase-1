@@ -5,149 +5,266 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Admin Dashboard</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="stylesheet" href="./css/main.min.css" />
         <style>
-            html,
             body {
-                height: 100%;
+                background: #f0f2ff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .navbar {
+                background: linear-gradient(to right, var(--bs-primary), #57a0ff);
+            }
+
+            .navbar-brand img {
+                border-radius: 50%;
             }
 
             #sidebarCollapse {
-                min-height: 100vh;
+                height: calc(100dvh - 80px);
+
+                border-radius: 8px;
+                padding: 1.5rem;
             }
 
-            .nav-link.active {
-                font-weight: bold;
-                text-decoration: underline;
+            #sidebarCollapse h4 {
+                color: #333;
+                margin-bottom: 1rem;
+            }
+
+            #sidebarCollapse .nav-link {
+                color: #555;
+                padding: 0.75rem 1rem;
+                border-radius: 6px;
+                transition: background 0.3s, color 0.3s;
+            }
+
+            #sidebarCollapse .nav-link.active,
+            #sidebarCollapse .nav-link:hover {
+                background-color: var(--bs-primary);
+                color: #fff;
+            }
+
+            #mainContent {
+                background-color: #fff;
+                padding: 2rem;
+                height: calc(100dvh - 80px);
+                border-radius: 31px;
+                box-shadow: 0 0 10px #00000050;
+                overflow: hidden scroll;
+            }
+
+            .card {
+                border-radius: 12px;
+                margin-bottom: 1rem;
+            }
+
+            .table-responsive {
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            table {
+                border-collapse: separate;
+                border-spacing: 0;
+            }
+
+            table th {
+                background-color: var(--bs-primary) !important;
+                color: #fff !important;
+                position: sticky;
+                top: 0;
+            }
+
+            table td,
+            table th {
+                padding: 0.75rem;
             }
 
             .chart-canvas {
+                border-radius: 12px;
+            }
+
+            .mini-chart {
                 width: 100%;
-                height: 300px;
+                height: 60px;
+            }
+
+            .bg-primary-custom {
+                background-color: #4facfe !important;
+            }
+
+            /* New Dashboard UI */
+            .dashboard-summary {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .dashboard-summary .summary-card {
+                flex: 1 1 calc(25% - 1rem);
+                background: #4facfe;
+                color: #fff;
+                border-radius: 8px;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            @media (max-width: 768px) {
+                .dashboard-summary .summary-card {
+                    flex: 1 1 calc(50% - 1rem);
+                }
+            }
+
+            @media (max-width: 480px) {
+                .dashboard-summary .summary-card {
+                    flex: 1 1 100%;
+                }
+            }
+
+            .dashboard-details {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .dashboard-details .detail-card {
+                flex: 1 1 48%;
+                background: #ffffff;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 1rem;
+            }
+
+            @media (max-width: 768px) {
+                .dashboard-details .detail-card {
+                    flex: 1 1 100%;
+                }
             }
         </style>
     </head>
 
     <body>
-        <nav class="navbar sticky-top navbar-expand-lg bg-primary">
+        <nav class="navbar sticky-top navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="./images/mobicomm_logo_w.PNG" height="30" alt="Mobicomm Logo" />
                 </a>
                 <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="collapse"
                     data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false"
-                    aria-label="Toggle sidebar">
-                    Menu
-                </button>
+                    aria-label="Toggle sidebar">Menu</button>
             </div>
         </nav>
-
-        <div class="container-fluid">
+        <div class="container-fluid my-3">
             <div class="row">
-                <div class="col-md-3 col-12 collapse d-md-block bg-dark text-white p-4" id="sidebarCollapse">
+                <div class="col-md-3 col-12 collapse d-md-block" id="sidebarCollapse">
                     <h4>Admin Dashboard</h4>
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" href="#" id="dashboardLink">Dashboard</a>
+                        <li class="nav-item"><a class="nav-link active" href="#" id="dashboardLink">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="planManagementLink">Plan Management</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#" id="planManagementLink">Plan Management</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="index.html">Logout</a>
+                        <li class="nav-item"><a class="nav-link"
+                                onclick="()=>{alert('Are you sure?') ? window.location.href = './index.html' : ''}">Logout</a>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Main Content -->
-                <div class="col-md-9 col-12 p-4" id="mainContent">
+                <div class="col-md-9 col-12" id="mainContent">
                     <!-- Dashboard Section -->
-                    <div id="dashboardSection">
-                        <h2>Dashboard</h2>
-                        <div class="row">
-                            <!-- Dummy Card: Most Recharged Plan -->
-                            <div class="col-md-4 col-12 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Most Recharged Plan</h5>
-                                        <p class="card-text">Super Plan</p>
+                    <div>
+                        <div id="dashboardSection">
+                            <h2 class="mb-4">Dashboard</h2>
+                            <!-- Summary Cards -->
+                            <div class="dashboard-summary">
+                                <div class="summary-card">
+                                    <h5>Active Subscribers</h5>
+                                    <h3 id="activeSubscribers">0</h3>
+                                    <canvas id="chartActive" class="mini-chart"></canvas>
+                                </div>
+                                <div class="summary-card justify-content-start">
+                                    <h5>Expiring in &lt;3 days</h5>
+                                    <h3 id="expiringPlansCount">0</h3>
+                                    <canvas id="chartExpiry" class="mini-chart"></canvas>
+                                </div>
+                                <div class="summary-card">
+                                    <h5>Recent Recharges</h5>
+                                    <h3 id="recentRecharges">0</h3>
+                                    <canvas id="chartRecharges" class="mini-chart"></canvas>
+                                </div>
+                                <div class="summary-card">
+                                    <h5>Total Revenue</h5>
+                                    <h3>₹<span id="totalRevenue">0</span></h3>
+                                    <canvas id="chartRevenue" class="mini-chart"></canvas>
+                                </div>
+                            </div>
+                            <!-- Details Section -->
+                            <div class="dashboard-details mb-4">
+                                <div class="detail-card">
+                                    <h5 class="text-center mb-3">Revenue by Plan</h5>
+                                    <canvas id="revenueChart" class="chart-canvas" style="max-height: 500px;"></canvas>
+                                </div>
+                                <div class="detail-card">
+                                    <h5 class="text-center mb-3">Plans Expiring within 3 days</h5>
+                                    <div class="table-responsive" style="max-height: 300px; overflow-y: auto">
+                                        <table class="table table-bordered text-center table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Subscriber</th>
+                                                    <th>Contact</th>
+                                                    <th>Plan</th>
+                                                    <th>Expiry</th>
+                                                    <th>Remaining</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="expiringUsersTable"></tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Dummy Card: Total Users -->
-                            <div class="col-md-4 col-12 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Total Users</h5>
-                                        <p class="card-text">1,234</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Dummy Card: Active Plans -->
-                            <div class="col-md-4 col-12 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Active Plans</h5>
-                                        <p class="card-text">8</p>
-                                    </div>
-                                </div>
+                            <div class="card mt-4 p-3">
+                                <h5>Top Selling Plans Analysis</h5>
+                                <table class="table table-striped text-center table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Plan</th>
+                                            <th>Price</th>
+                                            <th>Subscribers</th>
+                                            <th>Revenue</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="topPlansTable"></tbody>
+                                </table>
                             </div>
                         </div>
-                        <!-- Charts Section -->
-                        <div class="row">
-                            <div class="col-md-6 col-12 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <canvas id="barChart" class="chart-canvas"></canvas>
-                                    </div>
-                                </div>
+                        <!-- Plan Management Section (unchanged) -->
+                        <div id="planManagementSection" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Plan Management</h2>
+                                <button id="downloadPlansBtn" class="btn btn-outline-primary">Download Plans</button>
                             </div>
-                            <div class="col-md-6 col-12 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <canvas id="pieChart" class="chart-canvas"></canvas>
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <button id="openAddPlanModal" class="btn btn-success">Add Plan</button>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Plan Management Section (hidden by default) -->
-                    <div id="planManagementSection" style="display: none;">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h2>Plan Management</h2>
-                            <button id="downloadPlansBtn" class="btn btn-outline-primary">
-                                Download Plans
-                            </button>
-                        </div>
-                        <div class="mb-3">
-                            <button id="openAddPlanModal" class="btn btn-success">
-                                Add Plan
-                            </button>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover" id="plansTable">
-                                <thead>
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Tag</th>
-                                        <th>Name</th>
-                                        <th>Features</th>
-                                        <th>Price</th>
-                                        <th>Categories</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="plansTableBody">
-                                    <!-- Rows will be injected by JS -->
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="plansTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="plansTableBody"></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Edit Plan Modal -->
         <div class="modal fade" id="editPlanModal" tabindex="-1" aria-labelledby="editPlanModalLabel"
             aria-hidden="true">
@@ -158,7 +275,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Hidden field for plan code -->
                         <input type="hidden" id="editPlanCode" />
                         <div class="mb-3">
                             <label for="editPlanTag" class="form-label">Tag</label>
@@ -171,19 +287,53 @@
                             <div class="invalid-feedback">Name is required.</div>
                         </div>
                         <div class="mb-3">
+                            <label for="editPlanPrice" class="form-label">Price</label>
+                            <input type="number" id="editPlanPrice" class="form-control" min="0" step="1" required />
+                            <div class="invalid-feedback">Price must be a positive number.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPlanValidity" class="form-label">Validity (days)</label>
+                            <input type="number" id="editPlanValidity" class="form-control" min="1" step="1" required />
+                            <div class="invalid-feedback">Validity must be a positive integer.</div>
+                        </div>
+                        <div class="mb-3">
                             <label for="editPlanFeatures" class="form-label">Features (comma separated)</label>
                             <input type="text" id="editPlanFeatures" class="form-control" required />
                             <div class="invalid-feedback">At least one feature is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="editPlanPrice" class="form-label">Price</label>
-                            <input type="number" id="editPlanPrice" class="form-control" required />
-                            <div class="invalid-feedback">Price is required.</div>
-                        </div>
-                        <div class="mb-3">
                             <label for="editPlanCategories" class="form-label">Categories (comma separated)</label>
                             <input type="text" id="editPlanCategories" class="form-control" required />
                             <div class="invalid-feedback">At least one category is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPlanFeaturedApps" class="form-label">Featured Apps (comma separated)</label>
+                            <input type="text" id="editPlanFeaturedApps" class="form-control" />
+                            <div class="invalid-feedback">Optional: Add featured apps if applicable.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPlanIsRecommended" class="form-label">Recommended</label>
+                            <select id="editPlanIsRecommended" class="form-select" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="invalid-feedback">Select if recommended.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPlanIsActive" class="form-label">Active</label>
+                            <select id="editPlanIsActive" class="form-select" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="invalid-feedback">Select if active.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPlanIsHidden" class="form-label">Hidden</label>
+                            <select id="editPlanIsHidden" class="form-select" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="invalid-feedback">Select if hidden.</div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -219,19 +369,53 @@
                             <div class="invalid-feedback">Name is required.</div>
                         </div>
                         <div class="mb-3">
+                            <label for="addPlanPrice" class="form-label">Price</label>
+                            <input type="number" id="addPlanPrice" class="form-control" min="0" step="1" required />
+                            <div class="invalid-feedback">Price must be a positive number.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanValidity" class="form-label">Validity (days)</label>
+                            <input type="number" id="addPlanValidity" class="form-control" min="1" step="1" required />
+                            <div class="invalid-feedback">Validity must be a positive integer.</div>
+                        </div>
+                        <div class="mb-3">
                             <label for="addPlanFeatures" class="form-label">Features (comma separated)</label>
                             <input type="text" id="addPlanFeatures" class="form-control" required />
                             <div class="invalid-feedback">At least one feature is required.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="addPlanPrice" class="form-label">Price</label>
-                            <input type="number" id="addPlanPrice" class="form-control" required />
-                            <div class="invalid-feedback">Price is required.</div>
-                        </div>
-                        <div class="mb-3">
                             <label for="addPlanCategories" class="form-label">Categories (comma separated)</label>
                             <input type="text" id="addPlanCategories" class="form-control" required />
                             <div class="invalid-feedback">At least one category is required.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanFeaturedApps" class="form-label">Featured Apps (comma separated)</label>
+                            <input type="text" id="addPlanFeaturedApps" class="form-control" />
+                            <div class="invalid-feedback">Optional: Add featured apps if applicable.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanIsRecommended" class="form-label">Recommended</label>
+                            <select id="addPlanIsRecommended" class="form-select" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="invalid-feedback">Select if recommended.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanIsActive" class="form-label">Active</label>
+                            <select id="addPlanIsActive" class="form-select" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="invalid-feedback">Select if active.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addPlanIsHidden" class="form-label">Hidden</label>
+                            <select id="addPlanIsHidden" class="form-select" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div class="invalid-feedback">Select if hidden.</div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -242,12 +426,57 @@
             </div>
         </div>
 
-        <!-- Scripts: Bootstrap JS, Popper, and Chart.js -->
+        <div class="modal fade" id="modUserModal" tabindex="-1" aria-labelledby="modUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form id="addPlanForm" class="modal-content" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modUserModalLabel">User Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="userModDetails">
+
+
+                            <h4 class="fw-bold" id="userName"></h4>
+                        </div>
+                        <h6>Recharge History</h6>
+
+                        <table>
+
+
+
+                            <thead>
+                                <tr>
+                                    <th>Plan</th>
+                                    <th>Date</th>
+                                    <th>Mode</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rechargeHistoryTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <script>
+                            const alertUser = () => {
+
+                            }
+                        </script>
+                        <button type="submit" class="btn btn-primary" onclick="alertUser()">Alert User</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
-            // Sidebar navigation toggle between Dashboard and Plan Management
             document.getElementById("dashboardLink").addEventListener("click", function (e) {
                 e.preventDefault();
                 document.getElementById("dashboardSection").style.display = "block";
@@ -262,99 +491,53 @@
                 this.classList.add("active");
                 document.getElementById("dashboardLink").classList.remove("active");
             });
-
-            // Dummy Bar Chart
-            const barCtx = document.getElementById("barChart").getContext("2d");
-            const barChart = new Chart(barCtx, {
-                type: "bar",
-                data: {
-                    labels: ["Plan A", "Plan B", "Plan C", "Plan D"],
-                    datasets: [{
-                        label: "Recharge Count",
-                        data: [12, 19, 3, 5],
-                        backgroundColor: "rgba(54, 162, 235, 0.6)",
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                },
-            });
-
-            // Dummy Pie Chart
-            const pieCtx = document.getElementById("pieChart").getContext("2d");
-            const pieChart = new Chart(pieCtx, {
-                type: "pie",
-                data: {
-                    labels: ["Plan A", "Plan B", "Plan C"],
-                    datasets: [{
-                        data: [10, 20, 30],
-                        backgroundColor: [
-                            "rgba(255, 99, 132, 0.6)",
-                            "rgba(54, 162, 235, 0.6)",
-                            "rgba(255, 206, 86, 0.6)",
-                        ],
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                },
-            });
-
-            /* === Plan Management Code (using localStorage as dummy storage) === */
+            const barCtx = document.getElementById("barChart");
+            const pieCtx = document.getElementById("pieChart");
             let plansData = {};
 
-            if (localStorage.getItem("plansData")) {
-                try {
-                    plansData = JSON.parse(localStorage.getItem("plansData"));
+            fetch("http://localhost:3000/plans")
+                .then(response => response.json())
+                .then(data => {
+                    plansData = data;
                     loadPlansTable();
-                } catch (e) {
-                    console.error("Error parsing plansData from localStorage:", e);
-                }
-            } else {
-                fetch("./plans.json")
-                    .then((response) => response.json())
-                    .then((data) => {
-                        plansData = data;
-                        localStorage.setItem("plansData", JSON.stringify(plansData));
-                        loadPlansTable();
-                    })
-                    .catch((err) => console.error("Error fetching plans.json:", err));
-            }
+                })
+                .catch(err => console.error(err));
 
-            function updateLocalStorage() {
-                localStorage.setItem("plansData", JSON.stringify(plansData));
-            }
+            async function updateJSON() {
+                let res = await fetch('http://localhost:3000/plans', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(plansData)
+                })
+                let rd = res.json()
+                console.log(rd)
+                alert("Data Updated Successfully")
 
+
+            }
             function loadPlansTable() {
                 const tbody = document.getElementById("plansTableBody");
                 tbody.innerHTML = "";
                 for (const code in plansData) {
                     if (plansData.hasOwnProperty(code)) {
                         const plan = plansData[code];
-                        const featuresText = Array.isArray(plan.features) ? plan.features.join(", ") : "";
-                        const categoriesText = Array.isArray(plan.categories) ? plan.categories.join(", ") : "";
                         const tr = document.createElement("tr");
+                        tr.classList.add("rounded-4");
                         tr.innerHTML = `
-              <td>${code}</td>
-              <td>${plan.tag}</td>
-              <td>${plan.name}</td>
-              <td>${featuresText}</td>
-              <td>${plan.price}</td>
-              <td>${categoriesText}</td>
-              <td>
-                <button class="btn btn-sm btn-primary edit-plan-btn" data-code="${code}">Edit</button>
-              </td>
-            `;
+        <td>${plan.name}</td>
+        <td>${plan.price}</td>
+        <td>
+          <button class="btn btn-sm btn-primary edit-plan-btn" data-code="${code}">View</button>
+        </td>`;
                         tbody.appendChild(tr);
                     }
                 }
                 if (Object.keys(plansData).length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="7" class="text-center">No plans found.</td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="3" class="text-center">No plans found.</td></tr>`;
                 }
             }
-
             document.getElementById("downloadPlansBtn").addEventListener("click", () => {
                 const dataStr = JSON.stringify(plansData, null, 4);
                 const blob = new Blob([dataStr], { type: "application/json" });
@@ -367,31 +550,29 @@
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
             });
-
             document.getElementById("plansTableBody").addEventListener("click", function (e) {
                 if (e.target.classList.contains("edit-plan-btn")) {
                     const code = e.target.getAttribute("data-code");
                     openEditPlanModal(code);
                 }
             });
-
             function openEditPlanModal(code) {
                 const plan = plansData[code];
                 if (plan) {
                     document.getElementById("editPlanCode").value = code;
                     document.getElementById("editPlanTag").value = plan.tag;
                     document.getElementById("editPlanName").value = plan.name;
-                    document.getElementById("editPlanFeatures").value = Array.isArray(plan.features)
-                        ? plan.features.join(", ")
-                        : "";
                     document.getElementById("editPlanPrice").value = plan.price;
-                    document.getElementById("editPlanCategories").value = Array.isArray(plan.categories)
-                        ? plan.categories.join(", ")
-                        : "";
+                    document.getElementById("editPlanValidity").value = plan.validity;
+                    document.getElementById("editPlanFeatures").value = Array.isArray(plan.features) ? plan.features.join(", ") : "";
+                    document.getElementById("editPlanCategories").value = Array.isArray(plan.categories) ? plan.categories.join(", ") : "";
+                    document.getElementById("editPlanFeaturedApps").value = Array.isArray(plan.featuredApps) ? plan.featuredApps.join(", ") : "";
+                    document.getElementById("editPlanIsRecommended").value = plan.isRecommended.toString();
+                    document.getElementById("editPlanIsActive").value = plan.isActive.toString();
+                    document.getElementById("editPlanIsHidden").value = plan.isHidden.toString();
                     new bootstrap.Modal(document.getElementById("editPlanModal")).show();
                 }
             }
-
             document.getElementById("editPlanForm").addEventListener("submit", function (e) {
                 e.preventDefault();
                 if (!this.checkValidity()) {
@@ -400,20 +581,31 @@
                 }
                 const code = document.getElementById("editPlanCode").value;
                 plansData[code] = {
+                    categories: document.getElementById("editPlanCategories").value.split(",").map(c => c.trim()).filter(c => c),
                     tag: document.getElementById("editPlanTag").value.trim(),
                     name: document.getElementById("editPlanName").value.trim(),
-                    features: document.getElementById("editPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
                     price: parseFloat(document.getElementById("editPlanPrice").value),
-                    categories: document.getElementById("editPlanCategories").value.split(",").map(c => c.trim()).filter(c => c)
+                    validity: parseInt(document.getElementById("editPlanValidity").value),
+                    features: document.getElementById("editPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
+                    isRecommended: document.getElementById("editPlanIsRecommended").value === "true",
+                    isActive: document.getElementById("editPlanIsActive").value === "true",
+                    isHidden: document.getElementById("editPlanIsHidden").value === "true",
+                    featuredApps: document.getElementById("editPlanFeaturedApps").value.split(",").map(a => a.trim()).filter(a => a)
                 };
-                updateLocalStorage();
+                updateJSON();
                 loadPlansTable();
                 bootstrap.Modal.getInstance(document.getElementById("editPlanModal")).hide();
             });
-
             document.getElementById("openAddPlanModal").addEventListener("click", function () {
                 new bootstrap.Modal(document.getElementById("addPlanModal")).show();
             });
+
+            const showUserModal = (userx) => {
+                console.log(userx)
+                showRechargeHistory(userx)
+                new bootstrap.Modal(document.getElementById("modUserModal")).show();
+            }
+
 
             document.getElementById("addPlanForm").addEventListener("submit", function (e) {
                 e.preventDefault();
@@ -427,17 +619,340 @@
                     return;
                 }
                 plansData[code] = {
+                    categories: document.getElementById("addPlanCategories").value.split(",").map(c => c.trim()).filter(c => c),
                     tag: document.getElementById("addPlanTag").value.trim(),
                     name: document.getElementById("addPlanName").value.trim(),
-                    features: document.getElementById("addPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
                     price: parseFloat(document.getElementById("addPlanPrice").value),
-                    categories: document.getElementById("addPlanCategories").value.split(",").map(c => c.trim()).filter(c => c)
+                    validity: parseInt(document.getElementById("addPlanValidity").value),
+                    features: document.getElementById("addPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
+                    isRecommended: document.getElementById("addPlanIsRecommended").value === "true",
+                    isActive: document.getElementById("addPlanIsActive").value === "true",
+                    isHidden: document.getElementById("addPlanIsHidden").value === "true",
+                    featuredApps: document.getElementById("addPlanFeaturedApps").value.split(",").map(a => a.trim()).filter(a => a)
                 };
-                updateLocalStorage();
+                updateJSON();
                 loadPlansTable();
                 this.reset();
                 this.classList.remove("was-validated");
                 bootstrap.Modal.getInstance(document.getElementById("addPlanModal")).hide();
+            });
+            let users = [];
+            let transactions = [];
+            let plans = [];
+            function fetchAllData() {
+                Promise.all([
+                    fetch("http://localhost:3000/users").then(res => res.json()),
+                    fetch("http://localhost:3000/transactions").then(res => res.json()),
+                    fetch("http://localhost:3000/plans").then(res => res.json())
+                ])
+                    .then(([uData, txnData, pData]) => {
+                        users = uData;
+                        transactions = txnData;
+                        plans = pData; // Updated: assign pData directly
+                        updateSubscribers();
+                        updateExpiringPlans();
+                        updateTransactionsMetrics();
+                        updateBestPlansAnalysis();
+                        updateRevenueChart();
+                        initMiniCharts();
+                    })
+                    .catch(error => console.error("Error fetching dashboard data:", error));
+            }
+            function randomBG() {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+
+                let rgb = [r, g, b];
+                let max = Math.max(...rgb);
+                let min = Math.min(...rgb);
+
+                if (max - min < 80) {
+                    let mid = Math.floor((max + min) / 2);
+                    rgb = rgb.map(c => c > mid ? Math.min(c + 60, 255) : Math.max(c - 60, 0));
+                }
+
+                const hexCode = "#" + rgb.map(c => c.toString(16).padStart(2, '0')).join('');
+                return hexCode;
+            }
+
+
+            function updateRevenueChart() {
+                let revenueByPlan = {};
+                transactions.forEach(txn => {
+                    const pid = txn.plan_id;
+                    revenueByPlan[pid] = (revenueByPlan[pid] || 0) + txn.amount;
+                });
+
+                let planNames = [];
+
+                let colors = []
+
+                let revenueValues = [];
+                Object.keys(plans).forEach(code => {
+                    const plan = plans[code];
+                    planNames.push(plan.name);
+                    revenueValues.push(revenueByPlan[code] || 0);
+                });
+
+
+
+
+                for (let i = 0; i < revenueValues.length - 1; i++) {
+                    for (let j = 0; j < i; j++) {
+                        if (revenueValues[i] > revenueValues[j]) {
+                            let temp = revenueValues[i];
+                            revenueValues[i] = revenueValues[j];
+                            revenueValues[j] = temp;
+                            let temp2 = planNames[i];
+                            planNames[i] = planNames[j];
+                            planNames[j] = temp2;
+                        }
+                    }
+                }
+
+
+
+                // Debugging: Check the data before creating the chart
+                console.log("Plan Names:", planNames);
+                console.log("Revenue Values:", revenueValues);
+                console.log("Type of Revenue Value:", typeof revenueValues[0]); // Check if it's a number
+                planNames.forEach(e => {
+                    colors.push(randomBG())
+                })
+                console.log(colors)
+                const ctx = document.getElementById("revenueChart").getContext("2d");
+
+                if (window.revenueChartInstance) {
+                    // Update existing chart
+                    window.revenueChartInstance.data.labels = planNames;
+                    window.revenueChartInstance.data.datasets[0].data = revenueValues;
+                    window.revenueChartInstance.update();
+                } else {
+                    // Create new chart
+                    window.revenueChartInstance = new Chart(ctx, {
+                        type: "bar", // Explicitly set to "pie"
+                        data: {
+                            labels: planNames,
+                            datasets: [{
+                                label: "Revenue (₹)",
+                                data: revenueValues,
+                                backgroundColor: colors,
+                                borderWidth: 0,
+                                borderRadius: 0
+                            }]
+                        },
+                        options: {  // Add options for better control
+                            responsive: true, // Make chart responsive
+                            maintainAspectRatio: false // Allow chart to fill canvas
+                        }
+                    });
+                }
+            }
+            function updateSubscribers() {
+                const active = users.filter(u => u.status.toLowerCase() === "active").length;
+                document.getElementById("activeSubscribers").innerText = active;
+            }
+            function updateExpiringPlans() {
+                const expiringUsersTable = document.getElementById("expiringUsersTable");
+                expiringUsersTable.innerHTML = "";
+                const currentDate = new Date();
+                const threeDaysLater = new Date();
+                threeDaysLater.setDate(currentDate.getDate() + 3);
+                // Filter users with expiry date between now and three days later.
+                const expiringUsers = users.filter(user => {
+                    const expiryDate = new Date(user.expiry);
+                    return expiryDate >= currentDate && expiryDate <= threeDaysLater;
+                });
+                document.getElementById("expiringPlansCount").innerText = expiringUsers.length;
+                expiringUsers.forEach((user, idx) => {
+                    const remainingDays = Math.ceil((new Date(user.expiry) - currentDate) / (1000 * 60 * 60 * 24));
+                    const row = document.createElement("tr");
+                    row.innerHTML = `<td>${user.name}</td>
+                     <td>${user.mobile}</td>
+                     <td>${user.plan_id}</td>
+                     <td>${user.expiry}</td>
+                     <td class="text-danger fw-bold">${remainingDays} Days</td>
+                     <td><button class="btn btn-secondary border-2 border-primary rounded-pill" id="openModUserModal" onclick="showUserModal('${user.name}')">View</button></td>`;
+                    expiringUsersTable.appendChild(row);
+                });
+            }
+
+            function updateTransactionsMetrics() {
+                document.getElementById("recentRecharges").innerText = transactions.length;
+                const revenue = transactions.reduce((sum, txn) => sum + txn.amount, 0);
+                document.getElementById("totalRevenue").innerText = revenue.toLocaleString();
+            }
+            function updateBestPlansAnalysis() {
+                let subscriberCount = {};
+                users.forEach(user => {
+                    const pid = user.plan_id;
+                    subscriberCount[pid] = (subscriberCount[pid] || 0) + 1;
+                });
+                let revenueByPlan = {};
+                transactions.forEach(txn => {
+                    const pid = txn.plan_id;
+                    revenueByPlan[pid] = (revenueByPlan[pid] || 0) + txn.amount;
+                });
+                let topPlans = [];
+                Object.keys(plans).forEach(code => {
+                    const plan = plans[code];
+                    topPlans.push({
+                        plan: plan.name,
+                        price: plan.price,
+                        subscribers: subscriberCount[code] || 0,
+                        revenue: revenueByPlan[code] || 0
+                    });
+                });
+                topPlans.sort((a, b) => b.subscribers - a.subscribers);
+                const tableBody = document.getElementById("topPlansTable");
+                tableBody.innerHTML = "";
+                topPlans.forEach(planStat => {
+                    tableBody.innerHTML += `<tr>
+                                  <td class="text-start">${planStat.plan}</td>
+                                  <td>₹${planStat.price}</td>
+                                  <td>${planStat.subscribers}</td>
+                                  <td>₹${planStat.revenue.toLocaleString()}</td>
+                                </tr>`;
+                });
+            }
+
+            function initMiniCharts() {
+                // Force each mini chart canvas to have a fixed height
+                const canvases = [
+                    "chartActive",
+                    "chartExpiry",
+                    "chartRecharges",
+                    "chartRevenue"
+                ];
+                canvases.forEach(id => {
+                    const canvas = document.getElementById(id);
+                    canvas.style.height = "60px"; // set fixed height
+                    canvas.style.maxHeight = "60px";
+                });
+
+                const miniOptions1 = {
+                    type: 'bar',
+                    data: {
+                        labels: ["p1", 'p1', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15'],
+                        datasets: [{
+                            data: [5, 10, 7, 12, 9, 5, 6, 7, 8, 9, 12, 3, 2, 3, 4],
+                            borderColor: "#fff",
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                            borderWidth: 2,
+                            tension: 0.4,
+                            borderRadius: 45,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false, // With fixed canvas height, this won't affect height
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                };
+                const miniOptions2 = {
+                    type: 'bar',
+                    data: {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                        datasets: [{
+                            data: [5, 10, 7, 12, 9],
+                            borderColor: "#fff",
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                            borderWidth: 2,
+                            tension: 0.4,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false, // With fixed canvas height, this won't affect height
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                };
+                const miniOptions3 = {
+                    type: 'pie',
+                    data: {
+                        labels: ["new customer", "premium customer"],
+                        datasets: [{
+                            data: [3, 8],
+                            borderColor: "#fff",
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                            borderWidth: 2,
+                            tension: 0.4,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false, // With fixed canvas height, this won't affect height
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                };
+                const miniOptions4 = {
+                    type: 'line',
+                    data: {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                        datasets: [{
+                            data: [12, 10, 15, 17, 14],
+                            borderColor: "#fff",
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                            borderWidth: 2,
+                            tension: 0.4,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false, // With fixed canvas height, this won't affect height
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                };
+
+                new Chart(document.getElementById("chartActive").getContext("2d"), miniOptions1);
+                // new Chart(document.getElementById("chartExpiry").getContext("2d"), miniOptions2);
+                new Chart(document.getElementById("chartRecharges").getContext("2d"), miniOptions3);
+                new Chart(document.getElementById("chartRevenue").getContext("2d"), miniOptions4);
+            }
+
+            function showRechargeHistory(userName) {
+                Promise.all([
+                    fetch("http://localhost:3000/users").then(res => res.json()),
+                    fetch("http://localhost:3000/plans").then(res => res.json())
+                ]).then(([usersData, plansData]) => {
+                    const user = usersData.find(u => u.name === userName);
+                    document.getElementById("userName").textContent = userName;
+                    const rechargeHistoryTable = document.getElementById("rechargeHistoryTable");
+                    rechargeHistoryTable.innerHTML = "";
+                    user.rechargeHistory.forEach(history => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `<td>${history.planName}</td><td>${history.date}</td><td>${history.paymentType}</td>`;
+                        rechargeHistoryTable.appendChild(row);
+                    });
+                }).catch(error => console.error(error));
+            }
+            function logout() {
+                window.location.href = "./index.html";
+            }
+            document.addEventListener("DOMContentLoaded", function () {
+
+                fetchAllData();
             });
         </script>
     </body>

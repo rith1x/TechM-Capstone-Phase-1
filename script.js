@@ -9,46 +9,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 let plansObj;
-fetch('./plans.json')
+fetch('http://localhost:3000/plans')
     .then(res => res.json())
     .then(plans => {
         plansObj = plans
         let count = 0;
+        const clrs = {
+            0: {
+                "bg": "#E8F5E9",
+                "l1": "#C8E6C9",
+                "l2": "#A5D6A7",
+                "tc": "#1B5E20",
+                "ix": "A5D6A7/1B5E20"
+            },
+            1: {
+                "bg": "#F3E5F5",
+                "l1": "#E1BEE7",
+                "l2": "#CE93D8",
+                "tc": "#4A148C",
+                "ix": "CE93D8/4A148C"
+            },
+            2: {
+                "bg": "#FFF3E0",
+                "l1": "#FFE0B2",
+                "l2": "#FFB74D",
+                "tc": "#E65100",
+                "ix": "FFE0B2/E65100"
+            }
+        }
+        let cl = 0;
         for (let plan in plans) {
-            if (plans[plan].tag != ("POPULAR")) {
+            if (plans[plan].isRecommended != (true)) {
                 continue;
             }
             count++
-            if (count > 6) break
+            if (count > 3) break
 
             let color = randomBG()
 
             document.getElementById('homePlans').innerHTML += `
-            <div class="col-md-4 col-sm-6 p-3 d-flex">
-              <div class="card bg-secondary rounded-4 overflow-hidden border-0 w-100 d-flex flex-column h-100">
-                
-                <img src="https://placehold.jp/${color}/200x100.png?text=₹${plans[plan].price}" 
-                     class="card-img-top rounded-4" 
-                     alt="${plans[plan].name}">
-          
-                <div class="card-body rounded-pill flex-grow-1 flex-column">
-                  <span class="badge rounded-pill bg-dark">${plans[plan].tag}</span>
-                  
-                  <h5 class="card-title mt-2">${plans[plan].name}</h5>
-                  
-                  <ul class="mb-3 flex-grow-1">
-                    ${getLiElems(plans[plan].features)}
-                  </ul>
-          
-                  <div class="mt-auto d-flex gap-2" style="display-flex; align-self:end !important;">
-                    <button class="btn btn-primary w-100" onclick="showPlan('${plan}')">Recharge</button>
-                    <button class="btn text-primary w-100">View Details</button>
-                  </div>
-                </div>
-          
-              </div>
-            </div>`;
-
+             <div class="col-md-4 col-sm-6 p-3 d-flex" id="card${count}">
+                    <div class="card rounded-0 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:${clrs[cl].bg};border-radius:21px !important; scale: ${cl == 1 ? '1' : '0.9'}">
+                        <img src="https://placehold.jp/${clrs[cl].ix}/500x200.png?text=₹${plansObj[plan].price}" 
+                             class="card-img-top" style="border-radius:15px" alt="${plansObj[plan].name}"> 
+                        <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
+                            <span class="badge rounded-0 p-2 bg-danger" style="border-radius:0 0 0 11px !important; position:absolute; top:0;right:0" >${plansObj[plan].tag}</span>
+                            <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
+                            <ul class=" list-group mb-3 flex-grow-1">
+                                ${getLiElems(plansObj[plan].features, clrs[cl].l2)}
+                            </ul>
+                            <div class="mt-auto d-flex gap-2 mb-0">
+                                <button class="btn rounded-pill px-4 fw-bold" style="background:${clrs[cl].l2};color:${clrs[cl].tc}" onclick="showPlan('${plan}')">Recharge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            cl++;
         }
 
     })
@@ -125,10 +141,10 @@ function showPlan(id) {
     window.location.href = `./recharge.html?planid=${id}`
 }
 
-function getLiElems(list) {
+function getLiElems(list, clr) {
     result = ''
     for (item in list) {
-        result += `<li>${list[item]}</li>`
+        result += `<li class="list-group-item"style="background:transparent !important; border-color:${clr};border-radius:0px !important;border-inline:none !important;">${list[item]}</li>`
     }
     return result
 }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment Gateway</title>
+        <link rel="stylesheet" href="./css/main.min.css">
+    </head>
+
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt="">
+                    <span class="text-light">Payments</span>
+                </a>
+            </div>
+        </nav>
+        <style>
+            * {
+                transition: all 0.3s ease-in-out;
+            }
+        </style>
+
+        <div class="text-center vh-100 d-flex flex-column justify-content-center align-items-center">
+            <img src="./images/Animation - 1739948359037.gif" id="tick" class="img-fluid"
+                style="width: 108px; height: 108px; border-radius: 50%;" alt="Loading Animation">
+            <p id="message" class="mt-3">Please wait...</p>
+
+            <ul class="list-group d-none" id="details"></ul>
+
+            <div class="bgx mt-5 d-none" id="returns">
+                <button class="btn btn-success rounded-pill px-3" onclick="goHome()">Go to
+                    Home</button>
+            </div>
+        </div>
+
+        <script>
+            const message = document.getElementById('message');
+            const steps = [
+                { text: "Please wait...", duration: 1000, progress: 0 },
+                { text: "Starting transaction...", duration: 2000, progress: 50 },
+                { text: "Verifying transaction...", duration: 2000, progress: 100 },
+                { text: "Payment successful!", duration: 0, progress: 100 }
+            ];
+
+            const goHome = () => window.location.href = './index.html';
+            let currentStep = 0;
+
+            function showStep(step) {
+                message.textContent = step.text;
+                if (currentStep === steps.length - 1) {
+                    setTimeout(() => {
+                        document.getElementById('tick').src = './images/tick.png'
+                        generateInvoice()
+                        document.getElementById('details').classList.remove('d-none');
+                        document.getElementById('returns').classList.remove('d-none');
+                    }, 400)
+                }
+            }
+            function processSteps() {
+                if (currentStep < steps.length) {
+                    showStep(steps[currentStep]);
+
+                    if (steps[currentStep].duration > 0) {
+                        setTimeout(processSteps, steps[currentStep].duration);
+                    } else {
+                        setTimeout(processSteps, 500);
+                    }
+                    currentStep++;
+                }
+            }
+
+            processSteps();
+
+            function generateInvoice() {
+                const details = document.getElementById('details');
+                const invoice = {
+                    "Invoice ID": "INV-123456",
+                    "Amount": `Rs ${window.location.href.split('?a=')[1]}`,
+                    "Date": new Date().toLocaleDateString(),
+                    "Time": new Date().toLocaleTimeString(),
+
+                };
+
+                for (const key in invoice) {
+                    const li = document.createElement('li');
+                    li.className = 'list-group-item';
+                    li.classList.add('text-start');
+                    li.innerHTML = `<strong>${key}:</strong> ${invoice[key]}`;
+                    details.appendChild(li);
+                }
+            }
+        </script>
+    </body>
+
+</html>
