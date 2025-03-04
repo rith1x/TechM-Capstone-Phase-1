@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="./css/main.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body {
+                background: #0f0b9e;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                color: #fff;
+            }
+
+
+
+            .navbar-brand img {
+                border-radius: 50%
+            }
+
+            #sidebar {
+                height: fit-content;
+                border-radius: 8px;
+                /* padding: 1.5rem; */
+                background: #0f0b9e
+            }
+
+            #sidebar h4 {
+                color: var(--text-color);
+                margin-bottom: 1rem
+            }
+
+            #sidebar .nav-link {
+                color: var(--text-color);
+                padding: 0.75rem 1rem;
+                border-radius: 31px;
+                transition: background 0.3s, color 0.3s
+            }
+
+            #sidebar .nav-link.active,
+            #sidebar .nav-link:hover {
+                background-color: #fff;
+                color: #0f0b9e
+            }
+
+            #mainContent {
+                background-color: #ffffff;
+                padding: 2rem;
+                height: calc(100dvh - 60px);
+                border-radius: 31px 0 0 0;
+                overflow-y: scroll;
+                color: #000;
+            }
+
+            .dashboard-summary {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 1.5rem
+            }
+
+            .dashboard-summary .summary-card {
+                flex: 1 1 calc(25% - 1rem);
+                background: var(--primary-color);
+                color: var(--light-text-color);
+                border-radius: 21px;
+                color: #fff;
+                padding: 1rem;
+                text-align: center
+            }
+
+            @media(max-width:768px) {
+                .dashboard-summary .summary-card {
+                    flex: 1 1 calc(50% - 1rem)
+                }
+            }
+
+            @media(max-width:480px) {
+                .dashboard-summary .summary-card {
+                    flex: 1 1 100%
+                }
+            }
+
+            .dashboard-details {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem
+            }
+
+            .dashboard-details .detail-card {
+                flex: 1 1 48%;
+                background: #fff;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 1rem
+            }
+
+            @media(max-width:768px) {
+                .dashboard-details .detail-card {
+                    flex: 1 1 100%
+                }
+            }
+
+            .table-responsive {
+                border-radius: 8px;
+                overflow: hidden
+            }
+
+            table {
+                border-collapse: separate;
+                border-spacing: 0
+            }
+
+            table th {
+                position: sticky;
+                top: 0
+            }
+
+            table td,
+            table th {
+                padding: 0.75rem
+            }
+
+            .table-controls {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 1rem
+            }
+
+            #searchInput,
+            #searchUserInput {
+                max-width: 300px
+            }
+
+            .highlight {
+                background-color: yellow
+            }
+
+            .mini-chart {
+                width: 100%;
+                height: 60px
+            }
+
+            .chart-canvas {
+                border-radius: 12px
+            }
+
+            @media(max-width:768px) {
+                #sidebar {
+                    position: fixed;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    padding-block: 20px;
+                    z-index: 1000;
+                    overflow-y: auto;
+                    border-radius: 0
+                }
+
+                #mainContent {
+                    border-radius: 0;
+                    box-shadow: none;
+                    height: auto;
+                    height: calc(100vh - 50px);
+                    padding: 1rem
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg bg-primary" style="height: 50px;">
+            <div class="container"><a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30"
+                        alt="Mobicomm Logo" /></a><button class="btn btn-outline-light d-md-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false"
+                    aria-label="Toggle sidebar">Menu</button></div>
+        </nav>
+        <div class="container-fluid my-3">
+            <div class="row">
+                <div class="col-md-3 col-12 collapse d-md-block" id="sidebar">
+                    <h4>Admin Dashboard</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link active" href="#" id="dashboardLink">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="planManagementLink">Plan Management</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="userManagementLink">User Management</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="adminSettingsLink">Admin Settings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="couponsLink">Coupons</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9 col-12" id="mainContent">
+                    <div id="dashboardSection">
+                        <h2 class="mb-4">Dashboard</h2>
+                        <div class="dashboard-summary">
+                            <div class="summary-card bg-primary">
+                                <h5>Active Subscribers</h5>
+                                <h3 id="activeSubscribers">0</h3><canvas id="chartActive" class="mini-chart"></canvas>
+                            </div>
+                            <div class="summary-card bg-primary">
+                                <h5>Expiring in &lt; Days</h5>
+                                <h3 id="expiringPlansCount">0</h3><canvas id="chartExpiry" class="mini-chart"></canvas>
+                            </div>
+                            <div class="summary-card bg-primary">
+                                <h5>Recent Recharges</h5>
+                                <h3 id="recentRecharges">0</h3><canvas id="chartRecharges" class="mini-chart"></canvas>
+                            </div>
+                            <div class="summary-card bg-primary ">
+                                <h5>Total Revenue</h5>
+                                <h3>₹<span id="totalRevenue">0</span></h3><canvas id="chartRevenue"
+                                    class="mini-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="dashboard-details mb-4">
+                            <div class="detail-card">
+                                <h5 class="text-center mb-3">Revenue by Plan</h5><canvas id="revenueChart"
+                                    class="chart-canvas" style="max-height:500px;"></canvas>
+                            </div>
+
+                            <div class="detail-card container-fluid>
+                                <h5 class=" text-center mb-3">Users Expiring Within Selected Days</h5>
+                                <div class="mb-3"><label for="expiryDaysDropdown" class="form-label">Show users expiring
+                                        in:</label><select id="expiryDaysDropdown" class="form-select"
+                                        style="max-width:200px;">
+                                        <option value="1">1 Day</option>
+                                        <option value="2">2 Days</option>
+                                        <option value="3" selected>3 Days</option>
+                                        <option value="4">4 Days</option>
+                                        <option value="5">5 Days</option>
+                                    </select></div>
+                                <div class="table-controls mb-2"><input type="text" id="searchInput"
+                                        class="form-control" placeholder="Search..." /></div>
+                                <div class="table-responsive" style="max-height:300px;overflow-y:auto">
+                                    <table class="table table-bordered text-center table-hover" id="expiringUsersTable">
+                                        <thead>
+                                            <tr>
+                                                <th data-sort="name">Subscriber</th>
+                                                <th data-sort="contact">Contact</th>
+                                                <th data-sort="plan">Plan</th>
+                                                <th data-sort="expiry">Expiry</th>
+                                                <th data-sort="remaining">Remaining</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                            <div class="detail-cardx container-fluid">
+                                <table id="topPlansTable" class="table table-fluid table-striped">
+                                    <thead>
+                                        <th data-sort="name">Plan</th>
+                                        <th data-sort="contact">Price</th>
+                                        <th data-sort="plan">Subscribers</th>
+                                        <th data-sort="remaining">Revenue</th>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div id="planManagementSection">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Plan Management</h2>
+                                <button id="downloadPlansBtn" class="btn btn-outline-primary">Download
+                                    Plans</button>
+                            </div>
+                            <div class="mb-3">
+                                <button id="openAddPlanModal" class="btn btn-success">Add Plan</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="plansTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Plan Id</th>
+                                            <th>Plan Name</th>
+                                            <th>Price</th>
+                                            <th>Validity</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="plansTableBody"></tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div id="userManagementSection" style="display:none;">
+                            <h2 class="mb-4">User Management</h2>
+                            <div class="table-controls mb-2"><input type="text" id="searchUserInput"
+                                    class="form-control" placeholder="Search Users..." /></div>
+                            <div class="table-responsive" style="max-height:300px;overflow-y:auto">
+                                <table class="table table-bordered text-center table-hover" id="usersTable">
+                                    <thead>
+                                        <tr>
+                                            <th data-sort="name">Name</th>
+                                            <th data-sort="mobile">Mobile</th>
+                                            <th data-sort="plan">Plan</th>
+                                            <th data-sort="status">Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="adminSettingsSection" style="display:none;">
+                            <h2 class="mb-4">Admin Settings</h2>
+                            <form id="adminSettingsForm">
+                                <div class="mb-3"><label for="adminEmail" class="form-label">Admin Email</label><input
+                                        type="email" id="adminEmail" class="form-control" required /></div>
+                                <div class="mb-3"><label for="adminPassword" class="form-label">Password</label><input
+                                        type="password" id="adminPassword" class="form-control" required /></div><button
+                                    type="submit" class="btn btn-primary">Update Credentials</button>
+                            </form>
+                        </div>
+                        <div id="couponsSection" style="display:none;">
+                            <h2 class="mb-4">Edit Coupons</h2>
+                            <form id="couponsForm">
+                                <div class="mb-3"><label for="couponsTextarea" class="form-label">Coupons (JSON
+                                        format)</label><textarea id="couponsTextarea" class="form-control" rows="5"
+                                        required></textarea></div><button type="submit" class="btn btn-primary">Update
+                                    Coupons</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="notificationModalLabel">Send Notification</h5><button
+                                type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"><textarea id="notificationMessage" class="form-control" rows="4"
+                                placeholder="Enter notification message"></textarea></div>
+                        <div class="modal-footer"><button type="button" id="sendNotificationBtn"
+                                class="btn btn-primary">Send</button><button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cancel</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="editPlanModal" tabindex="-1" aria-labelledby="editPlanModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <form id="editPlanForm" class="modal-content" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editPlanModalLabel">Edit Plan</h5><button type="button"
+                                class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"><input type="hidden" id="editPlanCode" />
+                            <div class="mb-3"><label for="editPlanName" class="form-label">Name</label><input
+                                    type="text" id="editPlanName" class="form-control" required /></div>
+                            <div class="mb-3"><label for="editPlanPrice" class="form-label">Price</label><input
+                                    type="number" id="editPlanPrice" class="form-control" min="0" required /></div>
+                            <div class="mb-3"><label for="editPlanValidity" class="form-label">Validity
+                                    (days)</label><input type="number" id="editPlanValidity" class="form-control"
+                                    min="1" required /></div>
+                        </div>
+                        <div class="modal-footer"><button type="submit" class="btn btn-primary">Save
+                                Changes</button><button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cancel</button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal fade" id="addPlanModal" tabindex="-1" aria-labelledby="addPlanModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <form id="addPlanForm" class="modal-content" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addPlanModalLabel">Add New Plan</h5><button type="button"
+                                class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3"><label for="addPlanCode" class="form-label">Plan Code</label><input
+                                    type="text" id="addPlanCode" class="form-control" required /></div>
+                            <div class="mb-3"><label for="addPlanName" class="form-label">Name</label><input type="text"
+                                    id="addPlanName" class="form-control" required /></div>
+                            <div class="mb-3"><label for="addPlanPrice" class="form-label">Price</label><input
+                                    type="number" id="addPlanPrice" class="form-control" min="0" required /></div>
+                            <div class="mb-3"><label for="addPlanValidity" class="form-label">Validity
+                                    (days)</label><input type="number" id="addPlanValidity" class="form-control" min="1"
+                                    required /></div>
+                        </div>
+                        <div class="modal-footer"><button type="submit" class="btn btn-primary">Add Plan</button><button
+                                type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <form id="editUserForm" class="modal-content" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editUserModalLabel">Edit User</h5><button type="button"
+                                class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"><input type="hidden" id="editUserId" />
+                            <div class="mb-3"><label for="editUserName" class="form-label">Name</label><input
+                                    type="text" id="editUserName" class="form-control" required /></div>
+                            <div class="mb-3"><label for="editUserMobile" class="form-label">Mobile</label><input
+                                    type="text" id="editUserMobile" class="form-control" required /></div>
+                            <div class="mb-3"><label for="editUserPlan" class="form-label">Plan ID</label><input
+                                    type="text" id="editUserPlan" class="form-control" required /></div>
+                            <div class="mb-3"><label for="editUserStatus" class="form-label">Status</label><select
+                                    id="editUserStatus" class="form-select" required>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select></div>
+                        </div>
+                        <div class="modal-footer"><button type="submit" class="btn btn-primary">Save
+                                Changes</button><button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cancel</button></div>
+                    </form>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+            <script>
+                function logout() {
+                    fetch("http://localhost:3000/logout", {
+                        method: "POST"
+                    }).then(() => {
+                        window.location.href = "./index.html"
+                    })
+                }
+                document.addEventListener("DOMContentLoaded", fetchAllData);
+
+                function fetchAllData() {
+                    Promise.all([fetch("http://localhost:3000/users").then(res => res.json()), fetch("http://localhost:3000/transactions").then(res => res.json()), fetch("http://localhost:3000/plans").then(res => res.json()), fetch("http://localhost:3000/admin").then(res => res.json()), fetch("http://localhost:3000/coupons").then(res => res.json())]).then(([uData, txnData, pData, aData, cData]) => {
+                        users = uData;
+                        transactions = txnData;
+                        plans = pData;
+                        adminData = aData;
+                        couponsData = cData;
+                        updateSubscribers();
+                        updateExpiringPlans();
+                        updateTransactionsMetrics();
+                        updateBestPlansAnalysis();
+                        updateRevenueChart();
+                        initMiniCharts();
+                        updateUserTable();
+                        updatePlanTable();
+                    }).catch(e => console.error(e))
+                }
+
+                function updateSubscribers() {
+                    document.getElementById("activeSubscribers").innerText = users.filter(u => u.status.toLowerCase() === "active").length
+                }
+
+                function updateExpiringPlans() {
+                    const days = parseInt(document.getElementById("expiryDaysDropdown").value);
+                    const tbody = document.getElementById("expiringUsersTable").querySelector("tbody");
+                    tbody.innerHTML = "";
+                    const now = new Date();
+                    let filtered = transactions.filter(txn => {
+                        const plan = plans[txn.plan_id];
+                        if (!plan) return false;
+                        const txnDate = new Date(txn.date);
+                        let expiry = new Date(txnDate);
+                        expiry.setDate(expiry.getDate() + plan.validity);
+                        const diff = Math.ceil((expiry - now) / (1000 * 60 * 60 * 24));
+                        txn.expiryDate = expiry;
+                        txn.diffDays = diff;
+                        return diff < 0 || (diff >= 0 && diff <= days)
+                    });
+                    filtered.sort((a, b) => {
+                        if (a.diffDays < 0 && b.diffDays < 0) return b.diffDays - a.diffDays;
+                        if (a.diffDays < 0 && b.diffDays >= 0) return -1;
+                        if (a.diffDays >= 0 && b.diffDays < 0) return 1;
+                        return a.diffDays - b.diffDays
+                    });
+                    filtered.forEach(txn => {
+                        const row = document.createElement("tr");
+                        if (txn.diffDays < 0) row.classList.add("table-danger");
+                        else if (txn.diffDays === 0) row.classList.add("table-warning");
+                        else if (txn.diffDays === 1) row.classList.add("table-warning");
+                        else if (txn.diffDays === 2) row.classList.add("table-info");
+                        else if (txn.diffDays === 3) row.classList.add("table-secondary");
+                        else row.classList.add("table-success");
+                        row.innerHTML = `<td>${txn.user || "Unknown"}</td><td>${txn.mobile}</td><td>${txn.plan_id}</td><td>${txn.expiryDate.toISOString().split("T")[0]}</td><td>${txn.diffDays < 0 ? "Expired" : txn.diffDays + " Days"}</td><td><button class="btn btn-secondary btn-sm" onclick="openNotificationModal('${txn.mobile}')">Notify</button></td>`;
+                        tbody.appendChild(row)
+                    });
+                    document.getElementById("expiringPlansCount").innerText = tbody.rows.length
+                }
+
+                function updateTransactionsMetrics() {
+                    document.getElementById("recentRecharges").innerText = transactions.length;
+                    const r = transactions.reduce((s, txn) => s + txn.amount, 0);
+                    document.getElementById("totalRevenue").innerText = r.toLocaleString()
+                }
+
+                function updateBestPlansAnalysis() {
+                    let subCount = {};
+                    users.forEach(u => {
+                        const pid = u.plan_id;
+                        subCount[pid] = (subCount[pid] || 0) + 1
+                    });
+                    let revByPlan = {};
+                    transactions.forEach(txn => {
+                        const pid = txn.plan_id;
+                        revByPlan[pid] = (revByPlan[pid] || 0) + txn.amount
+                    });
+                    let topPlans = [];
+                    Object.keys(plans).forEach(code => {
+                        const plan = plans[code];
+                        topPlans.push({
+                            plan: plan.name,
+                            price: plan.price,
+                            subscribers: subCount[code] || 0,
+                            revenue: revByPlan[code] || 0
+                        })
+                    });
+                    console.log(topPlans)
+                    topPlans.sort((a, b) => b.revenue - a.revenue);
+                    const tbl = document.getElementById("topPlansTable").querySelector("tbody");
+                    tbl.innerHTML = "";
+                    topPlans.forEach(p => {
+                        tbl.innerHTML += `<tr><td class="text-start">${p.plan}</td><td>₹${p.price}</td><td>${p.subscribers}</td><td>₹${p.revenue.toLocaleString()}</td></tr>`
+                    })
+                }
+
+                function updatePlanTable() {
+                    const tbody = document.getElementById("plansTable").querySelector("tbody");
+                    tbody.innerHTML = "";
+                    Object.keys(plans).forEach(code => {
+                        const plan = plans[code];
+                        tbody.innerHTML += `<tr><td>${plan.code}</td><td>${plan.name}</td><td>₹${plan.price}</td><td>${plan.validity} Days</td><td><button class="btn btn-sm btn-primary" onclick="openEditPlanModal('${code}')">Edit</button></td></tr>`
+                    })
+                }
+
+                function updateUserTable() {
+                    const tbody = document.getElementById("usersTable").querySelector("tbody");
+                    tbody.innerHTML = "";
+                    users.forEach(u => {
+                        tbody.innerHTML += `<tr><td>${u.name}</td><td>${u.mobile}</td><td>${u.plan_id}</td><td>${u.status}</td><td><button class="btn btn-sm btn-primary" onclick="openEditUserModal('${u.id}')">Edit</button></td></tr>`
+                    })
+                }
+
+                function randomBG() {
+                    const r = Math.floor(Math.random() * 256),
+                        g = Math.floor(Math.random() * 256),
+                        b = Math.floor(Math.random() * 256);
+                    let rgb = [r, g, b],
+                        max = Math.max(...rgb),
+                        min = Math.min(...rgb);
+                    if (max - min < 80) {
+                        let mid = Math.floor((max + min) / 2);
+                        rgb = rgb.map(c => c > mid ? Math.min(c + 60, 255) : Math.max(c - 60, 0))
+                    }
+                    return "#" + rgb.map(c => c.toString(16).padStart(2, "0")).join("")
+                }
+
+                function updateRevenueChart() {
+                    let revByPlan = {};
+                    transactions.forEach(txn => {
+                        const pid = txn.plan_id;
+                        revByPlan[pid] = (revByPlan[pid] || 0) + txn.amount
+                    });
+                    let names = [],
+                        colors = [],
+                        values = [];
+                    Object.keys(plans).forEach(code => {
+                        const plan = plans[code];
+                        names.push(plan.name);
+                        values.push(revByPlan[code] || 0)
+                    });
+                    for (let i = 0; i < values.length - 1; i++) {
+                        for (let j = 0; j <= i; j++) {
+                            if (values[i] > values[j]) {
+                                [values[i], values[j]] = [values[j], values[i]];
+                                [names[i], names[j]] = [names[j], names[i]]
+                            }
+                        }
+                    }
+                    names.forEach(() => {
+                        colors.push(randomBG())
+                    });
+                    const ctx = document.getElementById("revenueChart").getContext("2d");
+                    if (window.revenueChartInstance) {
+                        window.revenueChartInstance.data.labels = names;
+                        window.revenueChartInstance.data.datasets[0].data = values;
+                        window.revenueChartInstance.update()
+                    } else {
+                        window.revenueChartInstance = new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: names,
+                                datasets: [{
+                                    label: "Revenue (₹)",
+                                    data: values,
+                                    backgroundColor: colors,
+                                    borderWidth: 0
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false
+                            }
+                        })
+                    }
+                }
+
+                function initMiniCharts() {
+                    const ids = ["chartActive", "chartExpiry", "chartRecharges", "chartRevenue"];
+                    ids.forEach(id => {
+                        const canvas = document.getElementById(id);
+                        canvas.style.height = "60px";
+                        canvas.style.maxHeight = "60px"
+                    });
+                    const opt1 = {
+                        type: "bar",
+                        data: {
+                            labels: ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"],
+                            datasets: [{
+                                data: [5, 10, 7, 12, 9, 5, 6, 7, 8, 9],
+                                borderColor: "#fff",
+                                backgroundColor: "rgba(255,255,255,0.2)",
+                                borderWidth: 2,
+                                tension: 0.4,
+                                borderRadius: 45,
+                                pointRadius: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    display: false
+                                },
+                                y: {
+                                    display: false
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    };
+                    const opt3 = {
+                        type: "pie",
+                        data: {
+                            labels: ["new customer", "premium customer"],
+                            datasets: [{
+                                data: [3, 8],
+                                borderColor: "#fff",
+                                backgroundColor: "rgba(255,255,255,0.2)",
+                                borderWidth: 2,
+                                tension: 0.4,
+                                pointRadius: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    display: false
+                                },
+                                y: {
+                                    display: false
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    };
+                    const opt4 = {
+                        type: "line",
+                        data: {
+                            labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                            datasets: [{
+                                data: [12, 10, 15, 17, 14],
+                                borderColor: "#fff",
+                                backgroundColor: "rgba(255,255,255,0.2)",
+                                borderWidth: 2,
+                                tension: 0.4,
+                                pointRadius: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    display: false
+                                },
+                                y: {
+                                    display: false
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    };
+                    new Chart(document.getElementById("chartActive").getContext("2d"), opt1);
+                    new Chart(document.getElementById("chartRecharges").getContext("2d"), opt3);
+                    new Chart(document.getElementById("chartRevenue").getContext("2d"), opt4)
+                }
+                document.getElementById("searchInput").addEventListener("input", function () {
+                    const term = this.value.trim().toLowerCase();
+                    document.querySelectorAll("#expiringUsersTable tbody tr").forEach(row => {
+                        let show = false;
+                        row.querySelectorAll("td").forEach((cell, idx) => {
+                            if (idx < 5) {
+                                const text = cell.textContent.toLowerCase();
+                                if (text.indexOf(term) > -1) {
+                                    show = true;
+                                    cell.innerHTML = cell.textContent.replace(new RegExp(`(${term})`, "gi"), '<span class="highlight">$1</span>');
+                                } else {
+                                    cell.innerHTML = cell.textContent
+                                }
+                            }
+                        });
+                        row.style.display = show ? "" : "none"
+                    })
+                });
+                document.querySelectorAll("#expiringUsersTable thead th[data-sort]").forEach(header => {
+                    header.style.cursor = "pointer";
+                    header.addEventListener("click", function () {
+                        const tbody = document.querySelector("#expiringUsersTable tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+                        const index = Array.from(this.parentElement.children).indexOf(this);
+                        const ascending = this.classList.contains("asc");
+                        rows.sort((a, b) => {
+                            const textA = a.children[index].textContent.trim().toLowerCase();
+                            const textB = b.children[index].textContent.trim().toLowerCase();
+                            if (!isNaN(textA) && !isNaN(textB)) {
+                                return ascending ? textA - textB : textB - textA
+                            }
+                            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA)
+                        });
+                        this.classList.toggle("asc", !ascending);
+                        this.classList.toggle("desc", ascending);
+                        rows.forEach(row => tbody.appendChild(row))
+                    })
+                });
+                document.querySelectorAll("#usersTable thead th[data-sort]").forEach(header => {
+                    header.style.cursor = "pointer";
+                    header.addEventListener("click", function () {
+                        const tbody = document.querySelector("#usersTable tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+                        const index = Array.from(this.parentElement.children).indexOf(this);
+                        const ascending = this.classList.contains("asc");
+                        rows.sort((a, b) => {
+                            const textA = a.children[index].textContent.trim().toLowerCase();
+                            const textB = b.children[index].textContent.trim().toLowerCase();
+                            if (!isNaN(textA) && !isNaN(textB)) {
+                                return ascending ? textA - textB : textB - textA
+                            }
+                            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA)
+                        });
+                        this.classList.toggle("asc", !ascending);
+                        this.classList.toggle("desc", ascending);
+                        rows.forEach(row => tbody.appendChild(row))
+                    })
+                });
+                document.querySelectorAll("#plansTable thead th[data-sort]").forEach(header => {
+                    header.style.cursor = "pointer";
+                    header.addEventListener("click", function () {
+                        const tbody = document.querySelector("#plansTable tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+                        const index = Array.from(this.parentElement.children).indexOf(this);
+                        const ascending = this.classList.contains("asc");
+                        rows.sort((a, b) => {
+                            const textA = a.children[index].textContent.trim().toLowerCase();
+                            const textB = b.children[index].textContent.trim().toLowerCase();
+                            if (!isNaN(textA) && !isNaN(textB)) {
+                                return ascending ? textA - textB : textB - textA
+                            }
+                            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA)
+                        });
+                        this.classList.toggle("asc", !ascending);
+                        this.classList.toggle("desc", ascending);
+                        rows.forEach(row => tbody.appendChild(row))
+                    })
+                });
+                document.getElementById("searchUserInput") && document.getElementById("searchUserInput").addEventListener("input", function () {
+                    const term = this.value.trim().toLowerCase();
+                    document.querySelectorAll("#usersTable tbody tr").forEach(row => {
+                        let show = false;
+                        row.querySelectorAll("td").forEach((cell, idx) => {
+                            if (idx < 4) {
+                                const text = cell.textContent.toLowerCase();
+                                if (text.indexOf(term) > -1) {
+                                    show = true;
+                                    cell.innerHTML = cell.textContent.replace(new RegExp(`(${term})`, "gi"), '<span class="highlight">$1</span>');
+                                } else {
+                                    cell.innerHTML = cell.textContent
+                                }
+                            }
+                        });
+                        row.style.display = show ? "" : "none"
+                    })
+                });
+
+                function openNotificationModal(userId) {
+                    currentUserForNotification = userId;
+                    new bootstrap.Modal(document.getElementById("notificationModal")).show()
+                }
+                document.getElementById("sendNotificationBtn").addEventListener("click", function () {
+                    const msg = document.getElementById("notificationMessage").value;
+                    if (!msg) {
+                        alert("Enter a notification message.");
+                        return
+                    }
+                    const time = new Date().toISOString();
+                    const user = users.find(u => u.id === currentUserForNotification);
+                    if (user) {
+                        if (!user.notifications) user.notifications = [];
+                        user.notifications.push({
+                            msg: msg,
+                            time: time
+                        });
+                        alert("Notification sent to " + user.name)
+                    }
+                    document.getElementById("notificationMessage").value = "";
+                    bootstrap.Modal.getInstance(document.getElementById("notificationModal")).hide()
+                });
+                document.getElementById("dashboardLink").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.getElementById("dashboardSection").style.display = "block";
+                    document.getElementById("planManagementSection").style.display = "none";
+                    document.getElementById("userManagementSection").style.display = "none";
+                    document.getElementById("adminSettingsSection").style.display = "none";
+                    document.getElementById("couponsSection").style.display = "none";
+                    this.classList.add("active");
+                    document.getElementById("adminSettingsLink").classList.remove("active");
+                    document.getElementById("couponsLink").classList.remove("active");
+                    document.getElementById("planManagementLink").classList.remove("active");
+                    document.getElementById("userManagementLink").classList.remove("active")
+                });
+                document.getElementById("planManagementLink").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.getElementById("dashboardSection").style.display = "none";
+                    document.getElementById("planManagementSection").style.display = "block";
+                    document.getElementById("userManagementSection").style.display = "none";
+                    document.getElementById("adminSettingsSection").style.display = "none";
+                    document.getElementById("couponsSection").style.display = "none";
+                    this.classList.add("active");
+                    document.getElementById("dashboardLink").classList.remove("active");
+                    document.getElementById("adminSettingsLink").classList.remove("active");
+                    document.getElementById("couponsLink").classList.remove("active");
+                    document.getElementById("userManagementLink").classList.remove("active");
+                    updatePlanTable()
+                });
+                document.getElementById("userManagementLink").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.getElementById("dashboardSection").style.display = "none";
+                    document.getElementById("planManagementSection").style.display = "none";
+                    document.getElementById("userManagementSection").style.display = "block";
+                    document.getElementById("adminSettingsSection").style.display = "none";
+                    document.getElementById("couponsSection").style.display = "none";
+                    this.classList.add("active");
+                    document.getElementById("dashboardLink").classList.remove("active");
+                    document.getElementById("adminSettingsLink").classList.remove("active");
+                    document.getElementById("couponsLink").classList.remove("active");
+                    updateUserTable()
+                });
+                document.getElementById("adminSettingsLink").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.getElementById("dashboardSection").style.display = "none";
+                    document.getElementById("adminSettingsSection").style.display = "block";
+                    document.getElementById("planManagementSection").style.display = "none";
+                    document.getElementById("userManagementSection").style.display = "none";
+                    document.getElementById("couponsSection").style.display = "none";
+                    this.classList.add("active");
+                    document.getElementById("dashboardLink").classList.remove("active");
+                    document.getElementById("couponsLink").classList.remove("active");
+                    document.getElementById("planManagementLink").classList.remove("active");
+                    document.getElementById("userManagementLink").classList.remove("active");
+                    fetch("http://localhost:3000/admin").then(res => res.json()).then(data => {
+                        adminData = data;
+                        document.getElementById("adminEmail").value = adminData.email;
+                        document.getElementById("adminPassword").value = adminData.password
+                    })
+                });
+                document.getElementById("couponsLink").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.getElementById("dashboardSection").style.display = "none";
+                    document.getElementById("adminSettingsSection").style.display = "none";
+                    document.getElementById("planManagementSection").style.display = "none";
+                    document.getElementById("userManagementSection").style.display = "none";
+                    document.getElementById("couponsSection").style.display = "block";
+                    this.classList.add("active");
+                    document.getElementById("dashboardLink").classList.remove("active");
+                    document.getElementById("adminSettingsLink").classList.remove("active");
+                    document.getElementById("planManagementLink").classList.remove("active");
+                    document.getElementById("userManagementLink").classList.remove("active");
+                    fetch("http://localhost:3000/coupons").then(res => res.json()).then(data => {
+                        couponsData = data;
+                        document.getElementById("couponsTextarea").value = JSON.stringify(couponsData, null, 4)
+                    })
+                });
+                document.getElementById("adminSettingsForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    adminData.email = document.getElementById("adminEmail").value;
+                    adminData.password = document.getElementById("adminPassword").value;
+                    fetch("http://localhost:3000/admin", {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(adminData)
+                    }).then(res => res.json()).then(data => {
+                        adminData = data;
+                        alert("Admin credentials updated on server.")
+                    })
+                });
+                document.getElementById("couponsForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    try {
+                        const upd = JSON.parse(document.getElementById("couponsTextarea").value);
+                        couponsData = upd;
+                        fetch("http://localhost:3000/coupons", {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(couponsData)
+                        }).then(res => res.json()).then(data => {
+                            couponsData = data;
+                            alert("Coupons updated on server.")
+                        })
+                    } catch (err) {
+                        alert("Invalid JSON format.")
+                    }
+                });
+                document.getElementById("editPlanForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const code = document.getElementById("editPlanCode").value;
+                    plans[code].name = document.getElementById("editPlanName").value;
+                    plans[code].price = parseFloat(document.getElementById("editPlanPrice").value);
+                    plans[code].validity = parseInt(document.getElementById("editPlanValidity").value);
+                    fetch("http://localhost:3000/plans", {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(plans)
+                    }).then(res => res.json()).then(data => {
+                        plans = data;
+                        updatePlanTable();
+                        alert("Plan updated on server.");
+                        bootstrap.Modal.getInstance(document.getElementById("editPlanModal")).hide()
+                    })
+                });
+                document.getElementById("addPlanForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const code = document.getElementById("addPlanCode").value.trim();
+                    if (plans.hasOwnProperty(code)) {
+                        alert("Plan code already exists.");
+                        return
+                    }
+                    plans[code] = {
+                        code: code,
+                        name: document.getElementById("addPlanName").value,
+                        price: parseFloat(document.getElementById("addPlanPrice").value),
+                        validity: parseInt(document.getElementById("addPlanValidity").value)
+                    };
+                    fetch("http://localhost:3000/plans", {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(plans)
+                    }).then(res => res.json()).then(data => {
+                        plans = data;
+                        updatePlanTable();
+                        alert("Plan added on server.");
+                        this.reset();
+                        bootstrap.Modal.getInstance(document.getElementById("addPlanModal")).hide()
+                    })
+                });
+                document.getElementById("editUserForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const id = document.getElementById("editUserId").value;
+                    let user = users.find(u => u.id === id);
+                    user.name = document.getElementById("editUserName").value;
+                    user.mobile = document.getElementById("editUserMobile").value;
+                    user.plan_id = document.getElementById("editUserPlan").value;
+                    user.status = document.getElementById("editUserStatus").value;
+                    fetch("http://localhost:3000/users/" + id, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(user)
+                    }).then(res => res.json()).then(data => {
+                        users = users.map(u => u.id === id ? data : u);
+                        updateUserTable();
+                        alert("User updated on server.");
+                        bootstrap.Modal.getInstance(document.getElementById("editUserModal")).hide()
+                    })
+                });
+
+                function openEditPlanModal(code) {
+                    document.getElementById("editPlanCode").value = code;
+                    document.getElementById("editPlanName").value = plans[code].name;
+                    document.getElementById("editPlanPrice").value = plans[code].price;
+                    document.getElementById("editPlanValidity").value = plans[code].validity;
+                    new bootstrap.Modal(document.getElementById("editPlanModal")).show()
+                }
+
+                function openEditUserModal(id) {
+                    let user = users.find(u => u.id === id);
+                    document.getElementById("editUserId").value = id;
+                    document.getElementById("editUserName").value = user.name;
+                    document.getElementById("editUserMobile").value = user.mobile;
+                    document.getElementById("editUserPlan").value = user.plan_id;
+                    document.getElementById("editUserStatus").value = user.status;
+                    new bootstrap.Modal(document.getElementById("editUserModal")).show()
+                }
+                document.querySelectorAll("#plansTable thead th[data-sort]").forEach(header => {
+                    header.style.cursor = "pointer";
+                    header.addEventListener("click", function () {
+                        const tbody = document.querySelector("#plansTable tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+                        const index = Array.from(this.parentElement.children).indexOf(this);
+                        const ascending = this.classList.contains("asc");
+                        rows.sort((a, b) => {
+                            const textA = a.children[index].textContent.trim().toLowerCase();
+                            const textB = b.children[index].textContent.trim().toLowerCase();
+                            if (!isNaN(textA) && !isNaN(textB)) {
+                                return ascending ? textA - textB : textB - textA
+                            }
+                            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA)
+                        });
+                        this.classList.toggle("asc", !ascending);
+                        this.classList.toggle("desc", ascending);
+                        rows.forEach(row => tbody.appendChild(row))
+                    })
+                });
+                document.querySelectorAll("#usersTable thead th[data-sort]").forEach(header => {
+                    header.style.cursor = "pointer";
+                    header.addEventListener("click", function () {
+                        const tbody = document.querySelector("#usersTable tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+                        const index = Array.from(this.parentElement.children).indexOf(this);
+                        const ascending = this.classList.contains("asc");
+                        rows.sort((a, b) => {
+                            const textA = a.children[index].textContent.trim().toLowerCase();
+                            const textB = b.children[index].textContent.trim().toLowerCase();
+                            if (!isNaN(textA) && !isNaN(textB)) {
+                                return ascending ? textA - textB : textB - textA
+                            }
+                            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA)
+                        });
+                        this.classList.toggle("asc", !ascending);
+                        this.classList.toggle("desc", ascending);
+                        rows.forEach(row => tbody.appendChild(row))
+                    })
+                });
+                document.addEventListener("DOMContentLoaded", fetchAllData);
+                document.getElementById("expiryDaysDropdown").addEventListener("change", updateExpiringPlans);
+            </script>
+    </body>
+
+</html>

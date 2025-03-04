@@ -327,14 +327,7 @@
                             </select>
                             <div class="invalid-feedback">Select if active.</div>
                         </div>
-                        <div class="mb-3">
-                            <label for="editPlanIsHidden" class="form-label">Hidden</label>
-                            <select id="editPlanIsHidden" class="form-select" required>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                            <div class="invalid-feedback">Select if hidden.</div>
-                        </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -409,14 +402,7 @@
                             </select>
                             <div class="invalid-feedback">Select if active.</div>
                         </div>
-                        <div class="mb-3">
-                            <label for="addPlanIsHidden" class="form-label">Hidden</label>
-                            <select id="addPlanIsHidden" class="form-select" required>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                            <div class="invalid-feedback">Select if hidden.</div>
-                        </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Add Plan</button>
@@ -559,6 +545,7 @@
             function openEditPlanModal(code) {
                 const plan = plansData[code];
                 if (plan) {
+                    console.log(plan)
                     document.getElementById("editPlanCode").value = code;
                     document.getElementById("editPlanTag").value = plan.tag;
                     document.getElementById("editPlanName").value = plan.name;
@@ -569,7 +556,6 @@
                     document.getElementById("editPlanFeaturedApps").value = Array.isArray(plan.featuredApps) ? plan.featuredApps.join(", ") : "";
                     document.getElementById("editPlanIsRecommended").value = plan.isRecommended.toString();
                     document.getElementById("editPlanIsActive").value = plan.isActive.toString();
-                    document.getElementById("editPlanIsHidden").value = plan.isHidden.toString();
                     new bootstrap.Modal(document.getElementById("editPlanModal")).show();
                 }
             }
@@ -589,7 +575,6 @@
                     features: document.getElementById("editPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
                     isRecommended: document.getElementById("editPlanIsRecommended").value === "true",
                     isActive: document.getElementById("editPlanIsActive").value === "true",
-                    isHidden: document.getElementById("editPlanIsHidden").value === "true",
                     featuredApps: document.getElementById("editPlanFeaturedApps").value.split(",").map(a => a.trim()).filter(a => a)
                 };
                 updateJSON();
@@ -627,7 +612,6 @@
                     features: document.getElementById("addPlanFeatures").value.split(",").map(f => f.trim()).filter(f => f),
                     isRecommended: document.getElementById("addPlanIsRecommended").value === "true",
                     isActive: document.getElementById("addPlanIsActive").value === "true",
-                    isHidden: document.getElementById("addPlanIsHidden").value === "true",
                     featuredApps: document.getElementById("addPlanFeaturedApps").value.split(",").map(a => a.trim()).filter(a => a)
                 };
                 updateJSON();

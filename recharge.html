@@ -2,285 +2,475 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mobicomm - Login</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./css/main.min.css">
-        <script src="./node_modules/@popperjs/core/lib/popper.js" type="module" defer></script>
-        <script src="./script.js" defer></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mobicomm - Payment</title>
+        <!-- Font Awesome & Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoYFhC2H5RkPxhU9S9M+8nYdF0y5G7x9Jr7jaI6GmK7ZeZDy"
+            crossorigin="anonymous" />
+        <!-- QRCode library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <link rel="stylesheet" href="./css/main.min.css" />
+        <style>
+            /* Additional responsive tweaks if needed */
+            .payment-form {
+                margin-top: 15px;
+            }
+
+            #qrCodeContainer {
+                margin: auto;
+            }
+        </style>
     </head>
 
-    <body style="overflow-x: hidden;">
-        <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
+    <body style="overflow-x: hidden">
+        <!-- Navbar -->
+        <nav class="navbar sticky-top navbar-expand-lg bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt=""></a>
-                <button class="navbar-toggler border-0 text-light" style="outline: none;" type="button"
-                    data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt="" /></a>
+                <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"
-                        style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255, 255, 255, 1)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');outline: none;"></span>
+                    <span class="navbar-toggler-icon" style="
+              background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255, 255, 255, 1)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');
+            "></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="transition: all .4s ease;">
-                    <ul class="navbar-nav  w-100 justify-content-end text-white align-items-center">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="transition: all 0.4s ease">
+                    <ul class="navbar-nav w-100 justify-content-end text-white align-items-center">
                         <li class="nav-item active">
                             <a class="nav-link text-white" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">About</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="plans.html">Plans</a>
-                        <li class=" nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="./support.html">Support</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="./login.html">
-                                <i class="fa-solid fa-user p-2 bg-light rounded-pill text-primary"></i></a>
+                                <i class="fa-solid fa-user p-2 bg-light rounded-pill text-primary"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!-- Main Container -->
         <div class="container py-5">
             <div class="row my-5">
+                <!-- Plan Summary Card (left column) -->
                 <div class="col-md-4 mb-3">
-                    <div class="card ">
-                        <div class="card-body">
-                            <h4 class="card-title">Plan Summary</h4>
-                            <h5 class="mt-3">Features</h5>
-                            <ul class="list-group" id="planFeatures"></ul>
-                            <h5 class="mt-3">Total: ₹<span id="planPrice">0</span></h5>
-                        </div>
+                    <div id="planSummaryCard" class="card border-0 shadow-sm">
+                        <!-- Plan details will be dynamically inserted here -->
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="card">
+                <!-- Payment Methods Card (right column) -->
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
                         <div class="card-body">
-                            <h4 class="card-title">Payment Methods</h4>
-                            <div class="btn-group w-100 mb-3" role="group" aria-label="Payment Options">
-                                <button type="button" class="btn btn-outline-primary w-50"
-                                    id="credit-card-btn">Credit/Debit
-                                    Card</button>
-                                <button type="button" class="btn btn-outline-primary w-50" id="upi-btn">UPI</button>
+                            <!-- Mobile Number Section -->
+                            <div class="mb-3">
+                                <label for="mobileNumber" class="form-label">Mobile Number</label>
+                                <div class="input-group">
+                                    <input type="text" id="mobileNumber" class="form-control"
+                                        placeholder="Enter mobile number" disabled />
+                                    <button class="btn btn-outline-primary" id="changeMobileBtn">
+                                        Change
+                                    </button>
+                                </div>
                             </div>
 
+                            <h4 class="card-title mb-3">Payment Methods</h4>
+                            <div class="btn-group w-100 mb-3" role="group" aria-label="Payment Options">
+                                <button type="button" class="btn btn-outline-primary" id="credit-card-btn">
+                                    Credit/Debit Card
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" id="upi-btn">
+                                    UPI
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" id="qrpay-btn">
+                                    QR Pay
+                                </button>
+                            </div>
+
+                            <!-- Credit Card Form -->
                             <div id="credit-card-form" class="payment-form">
                                 <div class="mb-3">
                                     <label for="card-number" class="form-label">Card Number</label>
                                     <input type="text" class="form-control" id="card-number"
-                                        placeholder="XXXX XXXX XXXX XXXX">
+                                        placeholder="XXXX XXXX XXXX XXXX" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="card-expiry" class="form-label">Expiry Date</label>
-                                    <input type="text" class="form-control" id="card-expiry" placeholder="MM/YY">
+                                    <input type="text" class="form-control" id="card-expiry" placeholder="MM/YY" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="card-cvc" class="form-label">CVC</label>
-                                    <input type="text" class="form-control" id="card-cvc" placeholder="CVC">
+                                    <input type="text" class="form-control" id="card-cvc" placeholder="CVC" />
                                 </div>
-                                <button id="card-payment-btn" class="btn btn-primary w-100">Pay ₹<span
-                                        id="paymentAmount">0</span></button>
+                                <button id="card-payment-btn" class="btn btn-primary w-100 payNow">
+                                    Pay ₹<span id="paymentAmount">0</span>
+                                </button>
                             </div>
 
-                            <div id="upi-form" class="payment-form" style="display: none;">
+                            <!-- UPI Form -->
+                            <div id="upi-form" class="payment-form" style="display: none">
                                 <div class="mb-3">
                                     <label for="upi-id" class="form-label">UPI ID</label>
-                                    <input type="text" class="form-control" id="upi-id" placeholder="example@upi">
+                                    <input type="text" class="form-control" id="upi-id" placeholder="example@upi" />
                                 </div>
-                                <button class="btn btn-primary w-100" id="upi-payment-btn">Pay ₹<span
-                                        id="upiPaymentAmount">0</span></button>
+                                <button class="btn btn-primary w-100 payNow" id="upi-payment-btn">
+                                    Pay ₹<span id="upiPaymentAmount">0</span>
+                                </button>
                             </div>
 
+                            <!-- QR Pay Form -->
+                            <div id="qrpay-form" class="payment-form" style="display: none">
+                                <div class="mb-3">
+                                    <label class="form-label">Scan QR Code to Pay ₹<span
+                                            id="qrPaymentAmount">0</span></label>
+                                    <div id="qrCodeContainer" class="d-flex justify-content-center my-3 payNow"></div>
+                                </div>
+                                <button id="refreshQRBtn" class="btn btn-primary w-100 payNow">
+                                    Refresh QR Code
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 p-5 mt-5 border-top bg-secondary">
-            <div class="col p-3">
-                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                    <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo">
-                </a>
-                <p class="text-muted">Mobicomm India Private Limited<br>&copy; 2025</p>
-                <div class="social-links d-flex text-light align-items-center gap-3">
-                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
-                        style="height: 30px;width: 30px;">
-                        <i class="fab fa-facebook-f"></i>
+        <!-- Mobile Number Verification Modal -->
+        <div class="modal" tabindex="-1" id="mobileModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Verify Mobile Number</h5>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>
-                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
-                        style="height: 30px;width: 30px;">
-                        <i class="fab fa-twitter"></i>
-                    </div>
-                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
-                        style="height: 30px;width: 30px;">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
-                        style="height: 30px;width: 30px;">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div class="rounded-pill bg-primary d-flex align-items-center justify-content-center"
-                        style="height: 30px;width: 30px;">
-                        <i class="fab fa-youtube"></i>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="modalMobileNumber" class="form-label">Mobile Number</label>
+                            <input type="text" id="modalMobileNumber" class="form-control"
+                                placeholder="Enter mobile number" />
+                        </div>
+                        <div class="mb-3">
+                            <button id="sendOTPBtn" class="btn btn-secondary">
+                                Send OTP
+                            </button>
+                        </div>
+                        <div class="mb-3" id="otpSection" style="display: none">
+                            <label for="modalOTP" class="form-label">Enter OTP</label>
+                            <input type="text" id="modalOTP" class="form-control" placeholder="Enter OTP" />
+                            <button id="verifyOTPBtn" class="btn btn-primary mt-2">
+                                Verify
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col d-none d-lg-block"></div> <!-- Empty column for spacing on large screens -->
-
-            <div class="col mb-4">
-                <h5 class="text-primary">Services</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="./index.html#cardNewSim" class="nav-link p-0 text-muted">Get a
-                            New Sim</a></li>
-                    <li class="nav-item mb-2"><a href="./index.html#cardEsim" class="nav-link p-0 text-muted">Get an
-                            eSim</a></li>
-                    <li class="nav-item mb-2"><a href="./index.html#card5GConnectivity"
-                            class="nav-link p-0 text-muted">5G Connectivity</a></li>
-                    <li class="nav-item mb-2"><a href="./index.html#card5GUpgrade" class="nav-link p-0 text-muted">5G
-                            Upgrade</a></li>
-                    <li class="nav-item mb-2"><a href="./admin-login.html" class="nav-link p-0 text-muted">Administrator
-                            Portal</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col mb-4">
-                <h5 class="text-primary">Recharge</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Popular Plans</a></li>
-                    <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Data Addons</a></li>
-                    <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">International Roaming</a></li>
-                    <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Basic Plans</a></li>
-                    <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Unlimited Plans</a></li>
-                </ul>
-            </div>
-
-            <div class="col">
-                <h5 class="text-primary">Quick Links</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                </ul>
+        <!-- Footer (simplified for brevity) -->
+        <footer class="p-5 mt-5 border-top bg-secondary text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="/" class="d-flex align-items-center mb-3 link-light text-decoration-none">
+                            <img src="./images/mobicomm_logo_b.png" style="width: 150px;" alt="Mobicomm Logo" />
+                        </a>
+                        <p>Mobicomm India Private Limited<br>&copy; 2025</p>
+                    </div>
+                    <div class="col-md-8 text-end">
+                        <div class="social-links d-flex justify-content-end gap-3">
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
 
-        <style>
-            footer .nav-link:hover {
-                color: #0f0b9e !important;
-            }
-        </style>
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-        <script>
-            document.getElementById("credit-card-btn").addEventListener("click", function () {
-                document.getElementById("credit-card-form").style.display = "block";
-                document.getElementById("upi-form").style.display = "none";
-            });
-
-            document.getElementById("upi-btn").addEventListener("click", function () {
-                document.getElementById("credit-card-form").style.display = "none";
-                document.getElementById("upi-form").style.display = "block";
-            });
-
-            document.getElementById("card-payment-btn").addEventListener("click", function () {
-                const cardNumber = document.getElementById("card-number").value;
-                const cardExpiry = document.getElementById("card-expiry").value;
-                const cardCVC = document.getElementById("card-cvc").value;
-
-                // Card validation
-                if (!validateCardNumber(cardNumber)) {
-                    alert("Please enter a valid card number.");
-                    return;
-                }
-                if (!validateCardExpiry(cardExpiry)) {
-                    alert("Please enter a valid expiry date (MM/YY).");
-                    return;
-                }
-                if (!validateCardCVC(cardCVC)) {
-                    alert("Please enter a valid CVC.");
-                    return;
-                }
-
-                // If validation is successful, show modal
-                showTransactionModal();
-            });
-
-            document.getElementById("upi-payment-btn").addEventListener("click", function () {
-                const upiId = document.getElementById("upi-id").value;
-
-                // UPI validation
-                if (!validateUPI(upiId)) {
-                    alert("Please enter a valid UPI ID.");
-                    return;
-                }
-
-                // If validation is successful, show modal
-                showTransactionModal();
-            });
-
-            function validateCardNumber(cardNumber) {
-                // Check if card number is valid (basic check for 16 digits)
-                const regex = /^\d{16}$/;
-                return regex.test(cardNumber);
-            }
-
-            function validateCardExpiry(cardExpiry) {
-                // Check if expiry date is valid MM/YY format
-                const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
-                return regex.test(cardExpiry);
-            }
-
-            function validateCardCVC(cardCVC) {
-                // Check if CVC is valid (3 digits)
-                const regex = /^\d{3}$/;
-                return regex.test(cardCVC);
-            }
-
-            function validateUPI(upiId) {
-                // Basic check for UPI ID (should contain '@' and a valid domain)
-                const regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+$/;
-                return regex.test(upiId);
-            }
-
-            function showTransactionModal() {
-                window.location.href = `./gateway.html?a=${price}`;
-            }
-            let paramsearcher = new URLSearchParams(window.location.search);
-
-            let price = 0;
-            fetch('http://localhost:3000/plans')
-                .then(res => res.json())
-                .then(data => {
-                    let id = paramsearcher.get('planid');
-                    let plan = data[id];
-                    if (plan) {
-                        let featureEL = document.getElementById('planFeatures');
-                        plan.features.forEach(feature => {
-                            featureEL.innerHTML += `<li class="list-group-item">${feature}</li>`;
-                        });
-                        document.getElementById('planPrice').textContent = plan.price;
-                        document.getElementById('paymentAmount').textContent = plan.price;
-                        document.getElementById('upiPaymentAmount').textContent = plan.price;
-                        price = plan.price
-                    }
-                });
-
-
-
-        </script>
-
+        <!-- Bootstrap Bundle JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
+
+        <script>
+            /***** Plan & Payment Logic *****/
+            let price = 0;
+            const paramsearcher = new URLSearchParams(window.location.search);
+            const planId = paramsearcher.get("planid");
+
+            // Fetch plan details from backend and update the summary card
+            fetch("http://localhost:3000/plans")
+                .then((res) => res.json())
+                .then((data) => {
+                    const plan = data[planId];
+                    if (plan) {
+                        price = plan.price;
+                        document.getElementById("qrPaymentAmount").textContent = plan.price;
+                        // Update plan summary card (using card design similar to your plans page)
+                        document.getElementById("planSummaryCard").innerHTML = `
+              <img src="https://placehold.jp/c8c6f5/0a075c/500x200.png?text=₹${plan.price}" class="card-img-top" alt="${plan.name}">
+              <div class="card-body">
+                <span class="badge bg-dark">${plan.tag}</span>
+                <h4 class="card-title mt-2">${plan.name}</h4>
+                <ul class="list-group mb-3">
+                  ${plan.features
+                                .map(
+                                    (feature) =>
+                                        `<li class="list-group-item">${feature}</li>`
+                                )
+                                .join("")}
+                </ul>
+                <div class="d-flex justify-content-between">
+                  <span>Validity: ${plan.validity} days</span>
+                  <span>Total: ₹${plan.price}</span>
+                </div>
+              </div>
+            `;
+                        // Also update any other payment amount fields if needed
+                        document.getElementById("paymentAmount").textContent = plan.price;
+                        document.getElementById("upiPaymentAmount").textContent = plan.price;
+                    }
+                });
+
+            // Payment method toggling
+            document.getElementById("credit-card-btn").addEventListener("click", function () {
+                // Set Credit/Debit Card button as selected
+                this.classList.remove("btn-outline-primary");
+                this.classList.add("btn-primary", "text-white");
+                // Set other buttons to outline
+                document.getElementById("upi-btn").classList.remove("btn-primary", "text-white");
+                document.getElementById("upi-btn").classList.add("btn-outline-primary");
+                document.getElementById("qrpay-btn").classList.remove("btn-primary", "text-white");
+                document.getElementById("qrpay-btn").classList.add("btn-outline-primary");
+                // Toggle forms visibility
+                document.getElementById("credit-card-form").style.display = "block";
+                document.getElementById("upi-form").style.display = "none";
+                document.getElementById("qrpay-form").style.display = "none";
+            });
+
+            document.getElementById("upi-btn").addEventListener("click", function () {
+                // Set UPI button as selected
+                this.classList.remove("btn-outline-primary");
+                this.classList.add("btn-primary", "text-white");
+                // Set other buttons to outline
+                document.getElementById("credit-card-btn").classList.remove("btn-primary", "text-white");
+                document.getElementById("credit-card-btn").classList.add("btn-outline-primary");
+                document.getElementById("qrpay-btn").classList.remove("btn-primary", "text-white");
+                document.getElementById("qrpay-btn").classList.add("btn-outline-primary");
+                // Toggle forms visibility
+                document.getElementById("credit-card-form").style.display = "none";
+                document.getElementById("upi-form").style.display = "block";
+                document.getElementById("qrpay-form").style.display = "none";
+            });
+
+            document.getElementById("qrpay-btn").addEventListener("click", function () {
+                // Set QR Pay button as selected
+                this.classList.remove("btn-outline-primary");
+                this.classList.add("btn-primary", "text-white");
+                // Set other buttons to outline
+                document.getElementById("credit-card-btn").classList.remove("btn-primary", "text-white");
+                document.getElementById("credit-card-btn").classList.add("btn-outline-primary");
+                document.getElementById("upi-btn").classList.remove("btn-primary", "text-white");
+                document.getElementById("upi-btn").classList.add("btn-outline-primary");
+                // Toggle forms visibility and generate QR Code
+                document.getElementById("credit-card-form").style.display = "none";
+                document.getElementById("upi-form").style.display = "none";
+                document.getElementById("qrpay-form").style.display = "block";
+                generateQRCode();
+            });
+
+
+            // --- Credit Card Validations & Payment ---
+            document
+                .getElementById("card-payment-btn")
+                ?.addEventListener("click", function () {
+                    const cardNumber = document.getElementById("card-number").value;
+                    const cardExpiry = document.getElementById("card-expiry").value;
+                    const cardCVC = document.getElementById("card-cvc").value;
+                    if (!validateCardNumber(cardNumber)) {
+                        showToast("Please enter a valid card number.");
+                        return;
+                    }
+                    if (!validateCardExpiry(cardExpiry)) {
+                        showToast("Please enter a valid expiry date (MM/YY).");
+                        return;
+                    }
+                    if (!validateCardCVC(cardCVC)) {
+                        showToast("Please enter a valid CVC.");
+                        return;
+                    }
+
+                    // Function to display a Bootstrap Toast
+
+
+                    // Process card payment (dummy redirection)
+                    showTransactionModal('card');
+                });
+
+            // --- UPI Validations & Payment ---
+            document.getElementById("upi-payment-btn")?.addEventListener("click", function () {
+                const upiId = document.getElementById("upi-id").value;
+                if (!validateUPI(upiId)) {
+                    showToast("Please enter a valid UPI ID.");
+                    return;
+                }
+                // Process UPI payment (dummy redirection)
+                showTransactionModal('upi');
+            });
+
+            // --- Validation Functions ---
+            function validateCardNumber(cardNumber) {
+                const regex = /^\d{16}$/;
+                return regex.test(cardNumber);
+            }
+            function validateCardExpiry(cardExpiry) {
+                const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+                return regex.test(cardExpiry);
+            }
+            function validateCardCVC(cardCVC) {
+                const regex = /^\d{3}$/;
+                return regex.test(cardCVC);
+            }
+            function validateUPI(upiId) {
+                const regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+$/;
+                return regex.test(upiId);
+            }
+            function showTransactionModal(mode) {
+                // For demo, redirect to a gateway page with the amount as a parameter
+                window.location.href = `./gateway.html?a=${price}&mode=${mode}&planid=${planId}`;
+            }
+
+            // --- QR Code Generation for QR Pay ---
+            function generateQRCode() {
+                const qrContainer = document.getElementById("qrCodeContainer");
+                qrContainer.innerHTML = "";
+                // Construct a dummy UPI URL (replace merchant details as needed)
+                const upiUrl = `upi://pay?pa=merchant@upi&pn=Mobicomm&am=${price}&cu=INR`;
+                new QRCode(qrContainer, {
+                    text: upiUrl,
+                    width: 200,
+                    height: 200,
+                });
+            }
+            document
+                .getElementById("refreshQRBtn")
+                ?.addEventListener("click", generateQRCode);
+
+            /***** Mobile Number Handling *****/
+            function loadMobileNumber() {
+                let mobile = sessionStorage.getItem("sessionMobile");
+                if (mobile) {
+                    document.getElementById("mobileNumber").value = mobile;
+                } else {
+                    showToast("No mobile number found. Please verify your mobile number.");
+                    showMobileModal();
+                }
+            }
+            loadMobileNumber();
+            document
+                .getElementById("changeMobileBtn")
+                .addEventListener("click", showMobileModal);
+
+            // --- Mobile Verification Modal using Bootstrap ---
+            function showMobileModal() {
+                var mobileModal = new bootstrap.Modal(
+                    document.getElementById("mobileModal"),
+                    {
+                        backdrop: "static",
+                        keyboard: false,
+                    }
+                );
+                mobileModal.show();
+            }
+            document.getElementById("sendOTPBtn").addEventListener("click", async () => {
+                const mobile = document.getElementById("modalMobileNumber").value;
+                if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
+                    showToast("Please enter a valid 10-digit mobile number.");
+                    return;
+                }
+                await fetch("http://localhost:3000/mobicomm_users")
+                    .then((res) => res.json())
+                    .then((data) => {
+                        let flag = false
+                        for (n in data) {
+                            console.log(data[n])
+                            if (data[n] == mobile) {
+                                flag = true;
+                                break;
+                            }
+                        }
+
+
+                        if (!flag) {
+                            showToast("Only Mobicomm Number can be recharged through this page!")
+                            var modalEl = document.getElementById("mobileModal");
+                            var modal = bootstrap.Modal.getInstance(modalEl);
+                            modal.hide();
+                            setTimeout(() => { location.href = './index.html', 2000 })
+                        } else {
+                            showToast("OTP sent to " + mobile + " (Dummy OTP: 1234)");
+                            document.getElementById("otpSection").style.display = "block";
+                        }
+
+                    });
+            });
+            document.getElementById("verifyOTPBtn").addEventListener("click", function () {
+                const otp = document.getElementById("modalOTP").value;
+                if (otp === "1234") {
+                    const mobile = document.getElementById("modalMobileNumber").value;
+                    sessionStorage.setItem("sessionMobile", mobile);
+                    document.getElementById("mobileNumber").value = mobile;
+                    var modalEl = document.getElementById("mobileModal");
+                    var modal = bootstrap.Modal.getInstance(modalEl);
+                    modal.hide();
+                } else {
+                    showToast("Invalid OTP. Please try again.");
+                }
+            });
+            function showToast(message) {
+                let toastContainer = document.getElementById("toastContainer");
+                if (!toastContainer) {
+                    toastContainer = document.createElement("div");
+                    toastContainer.id = "toastContainer";
+                    toastContainer.className = "toast-container position-fixed bottom-0 end-0 p-3";
+                    document.body.appendChild(toastContainer);
+                }
+                const toastElem = document.createElement("div");
+                toastElem.className = "toast align-items-center text-white bg-danger border-0";
+                toastElem.setAttribute("role", "alert");
+                toastElem.setAttribute("aria-live", "assertive");
+                toastElem.setAttribute("aria-atomic", "true");
+                toastElem.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">
+                ${message}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    `;
+                toastContainer.appendChild(toastElem);
+                const toast = new bootstrap.Toast(toastElem, { delay: 3000 });
+                toast.show();
+                toastElem.addEventListener("hidden.bs.toast", function () {
+                    toastElem.remove();
+                });
+            }
+        </script>
     </body>
 
 </html>

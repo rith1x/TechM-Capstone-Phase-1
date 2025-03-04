@@ -26,12 +26,6 @@
             .card-img {
                 height: 50px !important;
             }
-
-            .nav-tabs li {
-                background: #eeedff;
-                border-radius: 10px 10px 0 0;
-                margin-left: 10px;
-            }
         </style>
         <script async src="https://kit.fontawesome.com/2f69883659.js" crossorigin="anonymous"></script>
     </head>
@@ -91,7 +85,10 @@
                 #planTabs {
                     width: 100% !important;
 
-
+                    background: #ffffff;
+                    box-shadow: 0 0 10px #aaaaaa50;
+                    padding: 5px;
+                    border-radius: 11px;
                     overflow-x: scroll !important;
                     height: fit-content;
                     flex-wrap: nowrap !important;
@@ -99,14 +96,32 @@
                     -webkit-overflow-scrolling: touch;
                     scrollbar-width: none;
                     -ms-overflow-style: none;
-                    position: relative;
+                    position: sticky !important;
+                    z-index: 5;
+                    top: 100px !important;
 
+                }
+
+                #planTabs .nav-link {
+                    background: transparent;
+                    font-size: 14px;
+                    margin-left: 10px;
+                    text-transform: uppercase !important;
+
+                    border-radius: 6px !important;
                 }
 
 
                 /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
                 #planTabs::-webkit-scrollbar {
                     display: none;
+                }
+
+                #planTabs .active {
+                    background: #ffffff;
+                    color: #03005f;
+                    border: solid 2px #03005f;
+                    box-shadow: 0 0 2px #03005f50;
                 }
 
                 .scroll-start {}
@@ -251,12 +266,12 @@
                         plan.price.toString().includes(query) ||
                         (plan.features &&
                             plan.features.some((feature) => feature.toLowerCase().includes(query)));
-                    if (categoryMatch && queryMatch) {
+                    if (categoryMatch && queryMatch && plan.isActive) {
                         foundPlans++;
                         plansContainer.innerHTML += `
-                          <div class="col-md-4 col-sm-6 p-3 d-flex">
-                            <div class="card rounded-3 overflow-hidden border-0 w-100 p-0 d-flex flex-column h-100" style="background:#eeedff; border: solid 1px #0a075c20 !important">
-                              <img src="https://placehold.jp/c8c6f5/0a075c/500x200.png?text=₹${plan.price}" class="card-img-top rounded-0" alt="${plan.name}">
+                          <div class="col-xl-3 col-lg-4 col-sm-6 p-3 d-flex">
+                            <div class="card rounded-3 overflow-hidden border-0 w-100 p-0 d-flex flex-column h-100" style="background:#eeedff; border: solid 1px #0a075c20 !important; position:relative;">
+                              <img src="https://placehold.jp/c8c6f5/0a075c/500x200.png?text=₹${plan.price}" class="card-img-top rounded-0" alt="${plan.name}" style="border-radius:0px 0px 11px 11px !important;">
                               <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
                                 <span class="badge rounded-pill bg-dark planBadge">${plan.tag}</span>
                                 <h4 class="card-title mt-2 " >${plan.name}</h4>
@@ -432,6 +447,15 @@
             .list-group-item:hover {
                 padding-left: 30px;
                 background-color: #e0e0e0;
+            }
+
+            .card button {
+                cursor: pointer;
+                transition: all .3s ease !important;
+            }
+
+            .card button:hover {
+                scale: 1.1;
             }
         </style>
     </body>

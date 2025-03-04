@@ -14,6 +14,7 @@ fetch('http://localhost:3000/plans')
     .then(plans => {
         plansObj = plans
         let count = 0;
+        let lim = 4
         const clrs = {
             0: {
                 "bg": "#E8F5E9",
@@ -35,6 +36,13 @@ fetch('http://localhost:3000/plans')
                 "l2": "#FFB74D",
                 "tc": "#E65100",
                 "ix": "FFE0B2/E65100"
+            },
+            3: {
+                "bg": "#FFF3E0",
+                "l1": "#FFE0B2",
+                "l2": "#FFB74D",
+                "tc": "#E65100",
+                "ix": "FFE0B2/E65100"
             }
         }
         let cl = 0;
@@ -43,17 +51,17 @@ fetch('http://localhost:3000/plans')
                 continue;
             }
             count++
-            if (count > 3) break
+            if (count > lim) break
 
             let color = randomBG()
 
             document.getElementById('homePlans').innerHTML += `
-             <div class="col-md-4 col-sm-6 p-3 d-flex" id="card${count}">
-                    <div class="card rounded-0 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:${clrs[cl].bg};border-radius:21px !important; scale: ${cl == 1 ? '1' : '0.9'}">
+             <div class="col-md-${parseInt(12 / lim)} col-sm-6 p-3 d-flex" id="card${count}">
+                    <div class="expandec card rounded-0 overflow-hidden border-0 w-100 p-2 d-flex flex-column h-100" style="background:${clrs[cl].bg};border-radius:21px !important;">
                         <img src="https://placehold.jp/${clrs[cl].ix}/500x200.png?text=₹${plansObj[plan].price}" 
                              class="card-img-top" style="border-radius:15px" alt="${plansObj[plan].name}"> 
                         <div class="card-body rounded-pill d-flex flex-column align-items-start justify-content-between flex-grow-1">
-                            <span class="badge rounded-0 p-2 bg-danger" style="border-radius:0 0 0 11px !important; position:absolute; top:0;right:0" >${plansObj[plan].tag}</span>
+                            <span class="badge rounded-0 px-3 py-2  bg-danger" style="border-radius:0 0 0 11px !important; position:absolute; top:0;right:0;font-size:16px" >${plansObj[plan].tag}</span>
                             <h5 class="card-title mt-2">${plansObj[plan].name}</h5>
                             <ul class=" list-group mb-3 flex-grow-1">
                                 ${getLiElems(plansObj[plan].features, clrs[cl].l2)}
@@ -63,7 +71,9 @@ fetch('http://localhost:3000/plans')
                             </div>
                         </div>
                     </div>
-                </div>`;
+                </div>
+                
+                `;
             cl++;
         }
 
@@ -93,12 +103,31 @@ function randomBG() {
     return `${lightHex}/${darkHex}`;
 }
 
-function validateMobile() {
+async function validateMobile() {
     let mobileInput = document.getElementById("mobileNumber");
     let mobile = mobileInput.value.trim();
     let mobilePattern = /^[6-9]\d{9}$/;
-
     if (mobilePattern.test(mobile)) {
+        let flag = false
+        await fetch("http://localhost:3000/users")
+            .then((res) => res.json())
+            .then((data) => {
+                for (n in data) {
+                    console.log(data[n].mobile == mobile)
+                    if (data[n].mobile == mobile) {
+                        flag = true;
+                        break;
+                    }
+                }
+
+
+                if (!flag) {
+                    mobileInput.classList.add("is-invalid");
+                    alert("Only Mobicomm Number can be recharged through this page!")
+                }
+
+            });
+        if (!flag) return
         mobileInput.classList.remove("is-invalid");
         document.getElementById("mobileSection").style.display = "none";
         document.getElementById("otpSection").style.display = "block";
@@ -126,6 +155,10 @@ if (document.getElementById("loginForm")) {
 
         if (otpPattern.test(otp)) {
             otpInput.classList.remove("is-invalid");
+            let mobileInput = document.getElementById("mobileNumber");
+            let mobile = mobileInput.value.trim();
+            sessionStorage.setItem("sessionMobile", mobile);
+
             window.location.href = 'dashboard.html'
         } else {
             otpInput.classList.add("is-invalid");
@@ -148,3 +181,4 @@ function getLiElems(list, clr) {
     }
     return result
 }
+

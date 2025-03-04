@@ -1,97 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Payment Gateway</title>
-        <link rel="stylesheet" href="./css/main.min.css">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
 
-    <body>
-        <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
-            <div class="container">
-                <a class="navbar-brand" href="#"><img src="./images/mobicomm_logo_w.PNG" height="30" alt="">
-                    <span class="text-light">Payments</span>
-                </a>
-            </div>
-        </nav>
-        <style>
-            * {
-                transition: all 0.3s ease-in-out;
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg bg-primary overflow-hidden">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./images/mobicomm_logo_w.PNG" height="30" alt="" />
+          <span class="text-light">Payments</span>
+        </a>
+      </div>
+    </nav>
+    <style>
+      * {
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+    <div class="text-center vh-100 d-flex flex-column justify-content-center align-items-center">
+      <img src="./images/Animation - 1739948359037.gif" id="tick" class="img-fluid"
+        style="width: 108px; height: 108px; border-radius: 50%;" alt="Loading Animation" />
+      <p id="message" class="mt-3">Please wait...</p>
+      <ul class="list-group d-none" id="details"></ul>
+      <div class="bgx mt-5 d-none" id="returns">
+        <button class="btn btn-success rounded-pill px-3" onclick="goHome()">Go to Home</button>
+        <button class="btn btn-success rounded-pill px-3" onclick="goProfile()">Dashboard</button>
+      </div>
+    </div>
+
+    <script>
+      // Parse URL parameters for amount and payment mode
+      const urlParams = new URLSearchParams(window.location.search);
+      const amount = urlParams.get("a");
+      const mode = urlParams.get("mode");
+      const pid = urlParams.get("planid");
+      console.log("Parsed URL params:", { amount, mode });
+      console.log("Type of amount:", typeof amount, "Type of mode:", typeof mode);
+
+      const message = document.getElementById("message");
+      const steps = [
+        { text: "Please wait...", duration: 1000, progress: 0 },
+        { text: "Starting transaction...", duration: 2000, progress: 50 },
+        { text: "Verifying transaction...", duration: 2000, progress: 100 },
+        { text: "Payment successful!", duration: 0, progress: 100 }
+      ];
+
+      const goHome = () => (window.location.href = "./index.html");
+      const goProfile = () => (window.location.href = "./dashboard.html");
+      let currentStep = 0;
+
+      function showStep(step) {
+        message.textContent = step.text;
+        if (currentStep === steps.length - 1) {
+          setTimeout(() => {
+            document.getElementById("tick").src = "./images/tick.png";
+            generateInvoice();
+            document.getElementById("details").classList.remove("d-none");
+            document.getElementById("returns").classList.remove("d-none");
+          }, 400);
+        }
+      }
+
+      function processSteps() {
+        if (currentStep < steps.length) {
+          showStep(steps[currentStep]);
+          setTimeout(
+            processSteps,
+            steps[currentStep].duration > 0 ? steps[currentStep].duration : 500
+          );
+          currentStep++;
+        }
+      }
+      processSteps();
+
+      // Generate invoice details and then update data
+      function generateInvoice() {
+        const details = document.getElementById("details");
+        const invoice = {
+          "Invoice ID": "INV-123456",
+          "Amount": `₹${amount}`,
+          "Payment Mode": mode,
+          "Date": new Date().toLocaleDateString(),
+          "Time": new Date().toLocaleTimeString()
+        };
+        console.log("Invoice object:", invoice, "Type:", typeof invoice);
+
+        for (const key in invoice) {
+          const li = document.createElement("li");
+          li.className = "list-group-item text-start";
+          li.innerHTML = `<strong>${key}:</strong> ${invoice[key]}`;
+          details.appendChild(li);
+        }
+        // Update user and transaction records after invoice generation
+      }
+
+      // Start the update process as soon as the page loads
+      window.addEventListener("load", () => {
+        console.log("Page loaded. Starting updateData...");
+        updateData();
+      });
+
+      // Update the current user's rechargeHistory, update expiry based on plan validity, and add a new transaction
+      async function updateData() {
+        const mobile = sessionStorage.getItem("sessionMobile");
+        console.log("sessionMobile:", mobile, "Type:", typeof mobile);
+        if (!mobile) {
+          console.warn("No session mobile found.");
+          return;
+        }
+        let txnId;
+        let currentUser = null;
+
+        // --- Update User Data ---
+        try {
+          const usersRes = await fetch("http://localhost:3000/users");
+          const usersData = await usersRes.json();
+          console.log("Fetched usersData:", usersData, "Type:", typeof usersData);
+
+          currentUser = usersData.find((u) => u.mobile === mobile);
+          console.log("Found currentUser:", currentUser);
+
+          if (currentUser) {
+            txnId = "TXN" + String(Date.now()).slice(-9);
+
+            // Fetch plan details to update expiry based on plan validity
+            try {
+              const planRes = await fetch("http://localhost:3000/plans");
+              const plansData = await planRes.json();
+              const plan = plansData[currentUser.plan_id];
+              if (plan) {
+                const validityDays = plan.validity;
+                let newExpiry = new Date();
+                newExpiry.setDate(newExpiry.getDate() + validityDays);
+                // Format newExpiry as YYYY-MM-DD:
+                currentUser.expiry = newExpiry.toISOString().split("T")[0];
+                console.log("Updated expiry for user:", currentUser.expiry);
+              }
+            } catch (err) {
+              console.error("Error fetching plan details for expiry:", err);
             }
-        </style>
 
-        <div class="text-center vh-100 d-flex flex-column justify-content-center align-items-center">
-            <img src="./images/Animation - 1739948359037.gif" id="tick" class="img-fluid"
-                style="width: 108px; height: 108px; border-radius: 50%;" alt="Loading Animation">
-            <p id="message" class="mt-3">Please wait...</p>
+            // Add new recharge record
+            currentUser.rechargeHistory.push({
+              transactionsId: txnId,
+              planName: "Recharge",
+              date: new Date().toLocaleDateString(),
+              paymentType: mode.toUpperCase()
+            });
+            console.log("Updated currentUser record:", currentUser);
+            // Update this specific user (PUT on /users/:id)
+            await updateJSON("users", currentUser.id, currentUser, "PUT");
+          } else {
+            console.warn("No user found with mobile", mobile);
+          }
+        } catch (err) {
+          console.error("Error updating users:", err);
+        }
 
-            <ul class="list-group d-none" id="details"></ul>
+        // --- Add New Transaction ---
+        try {
+          const txnRes = await fetch("http://localhost:3000/transactions");
+          const transactionsData = await txnRes.json();
+          console.log("Fetched transactionsData:", transactionsData, "Type:", typeof transactionsData);
 
-            <div class="bgx mt-5 d-none" id="returns">
-                <button class="btn btn-success rounded-pill px-3" onclick="goHome()">Go to
-                    Home</button>
-            </div>
-        </div>
+          // Generate a new transaction ID (using timestamp for uniqueness)
+          const newTransaction = {
+            id: txnId,
+            user: currentUser ? currentUser.name : "Unknown",
+            mobile: mobile,
+            plan_id: pid,
+            amount: parseInt(amount),
+            paymentMode: mode.toUpperCase(),
+            date: new Date().toISOString().split('T')[0]
+          };
+          console.log("New transaction to add:", newTransaction, "Type:", typeof newTransaction);
 
-        <script>
-            const message = document.getElementById('message');
-            const steps = [
-                { text: "Please wait...", duration: 1000, progress: 0 },
-                { text: "Starting transaction...", duration: 2000, progress: 50 },
-                { text: "Verifying transaction...", duration: 2000, progress: 100 },
-                { text: "Payment successful!", duration: 0, progress: 100 }
-            ];
+          // Use POST to add the new transaction to /transactions
+          await updateJSON("transactions", null, newTransaction, "POST");
+        } catch (err) {
+          console.error("Error updating transactions:", err);
+        }
+      }
 
-            const goHome = () => window.location.href = './index.html';
-            let currentStep = 0;
-
-            function showStep(step) {
-                message.textContent = step.text;
-                if (currentStep === steps.length - 1) {
-                    setTimeout(() => {
-                        document.getElementById('tick').src = './images/tick.png'
-                        generateInvoice()
-                        document.getElementById('details').classList.remove('d-none');
-                        document.getElementById('returns').classList.remove('d-none');
-                    }, 400)
-                }
-            }
-            function processSteps() {
-                if (currentStep < steps.length) {
-                    showStep(steps[currentStep]);
-
-                    if (steps[currentStep].duration > 0) {
-                        setTimeout(processSteps, steps[currentStep].duration);
-                    } else {
-                        setTimeout(processSteps, 500);
-                    }
-                    currentStep++;
-                }
-            }
-
-            processSteps();
-
-            function generateInvoice() {
-                const details = document.getElementById('details');
-                const invoice = {
-                    "Invoice ID": "INV-123456",
-                    "Amount": `Rs ${window.location.href.split('?a=')[1]}`,
-                    "Date": new Date().toLocaleDateString(),
-                    "Time": new Date().toLocaleTimeString(),
-
-                };
-
-                for (const key in invoice) {
-                    const li = document.createElement('li');
-                    li.className = 'list-group-item';
-                    li.classList.add('text-start');
-                    li.innerHTML = `<strong>${key}:</strong> ${invoice[key]}`;
-                    details.appendChild(li);
-                }
-            }
-        </script>
-    </body>
+      // Generalized update function that logs parameters and response data
+      async function updateJSON(resource, id, data, methodOverride) {
+        let method = methodOverride || "PUT";
+        let url = `http://localhost:3000/${resource}`;
+        if (id && method !== "POST") {
+          url += "/" + id;
+        }
+        console.log(
+          `updateJSON called with resource: ${resource}, id: ${id}, method: ${method}`
+        );
+        console.log("Data to send:", data, "Type:", typeof data);
+        try {
+          const response = await fetch(url, {
+            method: method,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+          const responseData = await response.json();
+          console.log("Response from updateJSON:", responseData);
+        } catch (err) {
+          console.error("Error updating JSON:", err);
+        }
+      }
+    </script>
+  </body>
 
 </html>
